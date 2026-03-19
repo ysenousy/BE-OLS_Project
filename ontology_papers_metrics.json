@@ -1,0 +1,41 @@
+[
+  {
+    "ontology_filename": "bot.ttl",
+    "search_query": "The Building Topology Ontology (BOT)",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.0667,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0667,
+    "doi_direct_hit": true,
+    "avg_citation_count": 81,
+    "median_year": 2017,
+    "cs_engineering_ratio": 1.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "brick.ttl",
+    "search_query": "Brick",
+    "results_returned": 10,
+    "avg_title_keyword_overlap": 0.0672,
+    "avg_abstract_keyword_overlap": 0.0068,
+    "max_title_overlap": 0.0909,
+    "doi_direct_hit": false,
+    "avg_citation_count": 826.8,
+    "median_year": 2020,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.3
+  },
+  {
+    "ontology_filename": "wgs84.ttl",
+    "search_query": "wgs84 ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  }
+]
