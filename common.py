@@ -60,9 +60,10 @@ class OntologyRow:
 
 @dataclass
 class PaperResult:
-    """A single Semantic Scholar paper result linked to an ontology."""
+    """A single academic paper result linked to an ontology."""
     ontology_filename: str = ""
     search_query: str = ""
+    source: str = ""           # "semantic_scholar", "openalex", "crossref", "doi_lookup"
     paper_id: str = ""
     title: str = ""
     authors: str = ""
@@ -74,6 +75,7 @@ class PaperResult:
     url: str = ""
     is_open_access: bool = False
     fields_of_study: str = ""
+    relevance_score: float = 0.0   # composite relevance score (0.0–1.0)
 
 
 @dataclass

@@ -1,4 +1,120 @@
 ontology_filename,search_query,results_returned,avg_title_keyword_overlap,avg_abstract_keyword_overlap,max_title_overlap,doi_direct_hit,avg_citation_count,median_year,cs_engineering_ratio,open_access_ratio
-bot.ttl,The Building Topology Ontology (BOT),1,0.0667,0.0,0.0667,True,81,2017,1.0,1.0
-brick.ttl,Brick,10,0.0672,0.0068,0.0909,False,826.8,2020,0.0,0.3
-wgs84.ttl,wgs84 ontology,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+aec3po.ttl,AEC3PO ontology,3,0.0636,0.0116,0.1,False,0,2025,0.0,1.0
+aic.ttl,Agents in Construction (AiC) Ontology,4,0.0303,0.0189,0.0625,False,266.5,2013,0.0,1.0
+ao.ttl,Annotations Ontology built environment,10,0.1004,0.0173,0.1765,False,1543.8,2022,0.4,0.6
+aoi.ttl,Areas of Interests ontology built environment,3,0.0675,0.0084,0.0769,False,5335,2015,0.0,1.0
+asbingowl.ttl,ASB-ING Ontology built environment,6,0.0208,0.0008,0.125,False,42.3,2018,0.3333,0.5
+bao.ttl,Building Assessment Ontology,8,0.2115,0.0266,0.375,False,48,2015,0.0,0.5
+bcao.ttl,MSc thesis project with the aim of proposing an ontology for Building's Circularity Assessment,7,0.0539,0.0412,0.1071,False,2.6,2021,0.0,1.0
+bcfowl.ttl,BIM collaboration Format Ontology,10,0.1757,0.0217,0.5,False,22,2020,0.2,0.4
+bem-reno.ttl,The BEM-Reno ontology was developed to represent concepts related to the building energy model of a,8,0.0925,0.0427,0.1818,False,32.4,2020,0.0,1.0
+beo.ttl,Building Element Ontology,10,0.1403,0.0263,0.3333,False,24.4,2023,0.2,0.4
+bm.ttl,BIMERR Metadata ontology,7,0.0197,0.0052,0.0714,False,6.7,2024,0.0,1.0
+bop.ttl,Building Performance Ontology,10,0.2808,0.0204,0.6,False,18.4,2021,0.1,0.4
+bot.ttl,The Building Topology Ontology (BOT),10,0.1455,0.0434,0.5,True,158.7,2017,0.0,0.6
+bpo.ttl,Building Product Ontology,10,0.2866,0.0242,0.5,False,208.4,2010,0.0,0.3
+brick.ttl,Brick ontology,10,0.1558,0.0142,0.5,False,80.9,2021,0.0,0.6
+brot.ttl,Bridge Topology Ontology,10,0.0779,0.0118,0.25,False,1119.2,2017,0.3,0.5
+building.ttl,Building Ontology,10,0.1693,0.0258,0.3333,False,345.2,2002,0.0,0.5
+cdc.ttl,CDC: Construction Dataset Context ontology,10,0.0729,0.0237,0.1667,False,47.9,2024,0.2,0.5
+ci.ttl,The Cost Item (CI) Ontology built environment,7,0.0357,0.0143,0.1,False,422.6,2017,0.1429,1.0
+contax.ttl,ConTax ontology built environment,2,0.0,0.0092,0.0,False,12,2023,0.0,1.0
+cr.ttl,The Construction Resources (CR) Ontology,4,0.0556,0.0136,0.2222,False,2157.8,2019,0.0,1.0
+cterm.ttl,The Construction Terminology (CTERM) Ontology,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+cto.ttl,CTO: Construction Tasks Ontology,5,0.0216,0.0,0.0556,False,97,2014,0.0,0.8
+dano.ttl,Drawing Analyis Ontology (DAnO) built environment,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+db.ttl,Digital Buildings ontology,10,0.1639,0.0239,0.3333,False,13.9,2019,0.1,0.3
+dica.ttl,Digital Construction Agents ontology,10,0.1477,0.0287,0.3333,False,41.9,2020,0.4,0.5
+dicc.ttl,Digital Construction Contexts ontology,6,0.1049,0.0189,0.3333,False,105.7,2016,0.0,0.8333
+dice.ttl,Digital Construction Entities ontology,7,0.0924,0.0269,0.3333,False,558.7,2014,0.0,0.4286
+dices.ttl,Digital Construction Energy ontology,10,0.1783,0.0269,0.3333,False,53.1,2022,0.1,0.8
+dici.ttl,Digital Construction Information ontology,9,0.1585,0.0294,0.5,False,232.6,2018,0.0,0.4444
+dicl.ttl,Digital Construction Lifecycle ontology,10,0.1915,0.0251,0.3333,False,124.1,2025,0.3,0.4
+diclvl.ttl,A vocabulary for LOD levels ontology built environment,9,0.0688,0.0203,0.1333,False,271.9,2018,0.0,1.0
+dicm.ttl,Digital Construction Materials ontology,7,0.1242,0.0206,0.2727,False,863.4,2018,0.0,0.8571
+dicob.ttl,Digital Construction Occupancy ontology,10,0.1624,0.0216,0.3333,False,52.5,2025,0.4,0.7
+dicp.ttl,Digital Construction Processes ontology,10,0.1173,0.0312,0.3333,False,95.7,2021,0.1,0.9
+dicstg.ttl,A vocabulary for BLCS stages ontology built environment,7,0.0401,0.0157,0.1429,False,35.1,2018,0.2857,1.0
+dicu.ttl,Digital Construction Units ontology,5,0.0764,0.0153,0.2143,False,2277.8,2020,0.0,0.8
+dicv.ttl,Digital Construction Variables ontology,3,0.1307,0.0158,0.3333,False,1862.3,2021,0.0,1.0
+dogont.ttl,DogOnt: Ontology Modeling for Intelligent Domotic Environments built environment,10,0.1631,0.0163,0.7778,False,95.8,2019,0.2,0.9
+dor.ttl,"This is an ontology for the Semantic Material Bank, End-of-Life cycle and circular transformation",6,0.0894,0.0592,0.1667,False,242.3,2020,0.0,1.0
+dot.ttl,Damage Topology Ontology,10,0.1152,0.0208,0.2857,False,33.6,2022,0.2,0.5
+dstv.ttl,DSTV:Steel Construction Ontology,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+dtc.ttl,Digital Twin Construction Ontology,10,0.2291,0.0351,0.4444,False,97.9,2022,0.0,0.8
+eco.ttl,ECO - Eurocode Core Ontology built environment,4,0.0139,0.0036,0.0556,False,3.2,2024,0.0,1.0
+eepsa.ttl,The EEPSA Ontology. built environment,6,0.0799,0.0175,0.3,False,13,2021,0.0,1.0
+emmo.ttl,Elementary Multiperspective Material Ontology (EMMO),10,0.0936,0.0354,0.3125,False,13.9,2022,0.2,0.8
+esair.ttl,Este vocabulario extiende la W3C Semantic Sensor Network Ontology (SOSA) con propiedades,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+facility.ttl,Facility Ontology,10,0.1684,0.0161,0.3333,False,36.1,2019,0.1,0.3
+ffdr.ttl,Firefighters' Data Requirements Ontology built environment,3,0.0145,0.018,0.0435,False,423,2016,0.0,1.0
+fm-ener.ttl,This is a Facility Management Building Energy Ontology for Renovative Design Decisions,9,0.0777,0.046,0.1905,False,334,2019,0.0,1.0
+fmo.ttl,Failure Mechanism Ontology built environment,4,0.0,0.0,0.0,False,4078.2,2010,0.25,0.75
+fog.ttl,FOG: File Ontology for Geometry formats built environment,9,0.0181,0.0172,0.0625,False,183.1,2020,0.2222,0.7778
+fso.ttl,The Flow Systems Ontology (FSO) built environment,10,0.078,0.0314,0.2,False,11,2020,0.4,0.7
+geosparql.ttl,GeoSPARQL Ontology built environment,10,0.0239,0.0076,0.0769,False,142.1,2018,0.0,1.0
+gis4reno.ttl,gis4reno ontology,10,0.1055,0.0079,0.2,False,7,2024,1.0,0.1
+hbpo.ttl,hbpo ontology built environment,10,0.1214,0.0143,0.2143,False,2.2,2025,0.1,0.4
+hmo.ttl,Historic Masonry Ontology,10,0.0496,0.0117,0.1333,False,101.1,2021,0.2,0.9
+icdd2ams.ttl,Asset Condition Integration from ICDD to AMS (icdd2ams) ontology built environment,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+idpo.ttl,Information Delivery Processes Ontology (IDPO) built environment,1,0.0,0.0128,0.0,False,0,2025,0.0,1.0
+ifc4-add2.ttl,IFC4_ADD2_TC1 ontology,10,0.0327,0.0047,0.1667,False,7.3,2023,0.4,0.9
+into.ttl,Infrastructure Topology Ontology,9,0.0954,0.0139,0.5,False,1306.7,2008,0.0,0.6667
+io.ttl,Information Objects Ontology built environment,10,0.0558,0.0361,0.1667,False,65.9,2020,0.5,0.6
+ioc.ttl,IOC: Internet of Construction Ontology,6,0.0323,0.0156,0.0714,False,106.5,2020,0.0,1.0
+iot.ttl,IoT ontology,10,0.1741,0.0157,0.2222,False,31.9,2021,0.4,0.8
+isoprops.ttl,ISO 23386 Property Ontology (ISOProps) built environment,1,0.0,0.0128,0.0,False,0,2025,0.0,1.0
+kpi.ttl,Key Performance Indicator ontology built environment,10,0.1594,0.0296,0.3125,False,113.6,2024,0.0,0.4
+lca-c-reno.ttl,The LCA-C ontology was developed to represent concepts related to the LCA/C assessments to support built environment,8,0.0261,0.0303,0.1053,False,394.1,2015,0.25,1.0
+loin.ttl,Level of Information Need (LOIN) Ontology built environment,10,0.0886,0.0339,0.1765,False,27.9,2022,0.4,0.8
+mat.ttl,Material properties ontology,7,0.0547,0.0194,0.125,False,398.6,2010,0.1429,0.4286
+mdo.ttl,Materials Design Ontology - Core Module,1,0.0,0.0071,0.0,False,4611,2008,0.0,1.0
+mep.ttl,Distribution Element Ontology built environment,10,0.0863,0.016,0.2308,False,1484.5,2022,0.0,0.7
+nen2660.ttl,nen2660 ontology built environment,1,0.0,0.0,0.0,False,5,2023,0.0,1.0
+ocqa.ttl,Ontology for Construction Quality Assurence (OCQA),10,0.1685,0.0333,0.3636,False,60.4,2012,0.8,0.2
+ofo.ttl,Occupant Feedback Ontology,9,0.0392,0.0178,0.2143,False,188.7,2018,0.3333,1.0
+omg.ttl,OMG: Ontology for Managing Geometry built environment,8,0.0772,0.0132,0.2,False,271,2008,0.25,1.0
+onem2m.ttl,This file contains the Base Ontology of oneM2M as specified in TS-0012 built environment,6,0.0424,0.0431,0.1,False,43,2020,0.0,1.0
+op.ttl,Occupancy Profile ontology,1,0.0476,0.015,0.0476,False,92,2011,0.0,1.0
+opm.ttl,OPM: Ontology for Property Management built environment,8,0.0255,0.0106,0.0625,False,152.4,2020,0.0,1.0
+ph.ttl,ph ontology built environment,2,0.0,0.0033,0.0,False,2737.5,2013,0.0,1.0
+process.ttl,Process Ontology built environment,10,0.0826,0.0259,0.1667,False,65,2019,0.3,0.6
+quality.ttl,Quality Ontology built environment,6,0.037,0.0126,0.1111,False,4172.8,2016,0.0,0.8333
+rdo.ttl,Roof Damage Ontology,6,0.0,0.0042,0.0,False,328.7,2016,0.0,1.0
+reloc.ttl,Relative Location Ontology built environment,2,0.0,0.0185,0.0,False,4110,2014,0.0,1.0
+reno-inst.ttl,The Reno-Inst ontology was developed to represent concepts related to the installation of built environment,10,0.0386,0.0346,0.0909,False,18.2,2023,0.4,1.0
+renp.ttl,Renovation Processes and Work Orders Ontology,10,0.0606,0.0267,0.1429,False,60.5,2021,0.3,0.6
+resource.ttl,Resource ontology built environment,7,0.0665,0.0129,0.1667,False,5503,2019,0.0,1.0
+safety.ttl,Safety Ontology,10,0.1969,0.0185,0.4,False,83,2021,0.2,0.3
+sao.ttl,,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+saref.ttl,SAREF: the Smart Applications REFerence ontology built environment,10,0.0509,0.0279,0.1429,False,156.6,2020,0.0,1.0
+saref4agri.ttl,SAREF4AGRI: an extension of SAREF for the agriculture and food domain ontology built environment,5,0.056,0.0514,0.1304,False,2.4,2024,0.2,1.0
+saref4auto.ttl,SAREF4AUTO: an extension of SAREF for the automotive domain ontology built environment,3,0.1102,0.061,0.2353,False,7.7,2024,0.0,1.0
+saref4bldg.ttl,SAREF4BLDG: an extension of SAREF for the building domain ontology,10,0.1492,0.0402,0.3333,False,54,2020,0.0,1.0
+saref4city.ttl,SAREF4CITY: an extension of SAREF for the Smart City domain ontology,10,0.1334,0.0374,0.3125,False,12.7,2023,0.0,1.0
+saref4ehaw.ttl,SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain ontology built environment,7,0.0471,0.0297,0.125,False,5.1,2024,0.0,1.0
+saref4ener.ttl,SAREF for Energy Flexibility ontology,10,0.0982,0.0228,0.1875,False,170,2019,0.1,0.7
+saref4envi.ttl,SAREF4ENVI: an extension of SAREF for the Environment domain ontology built environment,7,0.1178,0.0504,0.25,False,6,2023,0.0,1.0
+saref4grid.ttl,SAREF4GRID: an extension of SAREF for the Smart Grid domain ontology,5,0.0296,0.0317,0.0556,False,5.6,2024,0.0,1.0
+saref4inma.ttl,SAREF4INMA: an extension of SAREF for the industry and manufacturing domain ontology built environment,10,0.1916,0.0669,0.6,False,11.1,2022,0.0,1.0
+saref4lift.ttl,SAREF4WEAR: an extension of SAREF for the Smart Lifts domain ontology built environment,2,0.0714,0.0353,0.0952,False,2,2021,0.0,1.0
+saref4syst.ttl,SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections ontology built environment,2,0.0563,0.0311,0.0741,False,61,2020,0.0,1.0
+saref4watr.ttl,SAREF4WATR: an extension of SAREF for the water domain ontology,7,0.1338,0.0458,0.2667,False,6.1,2023,0.0,1.0
+saref4wear.ttl,SAREF4WEAR: an extension of SAREF for the Wearables domain ontology built environment,9,0.0504,0.0387,0.1,False,7.4,2023,0.0,1.0
+sbeo.ttl,SBEO: Smart Building Evacuation Ontology,3,0.4238,0.0297,1.0,False,6.7,2022,0.0,1.0
+sd.ttl,Sensor Data ontology,10,0.3051,0.0287,0.4286,False,28.6,2019,0.4,0.6
+seas.ttl,SEAS Ontology built environment,4,0.0371,0.0108,0.0769,False,786.2,2013,0.0,1.0
+sml.ttl,sml ontology built environment,10,0.1489,0.0189,0.2143,False,5.1,2024,0.3,0.4
+sosa.ttl,"Sensor, Observation, Sample, and Actuator (SOSA) Ontology",10,0.1455,0.0569,0.5833,False,81.1,2020,0.5,0.8
+ssn.ttl,Semantic Sensor Network Ontology,10,0.5638,0.0466,1.0,False,197.5,2019,0.4,0.5
+stg.ttl,STG: Scan-to-Graph ontology built environment,3,0.0965,0.0164,0.2308,False,111.7,2020,0.3333,1.0
+tempo.ttl,Data Template Ontology (TempO) built environment,10,0.13,0.0215,0.2222,False,10.3,2023,0.3,0.5
+th-actor.ttl,1 ontology built environment,10,0.0925,0.0184,0.125,False,57.9,2024,0.2,0.8
+th-building.ttl,,0,0.0,0.0,0.0,False,0.0,0,0.0,0.0
+th-energy.ttl,Home automation conceptualization is based on DogOnt 1 ontology built environment,10,0.029,0.024,0.1111,False,51.8,2018,0.0,1.0
+th-process.ttl,"an ontology to represent applications, processes, profiles and patterns for smart home operation",8,0.0572,0.0408,0.1111,False,2340.9,2016,0.0,1.0
+th-sharedvoc.ttl,simple shared vocabulary for Building Information Models ontology,4,0.0425,0.012,0.0667,False,3548,2014,0.0,0.75
+th-weather.ttl,smart home ontology for weather phenomena and exterior conditions,7,0.0532,0.0158,0.087,False,49.1,2020,0.0,1.0
+unocs.ttl,Digital Construction Agents ontology,10,0.1477,0.0287,0.3333,False,41.9,2020,0.4,0.5
+weat.ttl,BIMERR Weather Ontology,7,0.0119,0.0015,0.0833,False,9.6,2023,0.0,1.0
+wgs84.ttl,wgs84 ontology built environment,8,0.0063,0.0064,0.05,False,136.5,2019,0.0,1.0

@@ -1,0 +1,42 @@
+Results:
+
+117/119 parsed successfully (98.3% success rate)
+2 failures (malformed source files, not our bug):
+sao.ttl — unbound prefix xs: in the source TTL
+th-building.ttl — recursion depth exceeded (deeply nested structure)
+Mean completeness: 71.2% across all ontologies
+71 with license, 86 with version, 72 with creators
+Mean: 122 classes, 63 properties, 2016 axioms per ontology
+Annotation coverage: 74.8%, comment coverage: 64.3%
+
+============================================================
+
+Total: 838 paper results across 119 ontologies
+
+============================================================
+  PAPER SEARCH EVALUATION SUMMARY
+============================================================
+  Total ontologies searched : 119
+  With ≥1 paper result      : 112
+  With 0 results            : 7
+  Mean results/ontology     : 7.5
+  Mean title overlap        : 0.0960
+  Mean abstract overlap     : 0.0237
+  Mean citation count       : 525.1
+  Median year (across all)  : 2020
+  Ontologies with DOI hit   : 1/119
+
+  Ontologies with 0 results (7):
+    - cterm.ttl
+    - dano.ttl
+    - dano.ttl
+    - dstv.ttl
+    - dano.ttl
+    - dano.ttl
+    - dano.ttl
+    - dstv.ttl
+    - esair.ttl
+    - icdd2ams.ttl
+    - sao.ttl
+    - th-building.ttl
+============================================================

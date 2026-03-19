@@ -236,29 +236,75 @@ def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
 # Step 6 – Derive search keywords
 # ---------------------------------------------------------------------------
 
+# Domain terms that signal the query is already scoped to built-environment
+_DOMAIN_TERMS = {
+    "building", "buildings", "construction", "bridge", "infrastructure",
+    "architecture", "architectural", "bim", "ifc", "aec", "hvac",
+    "energy", "facility", "structural", "topology", "sensor", "iot",
+    "smart home", "smart building", "indoor", "geospatial", "gis",
+    "renovation", "retrofit", "occupant", "occupancy", "material",
+    "damage", "safety", "weather", "thermal", "heating", "cooling",
+    "lighting", "ventilation", "plumbing", "electrical", "mep",
+    "roof", "wall", "floor", "door", "window", "room", "space",
+    "zone", "storey", "beam", "column", "slab", "rebar", "concrete",
+    "steel", "masonry", "timber", "brick", "facade", "envelope",
+    "renewable", "photovoltaic", "solar", "grid", "water",
+    "urban", "city", "district", "landscape", "land use",
+}
+
+
+def _has_domain_context(text: str) -> bool:
+    """Return True if *text* already contains a built-environment domain term."""
+    low = text.lower()
+    return any(term in low for term in _DOMAIN_TERMS)
+
+
+def _has_ontology_mention(text: str) -> bool:
+    """Return True if *text* already mentions 'ontology' or 'OWL'."""
+    low = text.lower()
+    return "ontology" in low or "owl" in low or "semantic web" in low
+
+
 def _derive_keywords(row: OntologyRow) -> str:
-    """Build a search query string from available metadata fields."""
-    parts: List[str] = []
+    """Build a domain-scoped search query from available metadata fields.
 
-    # Primary: title
-    if row.title:
-        parts.append(row.title)
+    Strategy:
+    - Always include "ontology" if not already present in the title.
+    - Add "built environment" qualifier for short/generic titles.
+    - Append prefix when it adds info beyond the title.
+    - Use description as fallback context.
+    """
+    title = (row.title or "").strip()
+    prefix = (row.prefix or "").strip()
+    desc = (row.description or "").strip()
 
-    # Secondary: prefix + "ontology"
-    if row.prefix and row.prefix.lower() not in (row.title or "").lower():
-        parts.append(f"{row.prefix} ontology")
+    # --- Build the core query ---
+    core = ""
 
-    # Tertiary: first sentence of description (≤100 chars)
-    if row.description and not parts:
-        first_sentence = re.split(r"[.\n]", row.description)[0].strip()
+    if title:
+        core = title
+    elif desc:
+        first_sentence = re.split(r"[.\n]", desc)[0].strip()
         if len(first_sentence) > 100:
             first_sentence = first_sentence[:100].rsplit(" ", 1)[0]
-        parts.append(first_sentence)
+        core = first_sentence
+    elif prefix:
+        core = prefix
+    else:
+        core = row.filename.replace(".ttl", "").replace("_", " ").replace("-", " ")
 
-    # Fallback: filename minus extension
-    if not parts:
-        stem = row.filename.replace(".ttl", "").replace("_", " ").replace("-", " ")
-        parts.append(f"{stem} ontology")
+    # --- Ensure "ontology" context ---
+    if not _has_ontology_mention(core):
+        core = f"{core} ontology"
+
+    # --- Ensure domain context for generic / short queries ---
+    if not _has_domain_context(core):
+        core = f"{core} built environment"
+
+    # --- Add prefix as secondary keyword if it adds info ---
+    parts = [core]
+    if prefix and prefix.lower() not in core.lower():
+        parts.append(f"{prefix} ontology")
 
     return " | ".join(parts)
 
