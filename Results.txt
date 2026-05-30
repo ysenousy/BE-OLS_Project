@@ -59,12 +59,46 @@ Paper metrics:
 - Median paper year: 2022
 - Ontologies with direct DOI hit: 0/119
 
+
+Step 3: Web Search
+------------------
+
+Current Step 3 seeds official namespace/repository URLs from ontology metadata,
+then uses DuckDuckGo search profiles to collect additional ontology-related web
+pages. Results are deduplicated, filtered, scored, and classified by result type.
+
+Web search output:
+- Ontologies searched: 119
+- Total web results kept: 379
+- Ontologies with >=1 web result: 115
+- Ontologies with 0 web results: 4
+- Mean results per ontology with results: 3.3
+- Mean results per ontology overall: 3.2
+- Zero-result web ontologies: ph.ttl, sao.ttl, th-building.ttl, wgs84.ttl
+
+Web result type distribution:
+- official_namespace: 55
+- github_repo: 26
+- paper: 62
+- documentation: 102
+- other: 134
+
+Step 3 cleanup notes:
+- Official namespace/repository URLs are seeded from ontology metadata.
+- DuckDuckGo results are filtered to remove generic/noisy sources such as
+  YouTube, LinkedIn, Wikipedia, BE-OLS catalog pages, and unrelated acronym or
+  company-directory pages.
+- Boilerplate snippets from generated ontology documentation are replaced or
+  removed when possible.
+
 Current output files:
 - data/ontology_metadata.csv / data/ontology_metadata.json
 - data/ontology_metadata_metrics.csv / data/ontology_metadata_metrics.json
 - data/ontology_search_profiles.json
 - data/ontology_papers.csv / data/ontology_papers.json
 - data/ontology_papers_metrics.csv / data/ontology_papers_metrics.json
+- data/ontology_web_results.csv / data/ontology_web_results.json
+- data/ontology_web_metrics.csv / data/ontology_web_metrics.json
 
 
 Ontologies With 0 Paper Results
@@ -123,9 +157,18 @@ weat.ttl
 wgs84.ttl
 
 
+Ontologies With 0 Web Results
+-----------------------------
+
+ph.ttl
+sao.ttl
+th-building.ttl
+wgs84.ttl
+
+
 Notes
 -----
 
 - The current cleaned dataset keeps papers related to ontology papers,
   ontology-family papers, and papers reusing/applying the ontologies.
-- Step 3 web search and Step 4 consolidation are still pending.
+- Step 4 consolidation is still pending.

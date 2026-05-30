@@ -1,0 +1,120 @@
+ontology_filename,search_query,results_returned,avg_title_keyword_overlap,avg_snippet_keyword_overlap,unique_domains,github_result_count,academic_result_count
+aec3po.ttl,"""AEC3PO"" ontology",5,0.3222222222222222,0.09644945697577276,5,1,1
+aic.ttl,"""Agents in Construction (AiC) Ontology"" ontology",1,1.0,0.14285714285714285,1,0,0
+ao.ttl,"""Annotations Ontology"" renovation building",3,0.35714285714285715,0.10243612596553774,2,1,0
+aoi.ttl,"""Areas of Interests"" component damages",1,0.6,0.2631578947368421,1,0,0
+asbingowl.ttl,"""ASB-ING Ontology"" infrastructure inspection",1,0.6,0.1724137931034483,1,0,0
+bao.ttl,"""Building Assessment Ontology"" ontology",1,1.0,0.08823529411764706,1,0,0
+bcao.ttl,"""Building Circularity Assessment"" ontology",1,0.0,0.25,1,1,0
+bcfowl.ttl,"""bcfOWL"" ""BIM collaboration""",5,0.32166666666666666,0.12558823529411764,4,0,1
+bem-reno.ttl,"""BEM-Reno"" ontology",1,1.0,0.08108108108108109,1,0,0
+beo.ttl,"""Building Element Ontology"" ontology",1,1.0,0.125,1,0,0
+bm.ttl,"""BIMERR Metadata ontology"" ontology",2,0.6666666666666666,0.15476190476190477,2,1,0
+bop.ttl,"""Building Performance Ontology"" ontology",1,1.0,0.08823529411764706,1,0,0
+bot.ttl,"""Building Topology Ontology"" BOT",1,0.8,0.16,1,0,0
+bpo.ttl,"""Building Product Ontology""",1,1.0,0.08823529411764706,1,0,0
+brick.ttl,"""Brick"" ""smart building"" ontology",10,0.22846070596070595,0.09464417542485565,8,0,2
+brot.ttl,"""Bridge Topology Ontology"" ontology",1,1.0,0.2727272727272727,1,0,0
+building.ttl,"""BIMERR"" building ontology",1,0.6666666666666666,0.21428571428571427,1,0,0
+cdc.ttl,"""Construction Dataset Context"" ontology",2,0.8,0.16333333333333333,2,0,0
+ci.ttl,"""The Cost Item (CI) Ontology"" ontology",1,1.0,0.18518518518518517,1,0,0
+contax.ttl,"""ConTax ontology"" ontology",3,0.4166666666666667,0.15019762845849802,3,1,0
+cr.ttl,"""The Construction Resources (CR) Ontology"" ontology",2,1.0,0.164021164021164,2,0,0
+cterm.ttl,"""The Construction Terminology (CTERM) Ontology"" ontology",3,0.8148148148148148,0.19560308972073678,3,1,0
+cto.ttl,"""CTO: Construction Tasks Ontology"" ontology",3,0.6161616161616161,0.053246753246753244,3,1,0
+dano.ttl,"""Drawing Analyis Ontology (DAnO)"" ontology",2,0.8333333333333333,0.0761904761904762,2,0,0
+db.ttl,"""Digital Buildings"" ontology",10,0.3858441558441558,0.1309035409035409,7,0,2
+dica.ttl,"""Digital Construction Agents"" ontology",2,0.75,0.12222222222222222,2,0,0
+dicc.ttl,"""Digital Construction Contexts"" ontology",1,0.75,0.05555555555555555,1,0,0
+dice.ttl,"""Digital Construction Entities"" ontology",3,0.5740740740740741,0.1348148148148148,2,0,0
+dices.ttl,"""Digital Construction Energy"" ontology",9,0.37757693898044775,0.11814873684584727,9,1,2
+dici.ttl,"""Digital Construction Information"" ontology",7,0.4698051948051948,0.14472060506543266,6,0,1
+dicl.ttl,"""Digital Construction Lifecycle"" ontology",4,0.39841269841269844,0.18102240896358543,4,0,1
+diclvl.ttl,"""A vocabulary for LOD levels"" ontology",2,0.7291666666666667,0.43333333333333335,2,0,0
+dicm.ttl,"""Digital Construction Materials"" ontology",6,0.3652116402116402,0.0872053872053872,6,0,1
+dicob.ttl,"""Digital Construction Occupancy"" ontology",4,0.375,0.04949944382647386,4,0,0
+dicp.ttl,"""Digital Construction Processes"" ontology",2,0.5113636363636364,0.31521739130434784,2,0,1
+dicstg.ttl,"""A vocabulary for BLCS stages"" ontology",3,0.46296296296296297,0.40793650793650793,2,0,0
+dicu.ttl,"""Digital Construction Units"" ontology",1,0.75,0.14285714285714285,1,0,0
+dicv.ttl,"""Digital Construction Variables"" ontology",5,0.29444444444444445,0.07710870534399947,3,1,0
+dogont.ttl,"""DogOnt: Ontology Modeling for Intelligent Domotic Environments"" ontology",6,0.6821428571428572,0.24105687340981458,6,0,3
+dor.ttl,"""http://www.semanticweb.org/arnak/ontologies/2022/7/DOR""",1,0.1111111111111111,0.0,1,0,0
+dot.ttl,"""Damage Topology Ontology"" ontology",1,1.0,0.2,1,0,0
+dstv.ttl,"""DSTV:Steel Construction Ontology"" ontology",3,1.0,0.2285714285714286,3,0,0
+dtc.ttl,"""Digital Twin Construction Ontology"" ontology",3,0.7037037037037037,0.09343434343434344,1,0,0
+eco.ttl,"""ECO - Eurocode Core Ontology"" ontology",2,1.0,0.13095238095238093,2,0,0
+eepsa.ttl,"""The EEPSA Ontology."" ontology",1,1.0,0.25,1,0,0
+emmo.ttl,"""Elementary Multiperspective Material Ontology (EMMO)"" ontology",4,0.9166666666666667,0.35555555555555557,3,2,0
+esair.ttl,"""Este vocabulario extiende la W3C Semantic Sensor Network Ontology"" built environment",1,0.0,0.391304347826087,1,0,0
+facility.ttl,"""facility management"" ontology building",10,0.32228327228327225,0.07815454507129134,6,0,7
+ffdr.ttl,"""Firefighters' Data Requirements Ontology"" ontology",3,0.42592592592592593,0.033216783216783216,3,1,0
+fm-ener.ttl,"""This is a Facility Management Building Energy Ontology"" facility building",1,0.1,0.1951219512195122,1,0,0
+fmo.ttl,"""Failure Mechanism Ontology"" ontology",1,1.0,0.2727272727272727,1,0,0
+fog.ttl,"""FOG: File Ontology for Geometry formats"" ontology",4,0.7569444444444444,0.08423913043478261,4,1,0
+fso.ttl,"""The Flow Systems Ontology (FSO)"" ontology",1,1.0,0.2777777777777778,1,0,0
+geosparql.ttl,"""GeoSPARQL Ontology"" ontology",10,0.2781746031746032,0.04381645815233371,9,0,1
+gis4reno.ttl,"""http://www.semanticweb.org/ecdf_md/ontologies/2020/4/untitled-ontology-45""",1,0.2727272727272727,0.6470588235294118,1,0,0
+hbpo.ttl,"""http://www.semanticweb.org/HBPO""",1,0.2,0.4166666666666667,1,0,0
+hmo.ttl,"""Historic Masonry Ontology"" ontology",1,1.0,0.42857142857142855,1,0,0
+icdd2ams.ttl,"""Asset Condition Integration from ICDD to AMS (icdd2ams)"" ontology",2,0.4801587301587301,0.06605691056910569,2,1,0
+idpo.ttl,"""Information Delivery Processes Ontology (IDPO)"" ontology",1,0.7142857142857143,0.2,1,0,0
+ifc4-add2.ttl,"""IFC4_ADD2_TC1"" ontology",1,0.5,0.058823529411764705,1,0,0
+into.ttl,"""Infrastructure Topology Ontology"" ontology",1,1.0,0.42857142857142855,1,0,0
+io.ttl,"""Information Objects Ontology"" bimerr",2,0.575,0.24444444444444444,2,1,0
+ioc.ttl,"""IOC: Internet of Construction Ontology"" ontology",1,0.8333333333333334,0.14285714285714285,1,0,0
+iot.ttl,"""COGITO IoT ontology"" construction",4,0.2998251748251748,0.14744505494505494,4,0,2
+isoprops.ttl,"""ISO 23386 Property Ontology (ISOProps)"" ontology",4,0.37797619047619047,0.11204304954304954,4,1,0
+kpi.ttl,"""Key Performance Indicator ontology"" ontology",1,1.0,0.11538461538461539,1,0,0
+lca-c-reno.ttl,"""http://www.semanticweb.org/bimspeed/ontologies/2020/4/lca-c-renovation""",1,0.2727272727272727,0.08571428571428572,1,0,0
+loin.ttl,"""Level of Information Need (LOIN) Ontology"" ontology",3,0.9166666666666666,0.19788359788359788,2,0,0
+mat.ttl,"""Material properties ontology"" ontology",3,0.7666666666666666,0.19128787878787878,2,1,0
+mdo.ttl,"""Materials Design Ontology - Core Module"" ontology",1,1.0,0.5555555555555556,1,0,0
+mep.ttl,"""Distribution Element Ontology"" ontology",1,1.0,0.11538461538461539,1,0,0
+nen2660.ttl,"""https://w3id.org/nen2660/owl/def""",1,0.16666666666666666,0.46153846153846156,1,0,0
+ocqa.ttl,"""Ontology for Construction Quality Assurence (OCQA)"" ontology",3,1.0,0.43859649122807015,2,0,0
+ofo.ttl,"""Occupant Feedback Ontology"" ontology",1,1.0,0.15,1,0,0
+omg.ttl,"""OMG: Ontology for Managing Geometry"" ontology",2,0.8571428571428572,0.2175925925925926,2,0,0
+onem2m.ttl,"""This file contains the Base Ontology"" built environment",1,0.2222222222222222,0.15384615384615385,1,0,0
+op.ttl,"""Occupancy Profile ontology"" ontology",1,1.0,0.2,1,0,0
+opm.ttl,"""OPM: Ontology for Property Management"" ontology",2,0.6777777777777778,0.3033088235294118,2,1,0
+ph.ttl,,0,0.0,0.0,0,0,0
+process.ttl,"""construction process"" ontology",4,0.39533730158730157,0.17889492753623187,4,1,1
+quality.ttl,"""construction quality"" ontology",10,0.4103174603174603,0.15942072531546214,7,1,4
+rdo.ttl,"""Roof Damage Ontology"" ontology",1,1.0,0.08695652173913043,1,0,0
+reloc.ttl,"""Relative Location Ontology"" ontology",1,1.0,0.07692307692307693,1,0,0
+reno-inst.ttl,"""Reno-Inst ontology"" renovation",1,0.4,0.12121212121212122,1,0,0
+renp.ttl,"""Renovation Processes and Work Orders Ontology"" ontology",1,1.0,0.1,1,0,0
+resource.ttl,"""COGITO Resource ontology"" construction",9,0.27153750389044506,0.1345686400783852,7,1,1
+safety.ttl,"""construction safety"" ontology",10,0.34805555555555556,0.11205209716901039,9,0,5
+sao.ttl,,0,0.0,0.0,0,0,0
+saref.ttl,"""SAREF: the Smart Applications REFerence ontology"" ontology",9,0.6255411255411255,0.2579176847552528,7,0,2
+saref4agri.ttl,"""SAREF4AGRI: an extension of SAREF for the agriculture and food domain"" ontology",4,0.494047619047619,0.2686537600330704,3,0,0
+saref4auto.ttl,"""SAREF4AUTO: an extension of SAREF for the automotive domain"" ontology",4,0.7545454545454546,0.3324312367276772,2,0,0
+saref4bldg.ttl,"""SAREF4BLDG: an extension of SAREF for the building domain"" ontology",5,0.44452380952380954,0.19157245854920274,3,0,0
+saref4city.ttl,"""SAREF4CITY: an extension of SAREF for the Smart City domain"" ontology",7,0.35497835497835495,0.1779109257370127,3,0,0
+saref4ehaw.ttl,"""SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain"" ontology",4,0.6676864801864801,0.19383116883116883,2,0,0
+saref4ener.ttl,"""SAREF for Energy Flexibility"" ontology",7,0.35313225768776413,0.10050063222820697,5,1,1
+saref4envi.ttl,"""SAREF4ENVI: an extension of SAREF for the Environment domain"" ontology",6,0.4638888888888889,0.19700134886270956,4,0,0
+saref4grid.ttl,"""SAREF4GRID: an extension of SAREF for the Smart Grid domain"" ontology",5,0.7454545454545455,0.2795137112210283,3,0,0
+saref4inma.ttl,"""SAREF4INMA: an extension of SAREF for the industry and manufacturing domain"" ontology",10,0.5800527903469079,0.16352079652809284,8,0,1
+saref4lift.ttl,"""SAREF4WEAR: an extension of SAREF for the Smart Lifts domain"" ontology",5,0.44147249809014516,0.20233877233877234,1,0,0
+saref4syst.ttl,"""SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections"" ontology",10,0.5815498021070776,0.15793327894624673,5,0,0
+saref4watr.ttl,"""SAREF4WATR: an extension of SAREF for the water domain"" ontology",4,0.6125,0.22638248847926268,1,0,0
+saref4wear.ttl,"""SAREF4WEAR: an extension of SAREF for the Wearables domain"" ontology",9,0.5907407407407408,0.2522105681952229,5,0,0
+sbeo.ttl,"""SBEO: Smart Building Evacuation Ontology"" ontology",6,0.8690476190476191,0.17224923862854896,6,1,1
+sd.ttl,"""Sensor Data ontology"" ontology",2,1.0,0.17482517482517482,1,0,0
+seas.ttl,"""SEAS Ontology"" ontology",4,0.4464285714285714,0.07286967418546365,4,0,0
+sml.ttl,"""https://w3id.org/sml/2/owl/def""",1,0.14285714285714285,0.5,1,0,0
+sosa.ttl,"""Sensor, Observation, Sample, and Actuator (SOSA) Ontology"" ontology",3,0.7681159420289855,0.29521072796934866,3,0,1
+ssn.ttl,"""Semantic Sensor Network Ontology"" ontology",1,1.0,0.03125,1,0,0
+stg.ttl,"""STG: Scan-to-Graph"" ontology",1,0.4444444444444444,0.1,1,1,0
+tempo.ttl,"""Data Template Ontology (TempO)"" ontology",5,0.47523809523809524,0.10631164680412286,5,1,0
+th-actor.ttl,"""01 Actor and Preference Ontology"" built environment",1,0.0,0.625,1,0,0
+th-building.ttl,,0,0.0,0.0,0,0,0
+th-energy.ttl,"""5 Home Automation Ontology"" built environment",1,0.1111111111111111,0.3076923076923077,1,0,0
+th-process.ttl,"""https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/ProcessOntology.owl""",2,0.0,0.04805491990846682,2,0,0
+th-sharedvoc.ttl,"""https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl""",2,0.0,0.015625,2,0,0
+th-weather.ttl,"""smart home ontology"" built environment",2,0.03125,0.2727272727272727,2,0,0
+unocs.ttl,"""Digital Construction Agents"" ontology",10,0.2,0.01801075268817204,9,0,0
+weat.ttl,"""BIMERR Weather Ontology"" ontology",8,0.4470238095238095,0.14683463466358201,7,1,1
+wgs84.ttl,,0,0.0,0.0,0,0,0

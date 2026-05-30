@@ -83,9 +83,12 @@ class WebResult:
     """A single DuckDuckGo web search result linked to an ontology."""
     ontology_filename: str = ""
     search_query: str = ""
+    result_type: str = ""          # official_namespace, github_repo, paper, documentation, other
     title: str = ""
     url: str = ""
     snippet: str = ""
+    relevance_score: float = 0.0
+    match_type: str = ""           # exact_ontology, ontology_family, broad_domain
 
 
 # ---------------------------------------------------------------------------
