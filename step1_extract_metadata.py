@@ -2,18 +2,17 @@
 step1_extract_metadata.py – Phase 2: TTL Metadata Extraction + Evaluation Metrics
 
 Fetches ~120 TTL ontology files from the CyberbuildLab/BE-OLS GitHub repo,
-parses each with rdflib, extracts ontology-level metadata, derives search
-keywords, and computes per-ontology quality/structural metrics.
+parses each with rdflib, extracts ontology-level metadata, and computes
+per-ontology quality/structural metrics.
 
 Outputs:
-  ontology_metadata.csv / .json       – extracted metadata per ontology
-  ontology_metadata_metrics.csv / .json – quality & structural metrics
+  Files are written under the data/ directory.
+  data/ontology_metadata.csv / .json       – extracted metadata per ontology
+  data/ontology_metadata_metrics.csv / .json – quality & structural metrics
 """
 
 from __future__ import annotations
 
-import re
-import sys
 import time
 from pathlib import Path
 from statistics import mean
@@ -26,7 +25,6 @@ from rdflib import RDF, RDFS, OWL, Namespace
 from common import (
     OntologyRow,
     MetadataMetrics,
-    _safe,
     save_csv,
     save_json,
 )
@@ -49,7 +47,8 @@ RAW_BASE = (
     "/main/data/source/Ontologies_TTL"
 )
 
-OUT_DIR = Path(__file__).parent
+PROJECT_DIR = Path(__file__).parent
+DATA_DIR = PROJECT_DIR / "data"
 
 
 # ---------------------------------------------------------------------------
@@ -191,26 +190,27 @@ def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
     row.classes = ", ".join(sorted({_local_name(str(c)) for c in class_uris if isinstance(c, rdflib.URIRef)}))
     row.properties = ", ".join(sorted({_local_name(str(p)) for p in prop_uris if isinstance(p, rdflib.URIRef)}))
 
-    # --- Derive search keywords (Step 6) ---
-    row.search_keywords = _derive_keywords(row)
-
     # --- Compute metrics (Step 7b) ---
     metrics.axiom_count = len(g)
     metrics.class_count = len(class_uris)
     metrics.property_count = len(prop_uris)
     metrics.import_count = len(_all_uri_objects(g, ont, OWL.imports)) if ont else 0
+    metrics.has_title = bool(row.title)
+    metrics.has_namespace_uri = bool(row.namespace_uri)
+    metrics.has_description = bool(row.description)
     metrics.has_license = bool(row.license)
     metrics.has_version = bool(row.version)
     metrics.has_creators = bool(row.creators)
 
     # Completeness – count non-empty OntologyRow fields (excluding 'filename')
+    # Generated search keywords and the always-present filename are excluded.
     data_fields = [
         row.title, row.prefix, row.namespace_uri, row.description,
         row.version, row.license, row.creators, row.date_modified,
         row.date_issued, row.see_also, row.imports, row.classes,
-        row.properties, row.search_keywords,
+        row.properties,
     ]
-    metrics.fields_filled = sum(1 for f in data_fields if f) + 1  # +1 for filename (always set)
+    metrics.fields_filled = sum(1 for f in data_fields if f)
     metrics.completeness_pct = round(metrics.fields_filled / metrics.fields_total * 100, 1)
 
     # Annotation / comment coverage
@@ -236,79 +236,6 @@ def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
 # Step 6 – Derive search keywords
 # ---------------------------------------------------------------------------
 
-# Domain terms that signal the query is already scoped to built-environment
-_DOMAIN_TERMS = {
-    "building", "buildings", "construction", "bridge", "infrastructure",
-    "architecture", "architectural", "bim", "ifc", "aec", "hvac",
-    "energy", "facility", "structural", "topology", "sensor", "iot",
-    "smart home", "smart building", "indoor", "geospatial", "gis",
-    "renovation", "retrofit", "occupant", "occupancy", "material",
-    "damage", "safety", "weather", "thermal", "heating", "cooling",
-    "lighting", "ventilation", "plumbing", "electrical", "mep",
-    "roof", "wall", "floor", "door", "window", "room", "space",
-    "zone", "storey", "beam", "column", "slab", "rebar", "concrete",
-    "steel", "masonry", "timber", "brick", "facade", "envelope",
-    "renewable", "photovoltaic", "solar", "grid", "water",
-    "urban", "city", "district", "landscape", "land use",
-}
-
-
-def _has_domain_context(text: str) -> bool:
-    """Return True if *text* already contains a built-environment domain term."""
-    low = text.lower()
-    return any(term in low for term in _DOMAIN_TERMS)
-
-
-def _has_ontology_mention(text: str) -> bool:
-    """Return True if *text* already mentions 'ontology' or 'OWL'."""
-    low = text.lower()
-    return "ontology" in low or "owl" in low or "semantic web" in low
-
-
-def _derive_keywords(row: OntologyRow) -> str:
-    """Build a domain-scoped search query from available metadata fields.
-
-    Strategy:
-    - Always include "ontology" if not already present in the title.
-    - Add "built environment" qualifier for short/generic titles.
-    - Append prefix when it adds info beyond the title.
-    - Use description as fallback context.
-    """
-    title = (row.title or "").strip()
-    prefix = (row.prefix or "").strip()
-    desc = (row.description or "").strip()
-
-    # --- Build the core query ---
-    core = ""
-
-    if title:
-        core = title
-    elif desc:
-        first_sentence = re.split(r"[.\n]", desc)[0].strip()
-        if len(first_sentence) > 100:
-            first_sentence = first_sentence[:100].rsplit(" ", 1)[0]
-        core = first_sentence
-    elif prefix:
-        core = prefix
-    else:
-        core = row.filename.replace(".ttl", "").replace("_", " ").replace("-", " ")
-
-    # --- Ensure "ontology" context ---
-    if not _has_ontology_mention(core):
-        core = f"{core} ontology"
-
-    # --- Ensure domain context for generic / short queries ---
-    if not _has_domain_context(core):
-        core = f"{core} built environment"
-
-    # --- Add prefix as secondary keyword if it adds info ---
-    parts = [core]
-    if prefix and prefix.lower() not in core.lower():
-        parts.append(f"{prefix} ontology")
-
-    return " | ".join(parts)
-
-
 # ---------------------------------------------------------------------------
 # Step 7b – Print summary
 # ---------------------------------------------------------------------------
@@ -330,11 +257,16 @@ def print_metrics_summary(metrics_list: List[MetadataMetrics]) -> None:
         avg_comp = mean(m.completeness_pct for m in parsed)
         print(f"  Mean completeness %   : {avg_comp:.1f}%")
 
-        has_title = sum(1 for m in parsed if m.fields_filled > 1)  # rough proxy
+        has_title = sum(1 for m in parsed if m.has_title)
         # More precise counts from rows – use metrics booleans
+        has_desc = sum(1 for m in parsed if m.has_description)
+        has_ns = sum(1 for m in parsed if m.has_namespace_uri)
         has_lic = sum(1 for m in parsed if m.has_license)
         has_ver = sum(1 for m in parsed if m.has_version)
         has_cre = sum(1 for m in parsed if m.has_creators)
+        print(f"  With title            : {has_title}/{len(parsed)}")
+        print(f"  With namespace URI    : {has_ns}/{len(parsed)}")
+        print(f"  With description      : {has_desc}/{len(parsed)}")
         print(f"  With license          : {has_lic}/{len(parsed)}")
         print(f"  With version          : {has_ver}/{len(parsed)}")
         print(f"  With creators         : {has_cre}/{len(parsed)}")
@@ -386,16 +318,16 @@ def main() -> None:
 
     # Step 7 – save metadata
     print("\n[Step 7] Saving ontology metadata …")
-    save_csv(rows, OUT_DIR / "ontology_metadata.csv")
-    save_json(rows, OUT_DIR / "ontology_metadata.json")
+    save_csv(rows, DATA_DIR / "ontology_metadata.csv")
+    save_json(rows, DATA_DIR / "ontology_metadata.json")
 
     # Step 7b – save & print metrics
     print("[Step 7b] Saving metadata metrics …")
-    save_csv(metrics_list, OUT_DIR / "ontology_metadata_metrics.csv")
-    save_json(metrics_list, OUT_DIR / "ontology_metadata_metrics.json")
+    save_csv(metrics_list, DATA_DIR / "ontology_metadata_metrics.csv")
+    save_json(metrics_list, DATA_DIR / "ontology_metadata_metrics.json")
     print_metrics_summary(metrics_list)
 
-    print("Done ✓")
+    print("Done")
 
 
 if __name__ == "__main__":

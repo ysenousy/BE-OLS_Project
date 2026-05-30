@@ -1,21 +1,22 @@
 """
 step2_search_papers.py – Phase 3: Academic Paper Search
 
-Queries three free APIs for each ontology in ontology_metadata.json:
+Queries free APIs for each ontology in data/ontology_metadata.json:
   1. OpenAlex    – broadest coverage, fast (10 req/s polite pool)
-  2. Semantic Scholar – strong CS focus, citation data
-  3. CrossRef    – DOI resolution only (resolves embedded DOIs from rdfs:seeAlso)
+  2. CrossRef    – DOI resolution only (resolves embedded DOIs from rdfs:seeAlso)
 
 Results are deduplicated by DOI (or title if no DOI) and merged.
 Computes per-ontology relevance metrics.
 
 Outputs:
-  ontology_papers.csv / .json               – paper results per ontology
-  ontology_papers_metrics.csv / .json       – search relevance metrics
+  Files are written under the data/ directory.
+  data/ontology_papers.csv / .json               – paper results per ontology
+  data/ontology_papers_metrics.csv / .json       – search relevance metrics
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import os
@@ -34,8 +35,6 @@ from common import (
     PaperResult,
     PaperSearchMetrics,
     jaccard_similarity,
-    save_csv,
-    save_json,
 )
 
 # ---------------------------------------------------------------------------
@@ -45,18 +44,17 @@ from common import (
 RESULTS_PER_QUERY = 10
 POLITE_EMAIL = "be-ols-research@example.com"  # for OpenAlex/CrossRef polite pool
 
-OUT_DIR = Path(__file__).parent
-METADATA_FILE = OUT_DIR / "ontology_metadata.json"
-
-# Semantic Scholar optional API key
-SS_API_KEY: Optional[str] = os.environ.get("SEMANTIC_SCHOLAR_API_KEY")
+PROJECT_DIR = Path(__file__).parent
+DATA_DIR = PROJECT_DIR / "data"
+METADATA_FILE = DATA_DIR / "ontology_metadata.json"
+SEARCH_PROFILE_FILE = DATA_DIR / "ontology_search_profiles.json"
 
 # Delays (seconds)
-OPENALEX_DELAY = 0.2         # OpenAlex: ~10 req/s polite
-SEMANTIC_SCHOLAR_DELAY = 5.0 # SS free tier: ~1 req/5s safe
-CROSSREF_DELAY = 0.5         # CrossRef polite: ~50 req/s
+OPENALEX_DELAY = float(os.environ.get("OPENALEX_DELAY", "2.0"))
+CROSSREF_DELAY = float(os.environ.get("CROSSREF_DELAY", "0.5"))
 
-MAX_RETRIES = 4
+HTTP_TIMEOUT = float(os.environ.get("HTTP_TIMEOUT", "30"))
+MAX_RETRIES = int(os.environ.get("MAX_RETRIES", "3"))
 DOI_RE = re.compile(r"10\.\d{4,9}/[^\s,]+", re.IGNORECASE)
 
 # Relevance filtering
@@ -68,23 +66,135 @@ TOP_K_PER_ONTOLOGY = 10      # keep at most this many per ontology (after dedup)
 # Silent incremental save (no print)
 # ---------------------------------------------------------------------------
 
-def _save_quiet(rows: Sequence, csv_path: Path, json_path: Path) -> None:
+def _save_quiet(rows: Sequence, csv_path: Path, json_path: Path,
+                row_type: type | None = None) -> None:
     """Overwrite CSV + JSON without printing (used for incremental saves)."""
-    if not rows:
+    if rows:
+        field_names = [f.name for f in fields(rows[0])]
+    elif row_type is not None:
+        field_names = [f.name for f in fields(row_type)]
+    else:
         return
-    field_names = [f.name for f in fields(rows[0])]
-    with open(csv_path, "w", newline="", encoding="utf-8") as fh:
+    csv_tmp = csv_path.with_suffix(csv_path.suffix + ".tmp")
+    json_tmp = json_path.with_suffix(json_path.suffix + ".tmp")
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_tmp, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=field_names)
         writer.writeheader()
         for row in rows:
             writer.writerow(asdict(row))
-    with open(json_path, "w", encoding="utf-8") as fh:
+    with open(json_tmp, "w", encoding="utf-8") as fh:
         json.dump([asdict(r) for r in rows], fh, indent=2, ensure_ascii=False)
+    os.replace(csv_tmp, csv_path)
+    os.replace(json_tmp, json_path)
+
+
+def _load_dataclass_rows(path: Path, cls):
+    """Load a JSON list into dataclass rows, ignoring any unknown fields."""
+    if not path.exists():
+        return []
+    with open(path, "r", encoding="utf-8") as fh:
+        raw_rows = json.load(fh)
+    allowed = {f.name for f in fields(cls)}
+    return [cls(**{k: v for k, v in row.items() if k in allowed}) for row in raw_rows]
+
+
+def _load_search_profiles() -> dict:
+    """Load optional per-ontology search profiles from JSON."""
+    if not SEARCH_PROFILE_FILE.exists():
+        return {}
+    with open(SEARCH_PROFILE_FILE, "r", encoding="utf-8") as fh:
+        data = json.load(fh)
+    if not isinstance(data, dict):
+        return {}
+    return data
+
+
+def _profile_for(ontology: dict, profiles: dict | None = None) -> dict:
+    profiles = profiles or {}
+    filename = (ontology.get("filename") or "").strip()
+    return profiles.get(filename, {}) if filename else {}
+
+
+def _configure_stdout() -> None:
+    """Avoid Windows cp1252 crashes when printing Unicode progress text."""
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Search academic papers for BE-OLS ontology metadata."
+    )
+    parser.add_argument(
+        "--fresh",
+        action="store_true",
+        help="Start from scratch instead of resuming from existing paper outputs.",
+    )
+    parser.add_argument(
+        "--skip-doi",
+        action="store_true",
+        help="Skip DOI resolution from see_also links.",
+    )
+    parser.add_argument(
+        "--openalex-only",
+        action="store_true",
+        help="Fast mode: use OpenAlex only, skipping DOI lookups.",
+    )
+    parser.add_argument(
+        "--max-ontologies",
+        type=int,
+        default=None,
+        help="Process at most this many new ontologies in this run.",
+    )
+    parser.add_argument(
+        "--max-queries-per-ontology",
+        type=int,
+        default=3,
+        help="Maximum OpenAlex query variants to run per ontology.",
+    )
+    return parser.parse_args()
 
 
 # ---------------------------------------------------------------------------
 # Shared HTTP helper
 # ---------------------------------------------------------------------------
+
+def _as_list(value) -> list:
+    if value is None:
+        return []
+    return value if isinstance(value, list) else [value]
+
+
+def _text_value(value) -> str:
+    if isinstance(value, dict):
+        return str(value.get("$", "") or "").strip()
+    return str(value or "").strip()
+
+
+def _attr_value(value, attr: str) -> str:
+    if isinstance(value, dict):
+        return str(value.get(attr, "") or "").strip()
+    return ""
+
+
+def _preferred_text_value(value, classid: str | None = None) -> str:
+    items = _as_list(value)
+    if classid:
+        for item in items:
+            if _attr_value(item, "@classid").lower() == classid.lower():
+                text = _text_value(item)
+                if text:
+                    return text
+    for item in items:
+        text = _text_value(item)
+        if text:
+            return text
+    return ""
+
 
 def _get(url: str, params: dict | None = None,
          headers: dict | None = None, delay: float = 1.0,
@@ -92,10 +202,16 @@ def _get(url: str, params: dict | None = None,
     """GET JSON with retries + exponential backoff on 429."""
     for attempt in range(MAX_RETRIES):
         try:
-            resp = requests.get(url, params=params, headers=headers or {}, timeout=30)
+            resp = requests.get(url, params=params, headers=headers or {}, timeout=HTTP_TIMEOUT)
             if resp.status_code == 429:
-                wait = delay * (2 ** (attempt + 2))
-                print(f"    [{label}] 429 rate-limited, waiting {wait:.0f}s …")
+                retry_after = resp.headers.get("Retry-After")
+                wait = delay * (2 ** (attempt + 3))
+                if retry_after:
+                    try:
+                        wait = max(wait, float(retry_after))
+                    except ValueError:
+                        pass
+                print(f"    [{label}] 429 rate-limited, waiting {wait:.0f}s ...")
                 time.sleep(wait)
                 continue
             if resp.status_code == 404:
@@ -127,7 +243,7 @@ def search_openalex(query: str) -> List[dict]:
     params = {
         "search": query,
         "per_page": RESULTS_PER_QUERY,
-        "select": "id,doi,title,authorships,publication_year,primary_location,cited_by_count,abstract_inverted_index,open_access,concepts",
+        "select": "id,doi,title,type,authorships,publication_year,primary_location,cited_by_count,abstract_inverted_index,open_access,concepts",
     }
     data = _get(OPENALEX_WORKS, params=params,
                 headers=_openalex_headers(), delay=OPENALEX_DELAY,
@@ -163,7 +279,11 @@ def _openalex_to_paper(ontology_filename: str, query: str, work: dict) -> PaperR
 
     oa = work.get("open_access") or {}
     concepts = work.get("concepts") or []
-    fos = ", ".join(c.get("display_name", "") for c in concepts[:5])
+    type_label = work.get("type", "") or ""
+    type_prefix = f"publication_type:{type_label}" if type_label else ""
+    fos_parts = [type_prefix] if type_prefix else []
+    fos_parts.extend(c.get("display_name", "") for c in concepts[:5])
+    fos = ", ".join(part for part in fos_parts if part)
 
     return PaperResult(
         ontology_filename=ontology_filename,
@@ -184,67 +304,7 @@ def _openalex_to_paper(ontology_filename: str, query: str, work: dict) -> PaperR
 
 
 # ===================================================================
-# 2. Semantic Scholar
-# ===================================================================
-
-SS_SEARCH = "https://api.semanticscholar.org/graph/v1/paper/search"
-SS_PAPER = "https://api.semanticscholar.org/graph/v1/paper"
-SS_FIELDS = "title,authors,year,venue,citationCount,abstract,externalIds,url,isOpenAccess,fieldsOfStudy"
-
-
-def _ss_headers() -> dict:
-    h: dict = {"Accept": "application/json"}
-    if SS_API_KEY:
-        h["x-api-key"] = SS_API_KEY
-    return h
-
-
-def search_semantic_scholar(query: str) -> List[dict]:
-    """Search Semantic Scholar relevance API."""
-    params = {"query": query, "fields": SS_FIELDS, "limit": RESULTS_PER_QUERY}
-    data = _get(SS_SEARCH, params=params,
-                headers=_ss_headers(), delay=SEMANTIC_SCHOLAR_DELAY,
-                label="SemanticScholar")
-    if data and "data" in data:
-        return data["data"]
-    return []
-
-
-def lookup_doi_semantic_scholar(doi: str) -> Optional[dict]:
-    """Resolve a DOI via Semantic Scholar."""
-    url = f"{SS_PAPER}/DOI:{doi}"
-    return _get(url, params={"fields": SS_FIELDS},
-                headers=_ss_headers(), delay=SEMANTIC_SCHOLAR_DELAY,
-                label="SS-DOI")
-
-
-def _ss_to_paper(ontology_filename: str, query: str, paper: dict,
-                 src: str = "semantic_scholar") -> PaperResult:
-    authors = ", ".join(
-        a.get("name", "") for a in (paper.get("authors") or [])
-    )
-    ext_ids = paper.get("externalIds") or {}
-    fos = paper.get("fieldsOfStudy") or []
-    return PaperResult(
-        ontology_filename=ontology_filename,
-        search_query=query,
-        source=src,
-        paper_id=paper.get("paperId", ""),
-        title=paper.get("title", "") or "",
-        authors=authors,
-        year=paper.get("year") or 0,
-        venue=paper.get("venue", "") or "",
-        citation_count=paper.get("citationCount") or 0,
-        abstract=paper.get("abstract", "") or "",
-        doi=ext_ids.get("DOI", "") or "",
-        url=paper.get("url", "") or "",
-        is_open_access=bool(paper.get("isOpenAccess")),
-        fields_of_study=", ".join(fos),
-    )
-
-
-# ===================================================================
-# 3. CrossRef  (DOI resolution + search)
+# 2. CrossRef  (DOI resolution + search)
 # ===================================================================
 
 CROSSREF_WORKS = "https://api.crossref.org/works"
@@ -259,7 +319,7 @@ def search_crossref(query: str) -> List[dict]:
     params = {
         "query": query,
         "rows": RESULTS_PER_QUERY,
-        "select": "DOI,title,author,published-print,published-online,container-title,is-referenced-by-count,abstract,URL,subject",
+        "select": "DOI,type,title,author,published-print,published-online,container-title,is-referenced-by-count,abstract,URL,subject",
     }
     data = _get(CROSSREF_WORKS, params=params,
                 headers=_crossref_headers(), delay=CROSSREF_DELAY,
@@ -305,6 +365,10 @@ def _crossref_to_paper(ontology_filename: str, query: str,
     abstract = re.sub(r"<[^>]+>", "", abstract_raw).strip()
 
     subjects = item.get("subject") or []
+    type_label = item.get("type", "") or ""
+    type_prefix = f"publication_type:{type_label}" if type_label else ""
+    subject_parts = [type_prefix] if type_prefix else []
+    subject_parts.extend(subjects[:5])
 
     return PaperResult(
         ontology_filename=ontology_filename,
@@ -320,7 +384,7 @@ def _crossref_to_paper(ontology_filename: str, query: str,
         doi=item.get("DOI", "") or "",
         url=item.get("URL", "") or "",
         is_open_access=False,  # CrossRef doesn't reliably report OA
-        fields_of_study=", ".join(subjects[:5]),
+        fields_of_study=", ".join(subject_parts),
     )
 
 
@@ -366,14 +430,521 @@ def extract_dois(see_also: str) -> List[str]:
 # Relevance scoring & filtering
 # ===================================================================
 
-# Built-environment / ontology domain terms used for domain-relevance boost
-_DOMAIN_KEYWORDS = {
-    "ontology", "semantic", "linked data", "rdf", "owl", "knowledge graph",
-    "building", "construction", "architecture", "bim", "ifc", "hvac",
-    "energy", "sensor", "iot", "smart", "infrastructure", "geospatial",
-    "gis", "urban", "city", "environment", "sustainability", "indoor",
-    "facility", "space", "topology", "interoperability", "metadata",
+# Ontology/method terms and built-environment terms used for the relevance boost.
+# Matching is whole-term based so short abbreviations such as "ifc" and "gis" do
+# not fire inside unrelated words.
+_ONTOLOGY_KEYWORDS = {
+    "ontology", "ontologies", "semantic", "semantic web", "linked data",
+    "rdf", "rdfs", "owl", "knowledge graph", "metadata", "interoperability",
 }
+
+_BE_DOMAIN_KEYWORDS = {
+    "aec", "architecture", "architectural", "beam", "bim", "brick", "bridge",
+    "building", "buildings", "city", "column", "concrete", "construction",
+    "cooling", "district", "door", "electrical", "energy", "envelope",
+    "facade", "facility", "floor", "geospatial", "gis", "grid", "heating",
+    "hvac", "ifc", "indoor", "infrastructure", "land use", "lighting",
+    "masonry", "mep", "occupancy", "occupant", "photovoltaic", "plumbing",
+    "rebar", "renovation", "retrofit", "roof", "room", "sensor", "slab",
+    "smart building", "smart grid", "smart home", "solar", "steel", "storey",
+    "structural", "thermal", "timber", "urban", "ventilation", "wall",
+    "window", "zone",
+}
+
+_DOMAIN_KEYWORDS = _ONTOLOGY_KEYWORDS | _BE_DOMAIN_KEYWORDS
+
+
+def _keyword_pattern(term: str) -> str:
+    escaped = re.escape(term).replace(r"\ ", r"\s+")
+    return rf"\b{escaped}\b"
+
+
+_DOMAIN_KEYWORD_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_DOMAIN_KEYWORDS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+_BE_DOMAIN_KEYWORD_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_BE_DOMAIN_KEYWORDS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+
+_EXCLUDED_PAPER_TERMS = {
+    "anatomy", "apoptosis", "bioinformatics", "biology", "biomedical",
+    "cancer", "cell", "clinical", "cognition", "cognitive science",
+    "consciousness", "disease", "drug", "ego", "gene", "gene expression",
+    "genetics", "genomic", "health care", "healthcare", "hospital",
+    "human health", "lymphocyte", "medical", "medicine", "molecular",
+    "neuroscience", "nucleic acid", "patient", "pharma", "philosophy",
+    "protein", "psychedelic", "psychology", "single-cell", "stem cell",
+    "systems biology",
+}
+
+_EXCLUDED_PAPER_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_EXCLUDED_PAPER_TERMS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+
+_ALLOWED_PUBLICATION_TYPES = {
+    "article", "journal-article", "proceedings-article", "conference",
+    "conference-paper", "paper-conference", "posted-content", "preprint",
+}
+_EXCLUDED_PUBLICATION_TYPES = {
+    "book", "book-chapter", "book-section", "book-series", "component",
+    "dataset", "dissertation", "edited-book", "monograph", "other",
+    "peer-review", "proceedings", "reference-book", "reference-entry",
+    "project-deliverable", "report", "standard", "training-material",
+}
+_EXCLUDED_PUBLICATION_TERMS = {
+    "book", "book chapter", "chapter", "dissertation", "doctoral thesis",
+    "edited volume", "lecture notes", "master thesis", "phd thesis",
+    "project deliverable", "proceedings volume", "repository", "report",
+    "training material", "thesis",
+}
+_EXCLUDED_PUBLICATION_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_EXCLUDED_PUBLICATION_TERMS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+
+
+_CONTEXTUAL_QUERY_TERMS = {
+    "damage", "energy", "grid", "iot", "material", "renewable", "safety",
+    "sensor", "solar", "space", "topology", "water", "weather",
+}
+_STRONG_QUERY_TERMS = _BE_DOMAIN_KEYWORDS - _CONTEXTUAL_QUERY_TERMS
+_STRONG_QUERY_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_STRONG_QUERY_TERMS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+_CONTEXTUAL_QUERY_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_CONTEXTUAL_QUERY_TERMS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+
+_QUERY_STOP_TERMS = {
+    "about", "agent", "agents", "area", "areas", "assessment", "built",
+    "environment", "interest", "interests", "model", "models", "ontology",
+    "ontologies", "project", "system", "systems", "the", "with",
+    "com", "net", "org", "http", "https", "www", "w3id", "lbd",
+    "adopt", "adopted", "application", "applied", "based", "employ",
+    "employed", "extend", "extended", "extension", "integrate", "integrated",
+    "reuse", "reused", "using",
+}
+
+_GENERIC_TITLE_TERMS = {
+    "annotation", "annotations", "area", "areas", "assessment", "building",
+    "data", "element", "elements", "information", "interest", "interests",
+    "management", "object", "objects", "process", "product", "quality",
+    "resource", "resources", "system", "systems",
+}
+
+_BE_CONTEXT_FIELDS = ("description", "classes", "properties", "imports", "namespace_uri")
+
+_REUSE_TERMS = {
+    "adopt", "adopted", "application", "applied", "based on", "built on",
+    "case study", "employ", "employed", "extend", "extended", "extension",
+    "integrate", "integrated", "reuse", "reused", "using",
+}
+_REUSE_PATTERN = re.compile(
+    "|".join(_keyword_pattern(term) for term in sorted(_REUSE_TERMS, key=len, reverse=True)),
+    re.IGNORECASE,
+)
+
+_SHORT_PREFIX_LEN = 4
+
+
+def _has_domain_context(text: str) -> bool:
+    """Return True if text is already scoped to the built-environment domain."""
+    if _STRONG_QUERY_PATTERN.search(text):
+        return True
+    contextual_hits = {m.group(0).lower() for m in _CONTEXTUAL_QUERY_PATTERN.finditer(text)}
+    return len(contextual_hits) >= 2
+
+
+def _has_ontology_mention(text: str) -> bool:
+    low = text.lower()
+    return "ontology" in low or "ontologies" in low or "owl" in low or "semantic web" in low
+
+
+def _paper_text(paper: PaperResult) -> str:
+    return f"{paper.title} {paper.abstract} {paper.venue} {paper.fields_of_study}"
+
+
+def _publication_types(paper: PaperResult) -> set[str]:
+    types = set()
+    for match in re.findall(r"publication_type:([^,]+)", paper.fields_of_study or "", re.IGNORECASE):
+        for part in re.split(r"[|;/]", match):
+            cleaned = part.strip().lower().replace("_", "-").replace(" ", "-")
+            if cleaned:
+                types.add(cleaned)
+    return types
+
+
+def _is_research_paper_type(paper: PaperResult) -> bool:
+    if paper.source == "doi_lookup":
+        return True
+
+    pub_types = _publication_types(paper)
+    if pub_types:
+        if pub_types & _EXCLUDED_PUBLICATION_TYPES:
+            return False
+        if pub_types & _ALLOWED_PUBLICATION_TYPES:
+            return True
+
+    text = _paper_text(paper)
+    if _EXCLUDED_PUBLICATION_PATTERN.search(text):
+        return False
+    return True
+
+
+def _be_domain_hits(paper: PaperResult) -> set[str]:
+    return {m.group(0).lower() for m in _BE_DOMAIN_KEYWORD_PATTERN.finditer(_paper_text(paper))}
+
+
+def _has_be_domain_evidence(paper: PaperResult) -> bool:
+    """Require positive built-environment evidence in API search results."""
+    if paper.source == "doi_lookup":
+        return True
+    return bool(_be_domain_hits(paper))
+
+
+def _is_excluded_paper(paper: PaperResult) -> bool:
+    """Drop obvious biomedical/clinical false positives from broad API search."""
+    if paper.source == "doi_lookup":
+        return False
+    return bool(_EXCLUDED_PAPER_PATTERN.search(_paper_text(paper)))
+
+
+def _base_query_text(ontology: dict) -> str:
+    title = (ontology.get("title") or "").strip()
+    prefix = (ontology.get("prefix") or "").strip()
+    desc = (ontology.get("description") or "").strip()
+    filename = (ontology.get("filename") or "").strip()
+
+    if title:
+        core = title
+    elif desc:
+        first_sentence = re.split(r"[.\n]", desc)[0].strip()
+        if len(first_sentence) > 100:
+            first_sentence = first_sentence[:100].rsplit(" ", 1)[0]
+        core = first_sentence
+    elif prefix:
+        core = prefix
+    else:
+        core = filename.replace(".ttl", "").replace("_", " ").replace("-", " ")
+
+    return core
+
+
+def _identity_terms(ontology: dict) -> set[str]:
+    terms = set()
+    filename = (ontology.get("filename") or "").strip()
+    title = (ontology.get("title") or "").strip()
+    prefix = (ontology.get("prefix") or "").strip()
+    namespace = (ontology.get("namespace_uri") or "").strip()
+
+    for value in (prefix, filename.replace(".ttl", ""), title):
+        value = value.strip()
+        if not value:
+            continue
+        low = value.lower()
+        if len(low) >= _SHORT_PREFIX_LEN and low not in _QUERY_STOP_TERMS:
+            terms.add(low)
+        compact = re.sub(r"[^a-z0-9]+", "", low)
+        if len(compact) >= _SHORT_PREFIX_LEN and compact not in _QUERY_STOP_TERMS:
+            terms.add(compact)
+
+    namespace_bits = [
+        bit.lower()
+        for bit in re.split(r"[/#:_\-.]+", namespace)
+        if len(bit) >= 3 and bit.lower() not in _QUERY_STOP_TERMS
+    ]
+    terms.update(bit for bit in namespace_bits[-3:] if len(bit) >= _SHORT_PREFIX_LEN)
+    if namespace:
+        terms.add(namespace.lower().rstrip("/#"))
+
+    return terms
+
+
+def _namespace_search_terms(ontology: dict) -> List[str]:
+    namespace = (ontology.get("namespace_uri") or "").strip().rstrip("/#")
+    if not namespace:
+        return []
+    terms = [namespace]
+    if namespace.startswith("https://"):
+        terms.append(namespace.replace("https://", "http://", 1))
+    elif namespace.startswith("http://"):
+        terms.append(namespace.replace("http://", "https://", 1))
+    return terms
+
+
+def _metadata_context_text(ontology: dict) -> str:
+    return " ".join((ontology.get(field) or "") for field in _BE_CONTEXT_FIELDS)
+
+
+def _metadata_domain_terms(ontology: dict) -> set[str]:
+    context = _metadata_context_text(ontology)
+    return {
+        m.group(0).lower()
+        for m in _BE_DOMAIN_KEYWORD_PATTERN.finditer(context)
+        if len(m.group(0)) >= _SHORT_PREFIX_LEN
+    }
+
+
+def _significant_title_terms(ontology: dict) -> set[str]:
+    title = (ontology.get("title") or "").lower()
+    return {
+        term
+        for term in re.findall(r"[a-z][a-z0-9]{3,}", title)
+        if term not in _QUERY_STOP_TERMS and term not in _GENERIC_TITLE_TERMS
+    }
+
+
+def _is_generic_ontology_name(ontology: dict) -> bool:
+    title = (ontology.get("title") or "").strip()
+    if not title:
+        return True
+    return len(_significant_title_terms(ontology)) == 0
+
+
+def _profile_list(profile: dict, key: str) -> List[str]:
+    values = profile.get(key, [])
+    if isinstance(values, str):
+        values = [values]
+    if not isinstance(values, list):
+        return []
+    return [str(value).strip() for value in values if str(value).strip()]
+
+
+def derive_search_query(ontology: dict, profile: dict | None = None) -> str:
+    """Build a readable primary paper-search query from Step 1 metadata."""
+    profile_queries = _profile_list(profile or {}, "queries")
+    if profile_queries:
+        return profile_queries[0]
+
+    core = _base_query_text(ontology)
+    prefix = (ontology.get("prefix") or "").strip()
+    if not core:
+        return ""
+    if not _has_ontology_mention(core):
+        core = f"{core} ontology"
+    if not _has_domain_context(core):
+        core = f"{core} built environment"
+    parts = [core]
+    if prefix and prefix.lower() not in core.lower():
+        parts.append(f"{prefix} ontology")
+    return " | ".join(parts)
+
+
+def derive_search_queries(ontology: dict, profile: dict | None = None) -> List[str]:
+    """Build ordered search queries, from exact ontology-specific to broader."""
+    title = (ontology.get("title") or "").strip()
+    prefix = (ontology.get("prefix") or "").strip()
+    base = _base_query_text(ontology)
+    readable = derive_search_query(ontology, profile).split(" | ")[0].strip()
+    candidates = _profile_list(profile or {}, "queries")
+
+    for term in (title, prefix):
+        if term and (term != prefix or len(prefix) >= _SHORT_PREFIX_LEN):
+            candidates.append(f'"{term}" ontology')
+    for namespace in _namespace_search_terms(ontology):
+        candidates.append(f'"{namespace}"')
+    for term in (title, prefix):
+        if term and (term != prefix or len(prefix) >= _SHORT_PREFIX_LEN):
+            for reuse_term in ("using", "reuse", "extended", "application"):
+                candidates.append(f'"{term}" {reuse_term}')
+    if title and not _has_domain_context(title):
+        candidates.append(f'"{title}" built environment ontology')
+    if base and base != title:
+        candidates.append(base)
+    if readable:
+        candidates.append(readable)
+
+    unique = []
+    seen = set()
+    for q in candidates:
+        q = q.strip()
+        key = q.lower()
+        if q and key not in seen:
+            unique.append(q)
+            seen.add(key)
+    return unique
+
+
+def _query_terms(query: str) -> set[str]:
+    terms = {
+        t.lower()
+        for t in re.findall(r"[A-Za-z][A-Za-z0-9]{2,}", query)
+        if len(t) >= _SHORT_PREFIX_LEN and t.lower() not in _QUERY_STOP_TERMS
+    }
+    quoted = re.findall(r'"([^"]+)"', query)
+    for phrase in quoted:
+        phrase_terms = {
+            t.lower()
+            for t in re.findall(r"[A-Za-z][A-Za-z0-9]{2,}", phrase)
+            if len(t) >= _SHORT_PREFIX_LEN and t.lower() not in _QUERY_STOP_TERMS
+        }
+        if phrase_terms:
+            terms.add(phrase.lower())
+    return terms
+
+
+def _has_identity_evidence(ontology: dict, paper: PaperResult) -> bool:
+    text = _paper_text(paper).lower()
+    for term in _identity_terms(ontology):
+        if term.startswith("http"):
+            if term in text:
+                return True
+            continue
+        if re.search(_keyword_pattern(term), text, re.IGNORECASE):
+            return True
+    return False
+
+
+def _has_namespace_evidence(ontology: dict, paper: PaperResult) -> bool:
+    text = _paper_text(paper).lower()
+    return any(term in text for term in _namespace_search_terms(ontology))
+
+
+def _has_reuse_evidence(paper: PaperResult) -> bool:
+    return bool(_REUSE_PATTERN.search(_paper_text(paper)))
+
+
+def _has_metadata_context_evidence(ontology: dict, paper: PaperResult) -> bool:
+    text = _paper_text(paper).lower()
+    hits = 0
+    for term in _metadata_domain_terms(ontology):
+        if re.search(_keyword_pattern(term), text, re.IGNORECASE):
+            hits += 1
+    return hits >= 1
+
+
+def _profile_all_terms_satisfied(profile: dict, paper: PaperResult) -> bool:
+    required_all = _profile_list(profile, "required_terms_all")
+    if not required_all:
+        return True
+    text = _paper_text(paper).lower()
+    return all(_text_has_profile_term(text, term) for term in required_all)
+
+
+def _has_profile_any_evidence(profile: dict, paper: PaperResult) -> bool:
+    terms = _profile_list(profile, "required_terms") + _profile_list(profile, "optional_terms")
+    if not terms:
+        return False
+    text = _paper_text(paper).lower()
+    return any(_text_has_profile_term(text, term) for term in terms)
+
+
+def _profile_term_hit_count(profile: dict, paper: PaperResult, key: str) -> int:
+    text = _paper_text(paper).lower()
+    return sum(1 for term in _profile_list(profile, key) if _text_has_profile_term(text, term))
+
+
+def _has_profile_family_evidence(profile: dict, paper: PaperResult) -> bool:
+    if not profile:
+        return False
+    if not _profile_all_terms_satisfied(profile, paper):
+        return False
+    if _profile_term_hit_count(profile, paper, "required_terms") >= 1:
+        return True
+    return _profile_term_hit_count(profile, paper, "optional_terms") >= 2
+
+
+def _has_exact_identity_evidence(ontology: dict, paper: PaperResult) -> bool:
+    """Return True only for strong ontology identity evidence."""
+    if _has_namespace_evidence(ontology, paper):
+        return True
+
+    text = _paper_text(paper).lower()
+    title = (ontology.get("title") or "").strip()
+    prefix = (ontology.get("prefix") or "").strip()
+
+    if title and not _is_generic_ontology_name(ontology):
+        if re.search(_keyword_pattern(title), text, re.IGNORECASE):
+            return True
+
+    if prefix and len(prefix) >= _SHORT_PREFIX_LEN and prefix.lower() not in _QUERY_STOP_TERMS:
+        if re.search(_keyword_pattern(prefix), text, re.IGNORECASE):
+            return True
+
+    return False
+
+
+def _text_has_profile_term(text: str, term: str) -> bool:
+    term = term.strip().lower()
+    if not term:
+        return False
+    if term.startswith("http"):
+        return term.rstrip("/#") in text
+    return bool(re.search(_keyword_pattern(term), text, re.IGNORECASE))
+
+
+def _has_profile_required_evidence(profile: dict, paper: PaperResult) -> bool:
+    if _paper_matches_profile_doi(profile, paper):
+        return True
+    if not _profile_all_terms_satisfied(profile, paper):
+        return False
+    required_terms = _profile_list(profile, "required_terms")
+    if not required_terms:
+        return True
+    text = _paper_text(paper).lower()
+    return any(_text_has_profile_term(text, term) for term in required_terms)
+
+
+def _paper_matches_profile_doi(profile: dict, paper: PaperResult) -> bool:
+    known_dois = {
+        doi.lower().removeprefix("https://doi.org/")
+        for doi in _profile_list(profile, "known_dois")
+    }
+    if not known_dois or not paper.doi:
+        return False
+    paper_doi = paper.doi.lower().removeprefix("https://doi.org/")
+    return paper_doi in known_dois
+
+
+def _is_excluded_by_profile(profile: dict, paper: PaperResult) -> bool:
+    excluded_terms = _profile_list(profile, "exclude_terms")
+    if not excluded_terms:
+        return False
+    text = _paper_text(paper).lower()
+    return any(_text_has_profile_term(text, term) for term in excluded_terms)
+
+
+def _passes_ontology_context(ontology: dict | None, paper: PaperResult,
+                             profile: dict | None = None) -> bool:
+    return _classify_match(ontology, paper, profile) in {
+        "exact_ontology", "ontology_family", "reuse_application"
+    }
+
+
+def _classify_match(ontology: dict | None, paper: PaperResult,
+                    profile: dict | None = None) -> str:
+    profile = profile or {}
+    if paper.source == "doi_lookup" or _paper_matches_profile_doi(profile, paper):
+        return "exact_ontology"
+    if ontology and _has_exact_identity_evidence(ontology, paper):
+        return "exact_ontology"
+
+    family_evidence = _has_profile_family_evidence(profile, paper)
+    if family_evidence and (_has_reuse_evidence(paper) or _has_ontology_mention(_paper_text(paper))):
+        return "reuse_application" if _has_reuse_evidence(paper) else "ontology_family"
+    if family_evidence:
+        return "ontology_family"
+    if _has_be_domain_evidence(paper) and _has_ontology_mention(_paper_text(paper)):
+        return "broad_domain"
+    return "none"
+
+
+def _has_query_specific_evidence(query: str, paper: PaperResult,
+                                 ontology: dict | None = None,
+                                 profile: dict | None = None) -> bool:
+    if _classify_match(ontology, paper, profile) in {
+        "exact_ontology", "ontology_family", "reuse_application"
+    }:
+        return True
+    if ontology and _has_exact_identity_evidence(ontology, paper):
+        return True
+    text = _paper_text(paper).lower()
+    return any(term in text for term in _query_terms(query))
 
 
 def _compute_relevance(query: str, paper: PaperResult) -> float:
@@ -389,11 +960,10 @@ def _compute_relevance(query: str, paper: PaperResult) -> float:
     abstract_sim = jaccard_similarity(query, paper.abstract) if paper.abstract else 0.0
 
     # Domain term presence in title + abstract
-    combined = f"{paper.title} {paper.abstract} {paper.fields_of_study}".lower()
-    combined_tokens = set(re.findall(r"\w+", combined))
-    if combined_tokens:
-        domain_hits = sum(1 for kw in _DOMAIN_KEYWORDS if kw in combined)
-        domain_score = min(domain_hits / 5.0, 1.0)  # cap at 5 hits → 1.0
+    combined = _paper_text(paper)
+    if combined.strip():
+        domain_hits = {m.group(0).lower() for m in _DOMAIN_KEYWORD_PATTERN.finditer(combined)}
+        domain_score = min(len(domain_hits) / 5.0, 1.0)  # cap at 5 hits -> 1.0
     else:
         domain_score = 0.0
 
@@ -409,8 +979,27 @@ def _compute_relevance(query: str, paper: PaperResult) -> float:
     return round(score, 4)
 
 
-def score_and_filter(query: str, papers: List[PaperResult]) -> List[PaperResult]:
+def score_and_filter(query: str, papers: List[PaperResult],
+                     ontology: dict | None = None,
+                     profile: dict | None = None) -> List[PaperResult]:
     """Score papers, drop those below threshold, sort by relevance, keep top-K."""
+    profile = profile or {}
+    filtered = []
+    for paper in papers:
+        paper.match_type = _classify_match(ontology, paper, profile)
+        if paper.source == "doi_lookup":
+            filtered.append(paper)
+            continue
+        if (
+            _is_research_paper_type(paper)
+            and not _is_excluded_paper(paper)
+            and not _is_excluded_by_profile(profile, paper)
+            and _has_query_specific_evidence(query, paper, ontology, profile)
+            and paper.match_type in {"exact_ontology", "ontology_family", "reuse_application"}
+        ):
+            filtered.append(paper)
+    papers = filtered
+
     for p in papers:
         p.relevance_score = _compute_relevance(query, p)
 
@@ -527,16 +1116,20 @@ def main() -> None:
 
     with open(METADATA_FILE, "r", encoding="utf-8") as fh:
         ontologies = json.load(fh)
+    profiles = _load_search_profiles()
 
     print(f"Loaded {len(ontologies)} ontologies from {METADATA_FILE.name}")
-    print("APIs: OpenAlex + Semantic Scholar (search), CrossRef (DOI resolution)\n")
+    if profiles:
+        print(f"Loaded {len(profiles)} ontology search profiles from {SEARCH_PROFILE_FILE.name}")
+    print("APIs: OpenAlex (search), CrossRef (DOI resolution)\n")
 
     all_papers: List[PaperResult] = []
     all_metrics: List[PaperSearchMetrics] = []
 
     for i, ont in enumerate(ontologies, 1):
         filename = ont["filename"]
-        query = ont["search_keywords"]
+        profile = _profile_for(ont, profiles)
+        query = derive_search_query(ont, profile)
         see_also = ont.get("see_also", "")
 
         if not query:
@@ -556,40 +1149,27 @@ def main() -> None:
         papers.extend(oa_papers)
         print(f"    OpenAlex: {len(oa_papers)} results")
 
-        # --- 2. Semantic Scholar ---
-        time.sleep(SEMANTIC_SCHOLAR_DELAY)
-        ss_results = search_semantic_scholar(primary_query)
-        ss_papers = [_ss_to_paper(filename, primary_query, p) for p in ss_results]
-        papers.extend(ss_papers)
-        print(f"    Semantic Scholar: {len(ss_papers)} results")
-
-        # --- 3. DOI look-ups from rdfs:seeAlso (CrossRef + SS fallback) ---
+        # --- 2. DOI look-ups from rdfs:seeAlso (CrossRef) ---
         doi_hit = False
-        dois = extract_dois(see_also)
+        dois = sorted(set(extract_dois(see_also) + _profile_list(profile, "known_dois")))
         seen_dois: Set[str] = {p.doi.lower() for p in papers if p.doi}
         for doi in dois:
             if doi.lower() in seen_dois:
                 doi_hit = True
                 continue
-            # Try CrossRef first (faster), then Semantic Scholar
+            # Try CrossRef for DOI metadata.
             time.sleep(CROSSREF_DELAY)
             cr_data = lookup_doi_crossref(doi)
             if cr_data:
                 doi_hit = True
                 papers.append(_crossref_to_paper(filename, f"DOI:{doi}", cr_data, src="doi_lookup"))
-            else:
-                time.sleep(SEMANTIC_SCHOLAR_DELAY)
-                ss_data = lookup_doi_semantic_scholar(doi)
-                if ss_data:
-                    doi_hit = True
-                    papers.append(_ss_to_paper(filename, f"DOI:{doi}", ss_data, src="doi_lookup"))
 
         # --- 4. Deduplicate ---
         papers = deduplicate_papers(papers)
 
         # --- 5. Score & filter by relevance ---
         before_filter = len(papers)
-        papers = score_and_filter(primary_query, papers)
+        papers = score_and_filter(primary_query, papers, ont, profile)
         all_papers.extend(papers)
 
         # --- 6. Metrics ---
@@ -600,8 +1180,8 @@ def main() -> None:
             print(f"      best: [{papers[0].relevance_score:.3f}] {papers[0].title[:70]}")
 
         # --- 7. Incremental save (overwrite after each ontology) ---
-        _save_quiet(all_papers, OUT_DIR / "ontology_papers.csv", OUT_DIR / "ontology_papers.json")
-        _save_quiet(all_metrics, OUT_DIR / "ontology_papers_metrics.csv", OUT_DIR / "ontology_papers_metrics.json")
+        _save_quiet(all_papers, DATA_DIR / "ontology_papers.csv", DATA_DIR / "ontology_papers.json", PaperResult)
+        _save_quiet(all_metrics, DATA_DIR / "ontology_papers_metrics.csv", DATA_DIR / "ontology_papers_metrics.json", PaperSearchMetrics)
 
     # Final summary
     print(f"\nTotal: {len(all_papers)} paper results across {len(all_metrics)} ontologies")
@@ -610,5 +1190,132 @@ def main() -> None:
     print("Done ✓")
 
 
+def main_resumable() -> None:
+    _configure_stdout()
+    args = parse_args()
+    if args.openalex_only:
+        args.skip_doi = True
+
+    if not METADATA_FILE.exists():
+        print(f"ERROR: {METADATA_FILE} not found. Run step1_extract_metadata.py first.")
+        sys.exit(1)
+
+    with open(METADATA_FILE, "r", encoding="utf-8") as fh:
+        ontologies = json.load(fh)
+    profiles = _load_search_profiles()
+
+    print(f"Loaded {len(ontologies)} ontologies from {METADATA_FILE.name}")
+    if profiles:
+        print(f"Loaded {len(profiles)} ontology search profiles from {SEARCH_PROFILE_FILE.name}")
+    enabled_apis = ["OpenAlex"]
+    if not args.skip_doi:
+        enabled_apis.append("CrossRef DOI resolution")
+    print(f"APIs enabled: {', '.join(enabled_apis)}")
+    print(
+        f"Retries: {MAX_RETRIES}, HTTP timeout: {HTTP_TIMEOUT:g}s, "
+        f"delays: OpenAlex={OPENALEX_DELAY:g}s, "
+        f"CrossRef={CROSSREF_DELAY:g}s, "
+        f"OpenAlex queries/ontology={args.max_queries_per_ontology}\n"
+    )
+
+    papers_csv = DATA_DIR / "ontology_papers.csv"
+    papers_json = DATA_DIR / "ontology_papers.json"
+    metrics_csv = DATA_DIR / "ontology_papers_metrics.csv"
+    metrics_json = DATA_DIR / "ontology_papers_metrics.json"
+
+    all_papers: List[PaperResult] = []
+    all_metrics: List[PaperSearchMetrics] = []
+    processed: Set[str] = set()
+    if not args.fresh:
+        all_papers = _load_dataclass_rows(papers_json, PaperResult)
+        all_metrics = _load_dataclass_rows(metrics_json, PaperSearchMetrics)
+        processed = {m.ontology_filename for m in all_metrics}
+        if processed:
+            print(
+                f"Resume mode: loaded {len(all_papers)} papers and "
+                f"{len(all_metrics)} metrics; {len(processed)} ontologies already done."
+            )
+            print("Use --fresh to discard existing Step 02 outputs and rebuild.\n")
+
+    new_processed = 0
+
+    for i, ont in enumerate(ontologies, 1):
+        filename = ont["filename"]
+        profile = _profile_for(ont, profiles)
+        query = derive_search_query(ont, profile)
+        search_queries = derive_search_queries(ont, profile)
+        if args.max_queries_per_ontology > 0:
+            search_queries = search_queries[:args.max_queries_per_ontology]
+        see_also = ont.get("see_also", "")
+
+        if filename in processed:
+            print(f"[{i}/{len(ontologies)}] {filename} - already processed, skipping")
+            continue
+
+        if args.max_ontologies is not None and new_processed >= args.max_ontologies:
+            print(f"Reached --max-ontologies={args.max_ontologies}; stopping early.")
+            break
+
+        if not query:
+            print(f"[{i}/{len(ontologies)}] {filename} - no search keywords, skipping")
+            all_metrics.append(PaperSearchMetrics(ontology_filename=filename))
+            processed.add(filename)
+            new_processed += 1
+            _save_quiet(all_papers, papers_csv, papers_json, PaperResult)
+            _save_quiet(all_metrics, metrics_csv, metrics_json, PaperSearchMetrics)
+            continue
+
+        primary_query = search_queries[0] if search_queries else query.split(" | ")[0].strip()
+        print(f"[{i}/{len(ontologies)}] {filename} - \"{primary_query}\"")
+
+        papers: List[PaperResult] = []
+
+        oa_total = 0
+        for search_query in search_queries:
+            time.sleep(OPENALEX_DELAY)
+            oa_results = search_openalex(search_query)
+            oa_papers = [_openalex_to_paper(filename, search_query, w) for w in oa_results]
+            papers.extend(oa_papers)
+            oa_total += len(oa_papers)
+
+        print(f"    OpenAlex: {oa_total} results across {len(search_queries)} queries")
+
+        doi_hit = False
+        dois = [] if args.skip_doi else sorted(set(extract_dois(see_also) + _profile_list(profile, "known_dois")))
+        seen_dois: Set[str] = {p.doi.lower() for p in papers if p.doi}
+        for doi in dois:
+            if doi.lower() in seen_dois:
+                doi_hit = True
+                continue
+            time.sleep(CROSSREF_DELAY)
+            cr_data = lookup_doi_crossref(doi)
+            if cr_data:
+                doi_hit = True
+                papers.append(_crossref_to_paper(filename, f"DOI:{doi}", cr_data, src="doi_lookup"))
+
+        papers = deduplicate_papers(papers)
+        before_filter = len(papers)
+        papers = score_and_filter(query, papers, ont, profile)
+        all_papers.extend(papers)
+
+        met = compute_metrics(filename, query, papers, doi_hit)
+        all_metrics.append(met)
+        processed.add(filename)
+        new_processed += 1
+        print(
+            f"    -> {before_filter} unique -> {len(papers)} relevant "
+            f"(top-{TOP_K_PER_ONTOLOGY}, >={MIN_RELEVANCE_SCORE}), DOI hit: {doi_hit}"
+        )
+        if papers:
+            print(f"      best: [{papers[0].relevance_score:.3f}] {papers[0].title[:70]}")
+
+        _save_quiet(all_papers, papers_csv, papers_json, PaperResult)
+        _save_quiet(all_metrics, metrics_csv, metrics_json, PaperSearchMetrics)
+
+    print(f"\nTotal: {len(all_papers)} paper results across {len(all_metrics)} ontologies")
+    print_metrics_summary(all_metrics)
+    print("Done")
+
+
 if __name__ == "__main__":
-    main()
+    main_resumable()

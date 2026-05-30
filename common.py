@@ -55,7 +55,6 @@ class OntologyRow:
     imports: str = ""
     classes: str = ""
     properties: str = ""
-    search_keywords: str = ""
 
 
 @dataclass
@@ -76,6 +75,7 @@ class PaperResult:
     is_open_access: bool = False
     fields_of_study: str = ""
     relevance_score: float = 0.0   # composite relevance score (0.0–1.0)
+    match_type: str = ""           # exact_ontology, ontology_family, reuse_application, broad_domain
 
 
 @dataclass
@@ -96,7 +96,7 @@ class WebResult:
 class MetadataMetrics:
     """Per-ontology metadata quality and structural metrics (step 1)."""
     filename: str = ""
-    fields_total: int = 15
+    fields_total: int = 13
     fields_filled: int = 0
     completeness_pct: float = 0.0
     parse_success: bool = True
@@ -108,6 +108,9 @@ class MetadataMetrics:
     comment_coverage_pct: float = 0.0
     import_count: int = 0
     language_count: int = 0
+    has_title: bool = False
+    has_namespace_uri: bool = False
+    has_description: bool = False
     has_license: bool = False
     has_version: bool = False
     has_creators: bool = False
@@ -151,13 +154,14 @@ def save_csv(rows: Sequence, filepath: str | Path) -> None:
     if not rows:
         return
     filepath = Path(filepath)
+    filepath.parent.mkdir(parents=True, exist_ok=True)
     field_names = [f.name for f in fields(rows[0])]
     with open(filepath, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=field_names)
         writer.writeheader()
         for row in rows:
             writer.writerow(asdict(row))
-    print(f"  Saved {len(rows)} rows → {filepath}")
+    print(f"  Saved {len(rows)} rows -> {filepath}")
 
 
 def save_json(rows: Sequence, filepath: str | Path) -> None:
@@ -165,6 +169,7 @@ def save_json(rows: Sequence, filepath: str | Path) -> None:
     if not rows:
         return
     filepath = Path(filepath)
+    filepath.parent.mkdir(parents=True, exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as fh:
         json.dump([asdict(r) for r in rows], fh, indent=2, ensure_ascii=False)
-    print(f"  Saved {len(rows)} records → {filepath}")
+    print(f"  Saved {len(rows)} records -> {filepath}")
