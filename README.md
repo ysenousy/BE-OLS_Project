@@ -15,6 +15,7 @@ The pipeline is designed for reproducible data collection and evaluation across 
 - `step1_extract_metadata.py`: Fetches and parses TTL ontologies, outputs extracted metadata + metadata metrics.
 - `step2_search_papers.py`: Builds ontology-specific paper-search queries, queries OpenAlex, resolves DOI links, filters matches, and outputs papers + paper metrics.
 - `step3_search_web.py`: Searches DuckDuckGo for ontology-related web pages and outputs web results + web metrics.
+- `step4_consolidate.py`: Merges metadata, paper, and web outputs into a consolidated dataset + evaluation summary.
 - `plan.md`: Methodology and roadmap for extended phases.
 - `Results.txt`: Snapshot of observed run outcomes and summary stats.
 
@@ -27,6 +28,8 @@ Generated outputs:
 - `data/ontology_papers_metrics.csv`, `data/ontology_papers_metrics.json`
 - `data/ontology_web_results.csv`, `data/ontology_web_results.json`
 - `data/ontology_web_metrics.csv`, `data/ontology_web_metrics.json`
+- `data/be_ols_dataset.csv`, `data/be_ols_dataset.json`
+- `data/evaluation_summary.json`
 
 ## Data Sources
 
@@ -118,6 +121,18 @@ python step3_search_web.py --fresh --max-ontologies 20
 python step3_search_web.py --max-ontologies 20
 ```
 
+### 4) Consolidate outputs
+
+```powershell
+python step4_consolidate.py
+```
+
+This will:
+
+- Merge ontology metadata, metadata metrics, paper results, and web results.
+- Save one row per ontology to `data/be_ols_dataset.csv` and `data/be_ols_dataset.json`.
+- Save aggregate coverage metrics to `data/evaluation_summary.json`.
+
 Optional environment settings:
 
 ```powershell
@@ -167,6 +182,8 @@ $env:WEB_SEARCH_DELAY="2.5"
 - 115 ontologies had at least 1 web result.
 - 4 ontologies had 0 web results: `ph.ttl`, `sao.ttl`, `th-building.ttl`, `wgs84.ttl`.
 - Current web results are classified by `result_type`: `official_namespace`, `github_repo`, `paper`, `documentation`, or `other`.
+- Consolidated dataset has 119 ontology rows.
+- Evaluation summary reports 98.3% parse success, 57.1% with papers, and 96.6% with web results.
 
 ## Notes and Limitations
 
@@ -174,7 +191,7 @@ $env:WEB_SEARCH_DELAY="2.5"
 - API rate limits are handled with delays/retries, so full runs can take time.
 - DuckDuckGo access can be rate-limited; increase `WEB_SEARCH_DELAY` if Step 3 returns repeated search errors.
 - Some source TTL files may fail parsing due to upstream syntax/content issues.
-- `step4_consolidate.py` is planned in `plan.md` but is not currently present in this workspace.
+- Step 4 consolidation is implemented in `step4_consolidate.py`.
 
 ## Reproducibility Tips
 

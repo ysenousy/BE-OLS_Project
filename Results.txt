@@ -91,6 +91,24 @@ Step 3 cleanup notes:
 - Boilerplate snippets from generated ontology documentation are replaced or
   removed when possible.
 
+
+Step 4: Dataset Consolidation
+-----------------------------
+
+Step 4 merges ontology metadata, metadata metrics, academic paper results,
+web results, and per-ontology search metrics into one consolidated dataset.
+
+Consolidated output:
+- Dataset rows: 119
+- Parse success rate: 98.3%
+- Mean metadata completeness: 65.6%
+- Ontologies with >=1 paper result: 57.1%
+- Ontologies with >=1 web result: 96.6%
+- Total paper results: 265
+- Total web results: 379
+- Mean classes per ontology: 120.3
+- Mean properties per ontology: 61.6
+
 Current output files:
 - data/ontology_metadata.csv / data/ontology_metadata.json
 - data/ontology_metadata_metrics.csv / data/ontology_metadata_metrics.json
@@ -99,6 +117,8 @@ Current output files:
 - data/ontology_papers_metrics.csv / data/ontology_papers_metrics.json
 - data/ontology_web_results.csv / data/ontology_web_results.json
 - data/ontology_web_metrics.csv / data/ontology_web_metrics.json
+- data/be_ols_dataset.csv / data/be_ols_dataset.json
+- data/evaluation_summary.json
 
 
 Ontologies With 0 Paper Results
@@ -171,4 +191,4 @@ Notes
 
 - The current cleaned dataset keeps papers related to ontology papers,
   ontology-family papers, and papers reusing/applying the ontologies.
-- Step 4 consolidation is still pending.
+- Step 4 consolidation is complete.

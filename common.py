@@ -148,6 +148,35 @@ class WebSearchMetrics:
     academic_result_count: int = 0
 
 
+@dataclass
+class ConsolidatedOntologyRow:
+    """One ontology with metadata, output counts, and top linked evidence."""
+    filename: str = ""
+    title: str = ""
+    prefix: str = ""
+    namespace_uri: str = ""
+    description: str = ""
+    parse_success: bool = False
+    metadata_completeness_pct: float = 0.0
+    class_count: int = 0
+    property_count: int = 0
+    axiom_count: int = 0
+    annotation_coverage_pct: float = 0.0
+    comment_coverage_pct: float = 0.0
+    has_license: bool = False
+    has_version: bool = False
+    has_creators: bool = False
+    has_embedded_doi: bool = False
+    paper_count: int = 0
+    top_paper_titles: str = ""
+    top_paper_urls: str = ""
+    paper_match_types: str = ""
+    web_result_count: int = 0
+    top_web_titles: str = ""
+    top_web_urls: str = ""
+    web_result_types: str = ""
+
+
 # ---------------------------------------------------------------------------
 # I/O helpers
 # ---------------------------------------------------------------------------
