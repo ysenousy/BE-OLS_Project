@@ -174,16 +174,16 @@ $env:WEB_SEARCH_DELAY="2.5"
 
 - Parsed 117/119 ontologies successfully (98.3%).
 - 2 parsing failures due to malformed/problematic source TTL files.
-- 265 cleaned paper results kept across 119 ontologies.
-- 68 ontologies had at least 1 paper result.
-- 51 ontologies had 0 paper results.
+- 120 cleaned paper results kept across 119 ontologies.
+- 44 ontologies had at least 1 paper result.
+- 75 ontologies had 0 paper results.
 - Current paper matches are classified as `exact_ontology`, `ontology_family`, or `reuse_application`.
 - 379 cleaned web results kept across 119 ontologies.
 - 115 ontologies had at least 1 web result.
 - 4 ontologies had 0 web results: `ph.ttl`, `sao.ttl`, `th-building.ttl`, `wgs84.ttl`.
 - Current web results are classified by `result_type`: `official_namespace`, `github_repo`, `paper`, `documentation`, or `other`.
 - Consolidated dataset has 119 ontology rows.
-- Evaluation summary reports 98.3% parse success, 57.1% with papers, and 96.6% with web results.
+- Evaluation summary reports 98.3% parse success, 37.0% with papers, and 96.6% with web results.
 
 ## Notes and Limitations
 

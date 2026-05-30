@@ -60,6 +60,8 @@ DOI_RE = re.compile(r"10\.\d{4,9}/[^\s,]+", re.IGNORECASE)
 # Relevance filtering
 MIN_RELEVANCE_SCORE = 0.05   # drop papers scoring below this
 TOP_K_PER_ONTOLOGY = 10      # keep at most this many per ontology (after dedup)
+MIN_EXACT_RELEVANCE_SCORE = 0.18
+MIN_FAMILY_RELEVANCE_SCORE = 0.25
 
 
 # ---------------------------------------------------------------------------
@@ -715,6 +717,40 @@ def _profile_list(profile: dict, key: str) -> List[str]:
     return [str(value).strip() for value in values if str(value).strip()]
 
 
+def _has_acronym_or_digit(text: str) -> bool:
+    for token in re.findall(r"[A-Za-z0-9]+", text or ""):
+        if any(char.isdigit() for char in token):
+            return True
+        if len(token) > 1 and token.isupper():
+            return True
+        if len(token) > 2 and token != token.lower() and token != token.capitalize():
+            return True
+    return False
+
+
+def _is_strong_profile_term(term: str) -> bool:
+    term = (term or "").strip()
+    low = term.lower().strip('"')
+    if not low:
+        return False
+    if low.startswith("http") or "/" in low:
+        return True
+    if _has_acronym_or_digit(term):
+        return True
+    if "ontology" in low and len(low.split()) >= 2:
+        return True
+    broad_terms = _QUERY_STOP_TERMS | _DOMAIN_KEYWORDS | {
+        "architecture", "engineering", "construction", "building", "buildings",
+        "related", "document", "design", "checking", "permitting", "core",
+        "data", "digital", "smart", "semantic", "model", "models",
+    }
+    tokens = {
+        token for token in re.findall(r"[a-z][a-z0-9]{2,}", low)
+        if token not in broad_terms
+    }
+    return len(tokens) >= 2
+
+
 def derive_search_query(ontology: dict, profile: dict | None = None) -> str:
     """Build a readable primary paper-search query from Step 1 metadata."""
     profile_queries = _profile_list(profile or {}, "queries")
@@ -839,14 +875,23 @@ def _profile_term_hit_count(profile: dict, paper: PaperResult, key: str) -> int:
     return sum(1 for term in _profile_list(profile, key) if _text_has_profile_term(text, term))
 
 
+def _profile_strong_term_hit_count(profile: dict, paper: PaperResult, key: str) -> int:
+    text = _paper_text(paper).lower()
+    return sum(
+        1
+        for term in _profile_list(profile, key)
+        if _is_strong_profile_term(term) and _text_has_profile_term(text, term)
+    )
+
+
 def _has_profile_family_evidence(profile: dict, paper: PaperResult) -> bool:
     if not profile:
         return False
     if not _profile_all_terms_satisfied(profile, paper):
         return False
-    if _profile_term_hit_count(profile, paper, "required_terms") >= 1:
+    if _profile_strong_term_hit_count(profile, paper, "required_terms") >= 1:
         return True
-    return _profile_term_hit_count(profile, paper, "optional_terms") >= 2
+    return _profile_strong_term_hit_count(profile, paper, "optional_terms") >= 1
 
 
 def _has_exact_identity_evidence(ontology: dict, paper: PaperResult) -> bool:
@@ -861,11 +906,72 @@ def _has_exact_identity_evidence(ontology: dict, paper: PaperResult) -> bool:
     if title and not _is_generic_ontology_name(ontology):
         if re.search(_keyword_pattern(title), text, re.IGNORECASE):
             return True
+        title_terms = _significant_title_terms(ontology)
+        if len(title_terms) >= 2 and all(
+            re.search(_keyword_pattern(term), text, re.IGNORECASE)
+            for term in title_terms
+        ) and _has_ontology_mention(text):
+            return True
+
+    acronym_match = re.search(r"\(([A-Za-z][A-Za-z0-9]{1,8})\)", title)
+    if acronym_match and _has_ontology_mention(title):
+        acronym = acronym_match.group(1)
+        if re.search(_keyword_pattern(acronym), text, re.IGNORECASE):
+            return True
 
     if prefix and len(prefix) >= _SHORT_PREFIX_LEN and prefix.lower() not in _QUERY_STOP_TERMS:
         if re.search(_keyword_pattern(prefix), text, re.IGNORECASE):
             return True
 
+    return False
+
+
+def _has_primary_identity_evidence(ontology: dict | None, paper: PaperResult) -> bool:
+    """Strong evidence visible in title/DOI/URL, or the full title in text."""
+    if not ontology:
+        return False
+    title_text = (paper.title or "").lower()
+    full_text = _paper_text(paper).lower()
+    ontology_title = (ontology.get("title") or "").strip()
+    prefix = (ontology.get("prefix") or "").strip()
+    namespace = (ontology.get("namespace_uri") or "").strip().rstrip("/#")
+    namespace_marker = namespace.split("/")[-1].split("#")[-1] if namespace else ""
+
+    candidates = []
+    if ontology_title and len(ontology_title) >= 6 and not _is_generic_ontology_name(ontology):
+        candidates.append(ontology_title)
+    if prefix and len(prefix) >= _SHORT_PREFIX_LEN:
+        candidates.append(prefix)
+    if namespace_marker and len(namespace_marker) >= _SHORT_PREFIX_LEN:
+        candidates.append(namespace_marker)
+
+    acronym_match = re.search(r"\(([A-Za-z][A-Za-z0-9]{1,8})\)", ontology_title)
+    if acronym_match:
+        candidates.append(acronym_match.group(1))
+
+    for candidate in candidates:
+        if re.search(_keyword_pattern(candidate), title_text, re.IGNORECASE):
+            return True
+    if namespace and namespace.lower() in full_text:
+        return True
+    if ontology_title and ontology_title.lower() in full_text:
+        return True
+    return False
+
+
+def _passes_final_relevance(
+    paper: PaperResult,
+    ontology: dict | None = None,
+) -> bool:
+    if paper.source == "doi_lookup":
+        return True
+    if paper.match_type == "exact_ontology":
+        return (
+            paper.relevance_score >= MIN_EXACT_RELEVANCE_SCORE
+            or _has_primary_identity_evidence(ontology, paper)
+        )
+    if paper.match_type in {"ontology_family", "reuse_application"}:
+        return paper.relevance_score >= MIN_FAMILY_RELEVANCE_SCORE
     return False
 
 
@@ -886,8 +992,7 @@ def _has_profile_required_evidence(profile: dict, paper: PaperResult) -> bool:
     required_terms = _profile_list(profile, "required_terms")
     if not required_terms:
         return True
-    text = _paper_text(paper).lower()
-    return any(_text_has_profile_term(text, term) for term in required_terms)
+    return _profile_strong_term_hit_count(profile, paper, "required_terms") >= 1
 
 
 def _paper_matches_profile_doi(profile: dict, paper: PaperResult) -> bool:
@@ -925,10 +1030,8 @@ def _classify_match(ontology: dict | None, paper: PaperResult,
         return "exact_ontology"
 
     family_evidence = _has_profile_family_evidence(profile, paper)
-    if family_evidence and (_has_reuse_evidence(paper) or _has_ontology_mention(_paper_text(paper))):
-        return "reuse_application" if _has_reuse_evidence(paper) else "ontology_family"
     if family_evidence:
-        return "ontology_family"
+        return "reuse_application" if _has_reuse_evidence(paper) else "ontology_family"
     if _has_be_domain_evidence(paper) and _has_ontology_mention(_paper_text(paper)):
         return "broad_domain"
     return "none"
@@ -1006,7 +1109,10 @@ def score_and_filter(query: str, papers: List[PaperResult],
     # Keep DOI look-ups regardless of score (directly referenced by the ontology)
     relevant = [
         p for p in papers
-        if p.relevance_score >= MIN_RELEVANCE_SCORE or p.source == "doi_lookup"
+        if (
+            (p.relevance_score >= MIN_RELEVANCE_SCORE or p.source == "doi_lookup")
+            and _passes_final_relevance(p, ontology)
+        )
     ]
 
     # Sort descending by relevance, then by citation count as tiebreaker

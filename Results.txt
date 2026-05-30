@@ -41,23 +41,23 @@ ontology names and generic domains. The output keeps papers classified as:
 
 Paper search output:
 - Ontologies searched: 119
-- Total paper results kept: 265
-- Ontologies with >=1 paper result: 68
-- Ontologies with 0 paper results: 51
-- Mean results per ontology with results: 3.9
-- Mean results per ontology overall: 2.2
+- Total paper results kept: 120
+- Ontologies with >=1 paper result: 44
+- Ontologies with 0 paper results: 75
+- Mean results per ontology with results: 2.7
+- Mean results per ontology overall: 1.0
 
 Match type distribution:
-- exact_ontology: 69
-- ontology_family: 46
-- reuse_application: 150
+- exact_ontology: 107
+- ontology_family: 2
+- reuse_application: 11
 
 Paper metrics:
-- Mean title/query overlap: 0.1286
-- Mean abstract/query overlap: 0.0257
-- Mean citation count: 38.7
-- Median paper year: 2022
-- Ontologies with direct DOI hit: 0/119
+- Mean title/query overlap: 0.2002
+- Mean abstract/query overlap: 0.0333
+- Mean citation count: 36.7
+- Median paper year: 2021
+- Ontologies with direct DOI hit: 1/119
 
 
 Step 3: Web Search
@@ -102,9 +102,9 @@ Consolidated output:
 - Dataset rows: 119
 - Parse success rate: 98.3%
 - Mean metadata completeness: 65.6%
-- Ontologies with >=1 paper result: 57.1%
+- Ontologies with >=1 paper result: 37.0%
 - Ontologies with >=1 web result: 96.6%
-- Total paper results: 265
+- Total paper results: 120
 - Total web results: 379
 - Mean classes per ontology: 120.3
 - Mean properties per ontology: 61.6
@@ -127,29 +127,48 @@ Ontologies With 0 Paper Results
 aic.ttl
 ao.ttl
 aoi.ttl
+asbingowl.ttl
+bao.ttl
+bem-reno.ttl
 bm.ttl
+building.ttl
 ci.ttl
 contax.ttl
 cr.ttl
 cterm.ttl
+cto.ttl
 dices.ttl
+dicl.ttl
 diclvl.ttl
 dicob.ttl
 dicstg.ttl
+dicu.ttl
 dicv.ttl
+dor.ttl
+eco.ttl
 eepsa.ttl
 esair.ttl
+facility.ttl
 fm-ener.ttl
+fmo.ttl
 gis4reno.ttl
 hbpo.ttl
 icdd2ams.ttl
+idpo.ttl
+ifc4-add2.ttl
+into.ttl
 io.ttl
+ioc.ttl
+iot.ttl
 isoprops.ttl
 lca-c-reno.ttl
 mdo.ttl
+mep.ttl
 nen2660.ttl
 ocqa.ttl
 onem2m.ttl
+op.ttl
+opm.ttl
 ph.ttl
 process.ttl
 quality.ttl
@@ -158,21 +177,26 @@ reloc.ttl
 renp.ttl
 resource.ttl
 sao.ttl
+saref4agri.ttl
 saref4auto.ttl
+saref4bldg.ttl
 saref4city.ttl
 saref4ehaw.ttl
-saref4ener.ttl
+saref4envi.ttl
 saref4grid.ttl
 saref4lift.ttl
+saref4syst.ttl
 saref4watr.ttl
 saref4wear.ttl
 sml.ttl
 stg.ttl
+tempo.ttl
 th-actor.ttl
 th-building.ttl
 th-energy.ttl
 th-process.ttl
 th-sharedvoc.ttl
+th-weather.ttl
 weat.ttl
 wgs84.ttl
 
@@ -189,6 +213,6 @@ wgs84.ttl
 Notes
 -----
 
-- The current cleaned dataset keeps papers related to ontology papers,
-  ontology-family papers, and papers reusing/applying the ontologies.
+- The current cleaned dataset prioritizes exact ontology papers and keeps only
+  strongly supported ontology-family or reuse/application papers.
 - Step 4 consolidation is complete.
