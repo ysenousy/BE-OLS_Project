@@ -2,7 +2,7 @@
 
 This project builds a research dataset from Built Environment ontologies by:
 
-1. Extracting ontology metadata from TTL files in the CyberbuildLab BE-OLS repository.
+1. Reading curated ontology metadata from the CyberbuildLab BE-OLS repository (`Ontologies_forRepo.json`).
 2. Searching academic papers related to each ontology.
 3. Searching related web pages, documentation, repositories, and paper pages.
 4. Computing quality and relevance metrics for metadata, paper, and web outputs.
@@ -12,7 +12,8 @@ The pipeline is designed for reproducible data collection and evaluation across 
 ## Project Structure
 
 - `common.py`: Shared dataclasses, similarity function, CSV/JSON save helpers.
-- `step1_extract_metadata.py`: Fetches and parses TTL ontologies, outputs extracted metadata + metadata metrics.
+- `step1_extract_metadata.py`: Reads the repo's curated `Ontologies_forRepo.json`, maps each record to its TTL filename, outputs metadata + metadata metrics (including the repo's native FOOPS/alignment/quality scores).
+- `generate_search_profiles.py`: Regenerates `data/ontology_search_profiles.json` from the step 1 metadata (queries, required/optional terms, exclude terms, known DOIs) so the search keywords stay in sync with the metadata source.
 - `step2_search_papers.py`: Builds ontology-specific paper-search queries, queries OpenAlex, resolves DOI links, filters matches, and outputs papers + paper metrics.
 - `step3_search_web.py`: Searches DuckDuckGo for ontology-related web pages and outputs web results + web metrics.
 - `step4_consolidate.py`: Merges metadata, paper, and web outputs into a consolidated dataset + evaluation summary.
@@ -33,7 +34,8 @@ Generated outputs:
 
 ## Data Sources
 
-- Ontology TTL files: `CyberbuildLab/BE-OLS` GitHub folder `data/source/Ontologies_TTL`.
+- Curated ontology metadata: `CyberbuildLab/BE-OLS` file `data/Ontologies_forRepo.json` (auto-generated from the collaborators' `Ontologies.xlsx`).
+- TTL filename list (for keying): `CyberbuildLab/BE-OLS` GitHub folder `data/source/Ontologies_TTL` (names only — files are no longer downloaded or parsed).
 - Paper APIs:
   - OpenAlex (search)
   - CrossRef (DOI resolution)
@@ -60,10 +62,27 @@ python step1_extract_metadata.py
 
 This will:
 
-- Pull TTL file list from GitHub.
-- Parse each ontology with RDFLib.
-- Extract core metadata fields (title, prefix, namespace, description, version, license, creators, imports, etc.).
-- Compute metadata quality/structure metrics.
+- Pull the TTL filename list from GitHub (names only, used as the join key).
+- Fetch the repo's curated `Ontologies_forRepo.json`.
+- Match each `.ttl` filename to its curated record (by prefix/alias/title/URI).
+- Map core metadata fields (title, prefix, namespace, description, version, license, creators, imports, etc.) onto the pipeline schema.
+- Carry over the repo's native quality metrics (class/property counts, annotation, FOOPS, alignment, accessibility, quality scores).
+
+### 1b) Regenerate search profiles (optional but recommended)
+
+```powershell
+python generate_search_profiles.py
+```
+
+Rebuilds `data/ontology_search_profiles.json` from `data/ontology_metadata.json`.
+Steps 2 and 3 run without this file (they derive queries from metadata directly),
+but the profiles restore the `ontology_family` / `reuse_application` paper tiers in
+step 2 and add extra query variants. Re-run this whenever step 1 metadata changes.
+
+Note: the generated profiles are derived purely from curated metadata. They do not
+reproduce prior hand-tuned strict gates (`required_terms_all`) or manually added
+generic acronyms (e.g. bare "BIM"), trading a little curated tuning for full
+reproducibility.
 
 ### 2) Search related papers
 
@@ -74,7 +93,7 @@ python step2_search_papers.py
 This will:
 
 - Read ontology metadata from `data/ontology_metadata.json`.
-- Build ontology-specific search profiles and query variants.
+- Build ontology-specific search profiles and query variants, scoped by the curated domain signals (`primary_domain`, `secondary_domain`, `cluster`, `conforms_to`).
 - Query OpenAlex for each ontology profile.
 - Resolve DOI references found in ontology `see_also` links.
 - Deduplicate, score, classify, and filter papers.
@@ -105,6 +124,7 @@ This will:
 
 - Read ontology metadata from `data/ontology_metadata.json`.
 - Use ontology-specific search profiles from `data/ontology_search_profiles.json` when available.
+- Add domain-scoped query variants from the curated domain signals (`primary_domain`, `secondary_domain`, `cluster`).
 - Query DuckDuckGo for web pages, tools, documentation, and project pages.
 - Seed official namespace/repository links from ontology metadata.
 - Deduplicate, classify, score, and filter web results.

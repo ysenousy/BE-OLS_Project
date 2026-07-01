@@ -1,26 +1,31 @@
 """
-step1_extract_metadata.py – Phase 2: TTL Metadata Extraction + Evaluation Metrics
+step1_extract_metadata.py – Phase 2: Ontology Metadata (from curated repo JSON)
 
-Fetches ~120 TTL ontology files from the CyberbuildLab/BE-OLS GitHub repo,
-parses each with rdflib, extracts ontology-level metadata, and computes
-per-ontology quality/structural metrics.
+Instead of downloading ~120 TTL files and parsing each with rdflib, this step
+reads the CURATED metadata the CyberbuildLab/BE-OLS repository already maintains
+in ``data/Ontologies_forRepo.json`` (auto-generated from the collaborators'
+``Ontologies.xlsx`` workbook). That file provides richer, human-curated fields
+(domains, publisher, quality/FOOPS/alignment scores, class & property counts)
+and avoids TTL parse failures entirely.
 
-Outputs:
-  Files are written under the data/ directory.
-  data/ontology_metadata.csv / .json       – extracted metadata per ontology
-  data/ontology_metadata_metrics.csv / .json – quality & structural metrics
+To keep the rest of the pipeline (steps 2–4) unchanged, each curated record is
+matched to its ``.ttl`` filename in the repo's ``Ontologies_TTL`` folder and
+mapped onto the existing OntologyRow / MetadataMetrics schema keyed by filename.
+
+Outputs (unchanged, written under the data/ directory):
+  data/ontology_metadata.csv / .json          – extracted metadata per ontology
+  data/ontology_metadata_metrics.csv / .json  – quality & structural metrics
 """
 
 from __future__ import annotations
 
-import time
+import ast
+import re
 from pathlib import Path
 from statistics import mean
-from typing import List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import requests
-import rdflib
-from rdflib import RDF, RDFS, OWL, Namespace
 
 from common import (
     OntologyRow,
@@ -30,14 +35,8 @@ from common import (
 )
 
 # ---------------------------------------------------------------------------
-# RDF namespace shortcuts
+# Data sources
 # ---------------------------------------------------------------------------
-DCTERMS = Namespace("http://purl.org/dc/terms/")
-VANN = Namespace("http://purl.org/vocab/vann/")
-VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
-SCHEMA = Namespace("http://schema.org/")
-DC = Namespace("http://purl.org/dc/elements/1.1/")
-
 GITHUB_API_URL = (
     "https://api.github.com/repos/CyberbuildLab/BE-OLS"
     "/contents/data/source/Ontologies_TTL"
@@ -46,155 +45,203 @@ RAW_BASE = (
     "https://raw.githubusercontent.com/CyberbuildLab/BE-OLS"
     "/main/data/source/Ontologies_TTL"
 )
+# Curated metadata maintained in the repo (generated from Ontologies.xlsx).
+REPO_METADATA_URL = (
+    "https://raw.githubusercontent.com/CyberbuildLab/BE-OLS"
+    "/main/data/Ontologies_forRepo.json"
+)
 
 PROJECT_DIR = Path(__file__).parent
 DATA_DIR = PROJECT_DIR / "data"
 
+# Explicit filename-stem -> curated-record Prefix aliases for the handful of
+# TTL files whose name does not equal (or normalise to) the curated Prefix.
+STEM_PREFIX_ALIASES = {
+    "geosparql": "geo",
+    "asbingowl": "asb",
+    "eco": "ec",
+    "ifc4-add2": "ifc",
+    "lca-c-reno": "lca-c-renovation",
+    "mdo": "core",
+}
+
 
 # ---------------------------------------------------------------------------
-# Step 4 – Build TTL file list from GitHub
+# Fetch the authoritative TTL filename list (names only – no download/parse)
 # ---------------------------------------------------------------------------
 
-def fetch_ttl_file_list() -> List[dict]:
-    """Return list of {name, download_url} for every .ttl in the repo folder."""
-    print("[Step 4] Fetching TTL file list from GitHub …")
+def fetch_ttl_file_list() -> List[str]:
+    """Return the list of ``.ttl`` filenames in the repo's Ontologies_TTL folder."""
+    print("[Step 1] Fetching TTL filename list from GitHub …")
     resp = requests.get(GITHUB_API_URL, timeout=30)
     resp.raise_for_status()
     entries = resp.json()
-    ttl_files = [
-        {"name": e["name"], "download_url": e.get("download_url") or f"{RAW_BASE}/{e['name']}"}
-        for e in entries
-        if e["name"].lower().endswith(".ttl")
-    ]
-    print(f"  Found {len(ttl_files)} TTL files")
-    return ttl_files
+    names = sorted(e["name"] for e in entries if e["name"].lower().endswith(".ttl"))
+    print(f"  Found {len(names)} TTL files")
+    return names
 
 
 # ---------------------------------------------------------------------------
-# Step 5 – Download & parse a single TTL file
+# Fetch curated metadata and build a lookup index
 # ---------------------------------------------------------------------------
 
-def _first_literal(graph: rdflib.Graph, subject, predicate, lang_pref: str = "en") -> str:
-    """Get the first literal value for (subject, predicate), preferring *lang_pref*."""
-    best = ""
-    for obj in graph.objects(subject, predicate):
-        val = str(obj).strip()
-        if not val:
-            continue
-        if hasattr(obj, "language") and obj.language == lang_pref:
-            return val
-        if not best:
-            best = val
-    return best
+def fetch_repo_metadata() -> List[dict]:
+    """Return the curated ontology records from ``Ontologies_forRepo.json``."""
+    print("[Step 2] Fetching curated metadata (Ontologies_forRepo.json) …")
+    resp = requests.get(REPO_METADATA_URL, timeout=60)
+    resp.raise_for_status()
+    records = resp.json()
+    print(f"  Loaded {len(records)} curated records")
+    return records
 
 
-def _all_uri_objects(graph: rdflib.Graph, subject, predicate) -> List[str]:
-    """Collect all URI object values for (subject, predicate)."""
-    return [str(o) for o in graph.objects(subject, predicate) if isinstance(o, rdflib.URIRef)]
+def _norm(value: Optional[str]) -> str:
+    """Lowercase and strip everything but ASCII letters/digits."""
+    return re.sub(r"[^a-z0-9]", "", (value or "").lower())
 
 
-def _local_name(uri: str) -> str:
-    """Extract the local/fragment part of a URI."""
-    if "#" in uri:
-        return uri.rsplit("#", 1)[-1]
-    return uri.rsplit("/", 1)[-1]
+def build_record_index(records: List[dict]) -> Dict[str, dict]:
+    """Index curated records under several normalised keys for robust matching.
+
+    Keys added per record: normalised Prefix, a SAREF alias (``s4x`` -> ``saref4x``),
+    normalised Title, and the normalised last path segment of the URI.
+    """
+    index: Dict[str, dict] = {}
+
+    def add(key: str, rec: dict) -> None:
+        key = _norm(key)
+        # First writer wins so a specific Prefix isn't overwritten by a Title clash.
+        if key and key not in index:
+            index[key] = rec
+
+    for rec in records:
+        prefix = (rec.get("Prefix") or "").strip().strip(":")
+        add(prefix, rec)
+        if prefix.lower().startswith("s4"):
+            add("saref4" + prefix[2:], rec)  # s4bldg -> saref4bldg
+        add(rec.get("Title"), rec)
+        uri = (rec.get("URI") or "").rstrip("/#")
+        if uri:
+            add(uri.rsplit("/", 1)[-1], rec)
+    return index
 
 
-def _find_ontology_subject(graph: rdflib.Graph):
-    """Find the main owl:Ontology subject in the graph."""
-    for s in graph.subjects(RDF.type, OWL.Ontology):
-        return s
+def match_record(filename: str, index: Dict[str, dict]) -> Optional[dict]:
+    """Find the curated record for a ``.ttl`` filename, or None."""
+    stem = filename.rsplit(".", 1)[0]
+    for candidate in (STEM_PREFIX_ALIASES.get(stem.lower(), ""), stem):
+        rec = index.get(_norm(candidate))
+        if rec:
+            return rec
     return None
 
 
-def _extract_creators(graph: rdflib.Graph, ont_subject) -> str:
-    """Extract creator names from dcterms:creator / dc:creator."""
-    names: List[str] = []
-    for pred in (DCTERMS.creator, DC.creator):
-        for obj in graph.objects(ont_subject, pred):
-            if isinstance(obj, rdflib.Literal):
-                names.append(str(obj).strip())
-            elif isinstance(obj, rdflib.URIRef):
-                # try vcard:fn or schema:name
-                name = _first_literal(graph, obj, VCARD.fn) or _first_literal(graph, obj, SCHEMA.name)
-                if name:
-                    names.append(name)
-                else:
-                    names.append(_local_name(str(obj)))
-    return ", ".join(dict.fromkeys(names))  # deduplicate, preserve order
+# ---------------------------------------------------------------------------
+# Field-mapping helpers
+# ---------------------------------------------------------------------------
+
+def _text(value) -> str:
+    """Coerce a JSON value to a clean display string (None/NaN -> '')."""
+    if value is None:
+        return ""
+    return str(value).strip()
 
 
-def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
-    """Download and parse one TTL file; return (OntologyRow, MetadataMetrics)."""
-    metrics = MetadataMetrics(filename=filename)
-    row = OntologyRow(filename=filename)
+def _parse_people(value) -> str:
+    """Turn a Creator/Publisher value into a comma-separated string.
 
-    # Download raw content
+    Curated values are sometimes a Python-list-literal string such as
+    ``"['https://…/edlira', 'https://…/pan']"``.
+    """
+    text = _text(value)
+    if not text:
+        return ""
+    if text.startswith("[") and text.endswith("]"):
+        try:
+            items = ast.literal_eval(text)
+            if isinstance(items, (list, tuple)):
+                return ", ".join(_text(i) for i in items if _text(i))
+        except (ValueError, SyntaxError):
+            pass
+    return text
+
+
+def _num(value) -> float:
+    """Best-effort float from a curated numeric value; 0.0 on failure/blank."""
     try:
-        resp = requests.get(url, timeout=60)
-        resp.raise_for_status()
-        raw_ttl = resp.text
-    except Exception as exc:
-        metrics.parse_success = False
-        metrics.parse_error = f"Download failed: {exc}"
-        return row, metrics
+        num = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    return 0.0 if num != num else num  # guard against NaN
 
-    # Parse with rdflib
-    g = rdflib.Graph()
-    try:
-        g.parse(data=raw_ttl, format="turtle")
-    except Exception as exc:
-        metrics.parse_success = False
-        metrics.parse_error = f"Parse failed: {exc}"
-        return row, metrics
 
-    ont = _find_ontology_subject(g)
+def _joined(*values) -> str:
+    """Join several comma-listy fields into one deduped comma string."""
+    parts: List[str] = []
+    for value in values:
+        for token in re.split(r"[,;]", _text(value)):
+            token = token.strip()
+            if token and token.lower() != "none":
+                parts.append(token)
+    return ", ".join(dict.fromkeys(parts))
 
-    # --- Extract ontology-level metadata ---
-    if ont is not None:
-        row.title = (
-            _first_literal(g, ont, DCTERMS.title)
-            or _first_literal(g, ont, DC.title)
-            or _first_literal(g, ont, RDFS.label)
-        )
-        row.prefix = _first_literal(g, ont, VANN.preferredNamespacePrefix)
-        row.namespace_uri = (
-            _first_literal(g, ont, VANN.preferredNamespaceUri)
-            or str(ont)
-        )
-        row.description = (
-            _first_literal(g, ont, DCTERMS.description)
-            or _first_literal(g, ont, DC.description)
-            or _first_literal(g, ont, RDFS.comment)
-        )
-        row.version = (
-            _first_literal(g, ont, OWL.versionInfo)
-            or _first_literal(g, ont, DCTERMS.hasVersion)
-        )
-        row.license = (
-            _first_literal(g, ont, DCTERMS.license)
-            or ", ".join(_all_uri_objects(g, ont, DCTERMS.license))
-        )
-        row.creators = _extract_creators(g, ont)
-        row.date_modified = _first_literal(g, ont, DCTERMS.modified)
-        row.date_issued = _first_literal(g, ont, DCTERMS.issued)
-        row.see_also = ", ".join(_all_uri_objects(g, ont, RDFS.seeAlso))
-        row.imports = ", ".join(_all_uri_objects(g, ont, OWL.imports))
 
-    # --- Extract classes & properties ---
-    class_uris = set(g.subjects(RDF.type, OWL.Class))
-    prop_uris = (
-        set(g.subjects(RDF.type, OWL.ObjectProperty))
-        | set(g.subjects(RDF.type, OWL.DatatypeProperty))
+def record_to_row(filename: str, rec: dict) -> OntologyRow:
+    """Map a curated record onto the OntologyRow schema."""
+    return OntologyRow(
+        filename=filename,
+        title=_text(rec.get("Title")),
+        prefix=_text(rec.get("Prefix")).strip(":"),
+        namespace_uri=_text(rec.get("URI")),
+        description=_text(rec.get("Description")),
+        version=_text(rec.get("Version")),
+        license=_text(rec.get("License")),
+        creators=_joined(_parse_people(rec.get("Creator")), _parse_people(rec.get("Publisher"))),
+        date_modified="",  # not tracked in curated metadata
+        date_issued=_text(rec.get("Created")),
+        see_also=_joined(rec.get("Reference Source")),
+        imports=_joined(rec.get("Linked-to Upper Ontologies"), rec.get("Linked-to AECO Ontologies")),
+        classes="",     # curated source provides counts, not class names
+        properties="",   # curated source provides counts, not property names
+        primary_domain=_text(rec.get("Primary Domain")),
+        secondary_domain=_text(rec.get("Secondary Domain")),
+        cluster=_text(rec.get("Cluster")),
+        conforms_to=_joined(rec.get("Conforms to Standard(s)")),
     )
-    row.classes = ", ".join(sorted({_local_name(str(c)) for c in class_uris if isinstance(c, rdflib.URIRef)}))
-    row.properties = ", ".join(sorted({_local_name(str(p)) for p in prop_uris if isinstance(p, rdflib.URIRef)}))
 
-    # --- Compute metrics (Step 7b) ---
-    metrics.axiom_count = len(g)
-    metrics.class_count = len(class_uris)
-    metrics.property_count = len(prop_uris)
-    metrics.import_count = len(_all_uri_objects(g, ont, OWL.imports)) if ont else 0
+
+def record_to_metrics(filename: str, rec: Optional[dict], row: OntologyRow) -> MetadataMetrics:
+    """Map a curated record onto the MetadataMetrics schema."""
+    metrics = MetadataMetrics(filename=filename)
+
+    if rec is None:
+        metrics.parse_success = False
+        metrics.parse_error = "No curated metadata record matched this TTL filename"
+        return metrics
+
+    data_props = int(_num(rec.get("Number of Data Properties")))
+    obj_props = int(_num(rec.get("Number of Object Properties")))
+
+    metrics.class_count = int(_num(rec.get("Number of Classes")))
+    metrics.data_property_count = data_props
+    metrics.object_property_count = obj_props
+    metrics.property_count = data_props + obj_props
+    metrics.axiom_count = 0  # not available from curated metadata
+    metrics.import_count = len([t for t in row.imports.split(",") if t.strip()])
+    metrics.language_count = 0  # not available from curated metadata
+
+    # Repo-native quality scores
+    metrics.annotation_score = _num(rec.get("Annotation Score"))
+    metrics.annotation_coverage_pct = metrics.annotation_score  # already a 0–100 %
+    metrics.comment_coverage_pct = 0.0  # not separately available
+    metrics.foops_score = _num(rec.get("FOOPs Score"))
+    metrics.alignment_score = _num(rec.get("Alignment Score"))
+    metrics.accessibility_score = _num(rec.get("Accessibility Score"))
+    metrics.quality_score = _num(rec.get("Quality Score"))
+    metrics.has_documentation = bool(_num(rec.get("Has Documentation")))
+    metrics.has_serialization = bool(_num(rec.get("Has Serialization")))
+    metrics.has_conceptual_model = bool(_num(rec.get("Has Conceptual Model")))
+
     metrics.has_title = bool(row.title)
     metrics.has_namespace_uri = bool(row.namespace_uri)
     metrics.has_description = bool(row.description)
@@ -202,8 +249,7 @@ def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
     metrics.has_version = bool(row.version)
     metrics.has_creators = bool(row.creators)
 
-    # Completeness – count non-empty OntologyRow fields (excluding 'filename')
-    # Generated search keywords and the always-present filename are excluded.
+    # Completeness – count non-empty OntologyRow data fields (excluding 'filename').
     data_fields = [
         row.title, row.prefix, row.namespace_uri, row.description,
         row.version, row.license, row.creators, row.date_modified,
@@ -213,82 +259,47 @@ def parse_ttl(filename: str, url: str) -> Tuple[OntologyRow, MetadataMetrics]:
     metrics.fields_filled = sum(1 for f in data_fields if f)
     metrics.completeness_pct = round(metrics.fields_filled / metrics.fields_total * 100, 1)
 
-    # Annotation / comment coverage
-    all_entities = class_uris | prop_uris
-    if all_entities:
-        has_label = sum(1 for e in all_entities if any(g.objects(e, RDFS.label)))
-        has_comment = sum(1 for e in all_entities if any(g.objects(e, RDFS.comment)))
-        metrics.annotation_coverage_pct = round(has_label / len(all_entities) * 100, 1)
-        metrics.comment_coverage_pct = round(has_comment / len(all_entities) * 100, 1)
-
-    # Language count
-    lang_tags: set = set()
-    for pred in (RDFS.label, RDFS.comment):
-        for _, _, obj in g.triples((None, pred, None)):
-            if hasattr(obj, "language") and obj.language:
-                lang_tags.add(obj.language)
-    metrics.language_count = len(lang_tags)
-
-    return row, metrics
+    return metrics
 
 
 # ---------------------------------------------------------------------------
-# Step 6 – Derive search keywords
-# ---------------------------------------------------------------------------
-
-# ---------------------------------------------------------------------------
-# Step 7b – Print summary
+# Summary
 # ---------------------------------------------------------------------------
 
 def print_metrics_summary(metrics_list: List[MetadataMetrics]) -> None:
     """Print an overview of metadata quality across all ontologies."""
     total = len(metrics_list)
-    parsed = [m for m in metrics_list if m.parse_success]
-    failed = [m for m in metrics_list if not m.parse_success]
+    matched = [m for m in metrics_list if m.parse_success]
+    unmatched = [m for m in metrics_list if not m.parse_success]
 
     print("\n" + "=" * 60)
-    print("  METADATA EVALUATION SUMMARY")
+    print("  METADATA EVALUATION SUMMARY (curated repo source)")
     print("=" * 60)
     print(f"  Total ontologies      : {total}")
-    print(f"  Parsed successfully   : {len(parsed)}")
-    print(f"  Parse failures        : {len(failed)}")
+    print(f"  Matched to curated rec: {len(matched)}")
+    print(f"  Unmatched             : {len(unmatched)}")
 
-    if parsed:
-        avg_comp = mean(m.completeness_pct for m in parsed)
+    if matched:
+        avg_comp = mean(m.completeness_pct for m in matched)
         print(f"  Mean completeness %   : {avg_comp:.1f}%")
 
-        has_title = sum(1 for m in parsed if m.has_title)
-        # More precise counts from rows – use metrics booleans
-        has_desc = sum(1 for m in parsed if m.has_description)
-        has_ns = sum(1 for m in parsed if m.has_namespace_uri)
-        has_lic = sum(1 for m in parsed if m.has_license)
-        has_ver = sum(1 for m in parsed if m.has_version)
-        has_cre = sum(1 for m in parsed if m.has_creators)
-        print(f"  With title            : {has_title}/{len(parsed)}")
-        print(f"  With namespace URI    : {has_ns}/{len(parsed)}")
-        print(f"  With description      : {has_desc}/{len(parsed)}")
-        print(f"  With license          : {has_lic}/{len(parsed)}")
-        print(f"  With version          : {has_ver}/{len(parsed)}")
-        print(f"  With creators         : {has_cre}/{len(parsed)}")
+        print(f"  With title            : {sum(m.has_title for m in matched)}/{len(matched)}")
+        print(f"  With namespace URI    : {sum(m.has_namespace_uri for m in matched)}/{len(matched)}")
+        print(f"  With description      : {sum(m.has_description for m in matched)}/{len(matched)}")
+        print(f"  With license          : {sum(m.has_license for m in matched)}/{len(matched)}")
+        print(f"  With version          : {sum(m.has_version for m in matched)}/{len(matched)}")
+        print(f"  With creators         : {sum(m.has_creators for m in matched)}/{len(matched)}")
 
-        avg_cls = mean(m.class_count for m in parsed)
-        avg_prop = mean(m.property_count for m in parsed)
-        avg_ax = mean(m.axiom_count for m in parsed)
-        print(f"  Mean class count      : {avg_cls:.1f}")
-        print(f"  Mean property count   : {avg_prop:.1f}")
-        print(f"  Mean axiom count      : {avg_ax:.1f}")
+        print(f"  Mean class count      : {mean(m.class_count for m in matched):.1f}")
+        print(f"  Mean property count   : {mean(m.property_count for m in matched):.1f}")
+        print(f"  Mean annotation score : {mean(m.annotation_score for m in matched):.1f}")
+        print(f"  Mean FOOPS score      : {mean(m.foops_score for m in matched):.2f}")
+        print(f"  Mean quality score    : {mean(m.quality_score for m in matched):.2f}")
 
-        non_zero_ann = [m for m in parsed if m.class_count + m.property_count > 0]
-        if non_zero_ann:
-            avg_ann = mean(m.annotation_coverage_pct for m in non_zero_ann)
-            avg_cmt = mean(m.comment_coverage_pct for m in non_zero_ann)
-            print(f"  Mean annotation cov.  : {avg_ann:.1f}%")
-            print(f"  Mean comment cov.     : {avg_cmt:.1f}%")
-
-    if failed:
-        print("\n  Failed files:")
-        for m in failed:
-            print(f"    - {m.filename}: {m.parse_error}")
+    if unmatched:
+        print("\n  Unmatched files (no curated record):")
+        for m in unmatched:
+            print(f"    - {m.filename}")
 
     print("=" * 60 + "\n")
 
@@ -299,30 +310,27 @@ def print_metrics_summary(metrics_list: List[MetadataMetrics]) -> None:
 
 def main() -> None:
     ttl_files = fetch_ttl_file_list()
+    records = fetch_repo_metadata()
+    index = build_record_index(records)
 
     rows: List[OntologyRow] = []
     metrics_list: List[MetadataMetrics] = []
 
-    for i, entry in enumerate(ttl_files, 1):
-        name = entry["name"]
-        url = entry["download_url"]
-        print(f"[Step 5] ({i}/{len(ttl_files)}) Parsing {name} …")
+    for i, name in enumerate(ttl_files, 1):
+        rec = match_record(name, index)
+        status = "matched" if rec else "NO MATCH"
+        print(f"[Step 3] ({i}/{len(ttl_files)}) {name} … {status}")
 
-        row, met = parse_ttl(name, url)
+        row = record_to_row(name, rec) if rec else OntologyRow(filename=name)
+        met = record_to_metrics(name, rec, row)
         rows.append(row)
         metrics_list.append(met)
 
-        # Be polite to GitHub's CDN
-        if i % 20 == 0:
-            time.sleep(1)
-
-    # Step 7 – save metadata
-    print("\n[Step 7] Saving ontology metadata …")
+    print("\n[Step 4] Saving ontology metadata …")
     save_csv(rows, DATA_DIR / "ontology_metadata.csv")
     save_json(rows, DATA_DIR / "ontology_metadata.json")
 
-    # Step 7b – save & print metrics
-    print("[Step 7b] Saving metadata metrics …")
+    print("[Step 4b] Saving metadata metrics …")
     save_csv(metrics_list, DATA_DIR / "ontology_metadata_metrics.csv")
     save_json(metrics_list, DATA_DIR / "ontology_metadata_metrics.json")
     print_metrics_summary(metrics_list)

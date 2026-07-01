@@ -40,7 +40,7 @@ def jaccard_similarity(text_a: str, text_b: str) -> float:
 
 @dataclass
 class OntologyRow:
-    """Metadata extracted from a single TTL ontology file."""
+    """Metadata for a single ontology (from the curated Ontologies_forRepo.json)."""
     filename: str = ""
     title: str = ""
     prefix: str = ""
@@ -55,6 +55,11 @@ class OntologyRow:
     imports: str = ""
     classes: str = ""
     properties: str = ""
+    # Curated domain signals (used by steps 2 & 3 for keyword/query generation).
+    primary_domain: str = ""
+    secondary_domain: str = ""
+    cluster: str = ""
+    conforms_to: str = ""
 
 
 @dataclass
@@ -117,6 +122,19 @@ class MetadataMetrics:
     has_license: bool = False
     has_version: bool = False
     has_creators: bool = False
+    # Repo-native metrics (from CyberbuildLab/BE-OLS Ontologies_forRepo.json).
+    # Populated when metadata is sourced from the curated repo file rather than
+    # parsed from TTL; left at defaults otherwise.
+    data_property_count: int = 0
+    object_property_count: int = 0
+    annotation_score: float = 0.0
+    foops_score: float = 0.0
+    alignment_score: float = 0.0
+    accessibility_score: float = 0.0
+    quality_score: float = 0.0
+    has_documentation: bool = False
+    has_serialization: bool = False
+    has_conceptual_model: bool = False
 
 
 @dataclass

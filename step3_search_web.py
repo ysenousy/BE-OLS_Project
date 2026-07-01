@@ -247,14 +247,24 @@ def derive_web_queries(ontology: dict, profile: dict | None = None) -> List[str]
     namespace = (ontology.get("namespace_uri") or "").strip()
     namespace_marker = _clean_namespace_marker(namespace)
     description = _first_sentence(ontology.get("description") or "")
+    # Curated domain signal (from Ontologies_forRepo.json) for query scoping.
+    domain = next(
+        (ontology.get(f).strip() for f in ("primary_domain", "secondary_domain", "cluster")
+         if (ontology.get(f) or "").strip()),
+        "",
+    )
 
     if title:
         queries.append(f"{_quote_query(title)} ontology")
+    if title and domain:
+        queries.append(f"{_quote_query(title)} {domain}")
     if namespace_marker:
         queries.append(f"{_quote_query(namespace_marker)} ontology")
     if namespace:
         queries.append(_quote_query(namespace.rstrip("/#")))
-    if prefix:
+    if prefix and domain:
+        queries.append(f"{_quote_query(prefix)} {domain} ontology")
+    elif prefix:
         queries.append(f"{_quote_query(prefix)} built environment ontology")
     if description:
         queries.append(f"{description} ontology")

@@ -42,7 +42,11 @@ from common import (
 # ---------------------------------------------------------------------------
 
 RESULTS_PER_QUERY = 10
-POLITE_EMAIL = "be-ols-research@example.com"  # for OpenAlex/CrossRef polite pool
+# OpenAlex/CrossRef access is configured via environment variables (no secrets in source).
+#   OPENALEX_API_KEY – free key for uninterrupted OpenAlex search (avoids anonymous 503s)
+#   OPENALEX_EMAIL   – contact address for the OpenAlex/CrossRef polite pool
+POLITE_EMAIL = os.environ.get("OPENALEX_EMAIL", "").strip()
+OPENALEX_API_KEY = os.environ.get("OPENALEX_API_KEY", "").strip()
 
 PROJECT_DIR = Path(__file__).parent
 DATA_DIR = PROJECT_DIR / "data"
@@ -236,8 +240,15 @@ def _get(url: str, params: dict | None = None,
 OPENALEX_WORKS = "https://api.openalex.org/works"
 
 
+def _user_agent() -> str:
+    """User-Agent string, including a mailto for the polite pool when configured."""
+    if POLITE_EMAIL:
+        return f"BE-OLS-Research/1.0 (mailto:{POLITE_EMAIL})"
+    return "BE-OLS-Research/1.0"
+
+
 def _openalex_headers() -> dict:
-    return {"User-Agent": f"BE-OLS-Research/1.0 (mailto:{POLITE_EMAIL})"}
+    return {"User-Agent": _user_agent()}
 
 
 def search_openalex(query: str) -> List[dict]:
@@ -247,6 +258,9 @@ def search_openalex(query: str) -> List[dict]:
         "per_page": RESULTS_PER_QUERY,
         "select": "id,doi,title,type,authorships,publication_year,primary_location,cited_by_count,abstract_inverted_index,open_access,concepts",
     }
+    # A free API key lifts OpenAlex's anonymous-search rate limit (503s under load).
+    if OPENALEX_API_KEY:
+        params["api_key"] = OPENALEX_API_KEY
     data = _get(OPENALEX_WORKS, params=params,
                 headers=_openalex_headers(), delay=OPENALEX_DELAY,
                 label="OpenAlex")
@@ -313,7 +327,7 @@ CROSSREF_WORKS = "https://api.crossref.org/works"
 
 
 def _crossref_headers() -> dict:
-    return {"User-Agent": f"BE-OLS-Research/1.0 (mailto:{POLITE_EMAIL})"}
+    return {"User-Agent": _user_agent()}
 
 
 def search_crossref(query: str) -> List[dict]:
@@ -539,7 +553,13 @@ _GENERIC_TITLE_TERMS = {
     "resource", "resources", "system", "systems",
 }
 
-_BE_CONTEXT_FIELDS = ("description", "classes", "properties", "imports", "namespace_uri")
+# Fields scanned for built-environment domain evidence. The curated metadata
+# source (Ontologies_forRepo.json) supplies explicit domain/standard signals in
+# place of the TTL-derived class/property name lists (now empty).
+_BE_CONTEXT_FIELDS = (
+    "description", "primary_domain", "secondary_domain", "cluster",
+    "conforms_to", "imports", "namespace_uri",
+)
 
 _REUSE_TERMS = {
     "adopt", "adopted", "application", "applied", "based on", "built on",
@@ -751,6 +771,19 @@ def _is_strong_profile_term(term: str) -> bool:
     return len(tokens) >= 2
 
 
+def _curated_domain_phrase(ontology: dict) -> str:
+    """Return a short domain phrase from curated metadata for query scoping.
+
+    Prefers Primary Domain, falls back to Secondary Domain / Cluster. Empty when
+    the domain is a generic built-environment umbrella term already implied.
+    """
+    for field in ("primary_domain", "secondary_domain", "cluster"):
+        value = (ontology.get(field) or "").strip()
+        if value and value.lower() not in _QUERY_STOP_TERMS:
+            return value
+    return ""
+
+
 def derive_search_query(ontology: dict, profile: dict | None = None) -> str:
     """Build a readable primary paper-search query from Step 1 metadata."""
     profile_queries = _profile_list(profile or {}, "queries")
@@ -788,6 +821,11 @@ def derive_search_queries(ontology: dict, profile: dict | None = None) -> List[s
         if term and (term != prefix or len(prefix) >= _SHORT_PREFIX_LEN):
             for reuse_term in ("using", "reuse", "extended", "application"):
                 candidates.append(f'"{term}" {reuse_term}')
+    domain_phrase = _curated_domain_phrase(ontology)
+    if domain_phrase:
+        for term in (title, prefix):
+            if term and (term != prefix or len(prefix) >= _SHORT_PREFIX_LEN):
+                candidates.append(f'"{term}" {domain_phrase} ontology')
     if title and not _has_domain_context(title):
         candidates.append(f'"{title}" built environment ontology')
     if base and base != title:
