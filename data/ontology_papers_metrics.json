@@ -1,19 +1,19 @@
 [
   {
-    "ontology_filename": "aec3po.ttl",
+    "ontology_filename": "aec3po",
     "search_query": "\"AEC3PO\" ontology",
-    "results_returned": 1,
-    "avg_title_keyword_overlap": 0.1,
-    "avg_abstract_keyword_overlap": 0.0,
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.05,
+    "avg_abstract_keyword_overlap": 0.012,
     "max_title_overlap": 0.1,
     "doi_direct_hit": false,
     "avg_citation_count": 0,
-    "median_year": 2024,
+    "median_year": 2025,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "aic.ttl",
+    "ontology_filename": "aic",
     "search_query": "\"Agents in Construction (AiC) Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0556,
@@ -26,7 +26,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ao.ttl",
+    "ontology_filename": "ao",
     "search_query": "\"Annotations Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -39,7 +39,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "aoi.ttl",
+    "ontology_filename": "aoi",
     "search_query": "\"Areas of Interests\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -52,7 +52,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "asbingowl.ttl",
+    "ontology_filename": "asb",
     "search_query": "\"ASB-ING Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -65,7 +65,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "bao.ttl",
+    "ontology_filename": "bao",
     "search_query": "\"Building Assessment Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -78,7 +78,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "bcao.ttl",
+    "ontology_filename": "bcao",
     "search_query": "\"Building Circularity Assessment Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.2727,
@@ -91,7 +91,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "bcfowl.ttl",
+    "ontology_filename": "bcfowl",
     "search_query": "\"BIM collaboration Format Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -104,7 +104,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "bem-reno.ttl",
+    "ontology_filename": "bem-reno",
     "search_query": "\"BEM-Reno Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0,
@@ -117,7 +117,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "beo.ttl",
+    "ontology_filename": "beo",
     "search_query": "\"Building Element Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -130,7 +130,46 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "bm.ttl",
+    "ontology_filename": "bfp",
+    "search_query": "\"Building Fire Protection\" ontology",
+    "results_returned": 10,
+    "avg_title_keyword_overlap": 0.1388,
+    "avg_abstract_keyword_overlap": 0.0311,
+    "max_title_overlap": 0.25,
+    "doi_direct_hit": true,
+    "avg_citation_count": 16,
+    "median_year": 2023,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.7
+  },
+  {
+    "ontology_filename": "bimdo",
+    "search_query": "\"BIM design ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "bimso",
+    "search_query": "\"BIM shared ontology\" ontology",
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.1296,
+    "avg_abstract_keyword_overlap": 0.0199,
+    "max_title_overlap": 0.1538,
+    "doi_direct_hit": false,
+    "avg_citation_count": 12.5,
+    "median_year": 2022,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.5
+  },
+  {
+    "ontology_filename": "bm",
     "search_query": "\"BIMERR Metadata ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -143,33 +182,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "bop.ttl",
+    "ontology_filename": "bop",
     "search_query": "\"Building Performance Ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.2232,
     "avg_abstract_keyword_overlap": 0.0254,
     "max_title_overlap": 0.375,
     "doi_direct_hit": false,
-    "avg_citation_count": 24.5,
+    "avg_citation_count": 25,
     "median_year": 2023,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "bot.ttl",
+    "ontology_filename": "bot",
     "search_query": "\"The Building Topology Ontology (BOT)\" ontology",
     "results_returned": 3,
-    "avg_title_keyword_overlap": 0.3667,
-    "avg_abstract_keyword_overlap": 0.0452,
+    "avg_title_keyword_overlap": 0.2278,
+    "avg_abstract_keyword_overlap": 0.034,
     "max_title_overlap": 0.5,
     "doi_direct_hit": false,
-    "avg_citation_count": 168.7,
+    "avg_citation_count": 166.7,
     "median_year": 2018,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "bpo.ttl",
+    "ontology_filename": "bpo",
     "search_query": "\"Building Product Ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.4018,
@@ -182,20 +221,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "brick.ttl",
+    "ontology_filename": "brick",
     "search_query": "\"Brick\" ontology",
-    "results_returned": 8,
-    "avg_title_keyword_overlap": 0.1113,
-    "avg_abstract_keyword_overlap": 0.0097,
+    "results_returned": 9,
+    "avg_title_keyword_overlap": 0.1051,
+    "avg_abstract_keyword_overlap": 0.0073,
     "max_title_overlap": 0.5,
     "doi_direct_hit": false,
-    "avg_citation_count": 538.6,
-    "median_year": 2008,
+    "avg_citation_count": 507.7,
+    "median_year": 2009,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.25
+    "open_access_ratio": 0.3333
   },
   {
-    "ontology_filename": "brot.ttl",
+    "ontology_filename": "brot",
     "search_query": "\"Bridge Topology Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.1111,
@@ -208,20 +247,33 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "building.ttl",
+    "ontology_filename": "building",
     "search_query": "\"Building Ontology\" ontology",
     "results_returned": 7,
     "avg_title_keyword_overlap": 0.1401,
-    "avg_abstract_keyword_overlap": 0.0219,
+    "avg_abstract_keyword_overlap": 0.0221,
     "max_title_overlap": 0.2,
     "doi_direct_hit": false,
-    "avg_citation_count": 342,
+    "avg_citation_count": 342.7,
     "median_year": 1999,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.8571
   },
   {
-    "ontology_filename": "cdc.ttl",
+    "ontology_filename": "camo",
+    "search_query": "\"Circular Materials and Activities Ontologies\" ontology",
+    "results_returned": 6,
+    "avg_title_keyword_overlap": 0.1025,
+    "avg_abstract_keyword_overlap": 0.032,
+    "max_title_overlap": 0.1538,
+    "doi_direct_hit": false,
+    "avg_citation_count": 8.8,
+    "median_year": 2022,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.6667
+  },
+  {
+    "ontology_filename": "cdc",
     "search_query": "\"CDC: Construction Dataset Context ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -234,7 +286,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ci.ttl",
+    "ontology_filename": "cdo",
+    "search_query": "\"Concrete Damage Ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "ceo",
+    "search_query": "\"Circular Exchange Ontology\" ontology",
+    "results_returned": 3,
+    "avg_title_keyword_overlap": 0.1037,
+    "avg_abstract_keyword_overlap": 0.0201,
+    "max_title_overlap": 0.2,
+    "doi_direct_hit": false,
+    "avg_citation_count": 6.7,
+    "median_year": 2024,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "ci",
     "search_query": "\"The Cost Item (CI) Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0526,
@@ -247,7 +325,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "contax.ttl",
+    "ontology_filename": "conse",
+    "search_query": "\"Construction Semantic Enrichment Ontology\" ontology",
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.2667,
+    "avg_abstract_keyword_overlap": 0.036,
+    "max_title_overlap": 0.2667,
+    "doi_direct_hit": true,
+    "avg_citation_count": 8,
+    "median_year": 2023,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "contax",
     "search_query": "\"ConTax ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -260,7 +351,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "cr.ttl",
+    "ontology_filename": "cr",
     "search_query": "\"The Construction Resources (CR) Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0526,
@@ -273,7 +364,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "cterm.ttl",
+    "ontology_filename": "cterm",
     "search_query": "\"The Construction Terminology (CTERM) Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0526,
@@ -286,7 +377,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "cto.ttl",
+    "ontology_filename": "cto",
     "search_query": "\"CTO: Construction Tasks Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -299,33 +390,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dano.ttl",
+    "ontology_filename": "dano",
     "search_query": "\"Drawing Analyis Ontology (DAnO)\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0909,
     "avg_abstract_keyword_overlap": 0.0273,
     "max_title_overlap": 0.0909,
     "doi_direct_hit": true,
-    "avg_citation_count": 5,
+    "avg_citation_count": 6,
     "median_year": 2025,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "db.ttl",
+    "ontology_filename": "db",
     "search_query": "\"Digital Buildings\" ontology",
     "results_returned": 1,
-    "avg_title_keyword_overlap": 0.3333,
-    "avg_abstract_keyword_overlap": 0.0,
-    "max_title_overlap": 0.3333,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0132,
+    "max_title_overlap": 0.0,
     "doi_direct_hit": false,
-    "avg_citation_count": 2,
-    "median_year": 2020,
+    "avg_citation_count": 117,
+    "median_year": 2021,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.0
+    "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "dica.ttl",
+    "ontology_filename": "dica",
     "search_query": "\"Digital Construction Agents\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -338,20 +429,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicc.ttl",
+    "ontology_filename": "dicc",
     "search_query": "\"Digital Construction Contexts\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.3333,
     "avg_abstract_keyword_overlap": 0.0292,
     "max_title_overlap": 0.3333,
     "doi_direct_hit": false,
-    "avg_citation_count": 107,
+    "avg_citation_count": 109,
     "median_year": 2021,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "dice.ttl",
+    "ontology_filename": "dice",
     "search_query": "\"Digital Construction Entities\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -364,7 +455,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dices.ttl",
+    "ontology_filename": "dices",
     "search_query": "\"Digital Construction Energy\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -377,7 +468,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dici.ttl",
+    "ontology_filename": "dici",
     "search_query": "\"Digital Construction Information\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.25,
@@ -390,7 +481,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "dicl.ttl",
+    "ontology_filename": "dicl",
     "search_query": "\"Digital Construction Lifecycle\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -403,7 +494,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "diclvl.ttl",
+    "ontology_filename": "diclvl",
     "search_query": "\"A vocabulary for LOD levels\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -416,7 +507,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicm.ttl",
+    "ontology_filename": "dicm",
     "search_query": "\"Digital Construction Materials\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -429,7 +520,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicob.ttl",
+    "ontology_filename": "dicob",
     "search_query": "\"Digital Construction Occupancy\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -442,7 +533,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicp.ttl",
+    "ontology_filename": "dicp",
     "search_query": "\"Digital Construction Processes\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -455,7 +546,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicstg.ttl",
+    "ontology_filename": "dicstg",
     "search_query": "\"A vocabulary for BLCS stages\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -468,7 +559,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicu.ttl",
+    "ontology_filename": "dicu",
     "search_query": "\"Digital Construction Units\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -481,7 +572,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dicv.ttl",
+    "ontology_filename": "dicv",
     "search_query": "\"Digital Construction Variables\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -494,20 +585,46 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dogont.ttl",
+    "ontology_filename": "dmo",
+    "search_query": "\"Damage Mechanics Ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "do",
+    "search_query": "\"Defect Ontology\" ontology",
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.0697,
+    "avg_abstract_keyword_overlap": 0.0154,
+    "max_title_overlap": 0.0769,
+    "doi_direct_hit": true,
+    "avg_citation_count": 61,
+    "median_year": 2019,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.5
+  },
+  {
+    "ontology_filename": "dogont",
     "search_query": "\"DogOnt: Ontology Modeling for Intelligent Domotic Environments\" ontology",
     "results_returned": 1,
-    "avg_title_keyword_overlap": 0.0667,
-    "avg_abstract_keyword_overlap": 0.0455,
-    "max_title_overlap": 0.0667,
+    "avg_title_keyword_overlap": 1.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 1.0,
     "doi_direct_hit": false,
-    "avg_citation_count": 9,
-    "median_year": 2021,
+    "avg_citation_count": 249,
+    "median_year": 2008,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "dor.ttl",
+    "ontology_filename": "dor",
     "search_query": "\"Decommissioning and Reuse Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -520,7 +637,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dot.ttl",
+    "ontology_filename": "dot",
     "search_query": "\"Damage Topology Ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.068,
@@ -533,7 +650,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "dstv.ttl",
+    "ontology_filename": "dstv",
     "search_query": "\"DSTV:Steel Construction Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -546,20 +663,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "dtc.ttl",
+    "ontology_filename": "dtc",
     "search_query": "\"Digital Twin Construction Ontology\" ontology",
     "results_returned": 4,
     "avg_title_keyword_overlap": 0.3441,
     "avg_abstract_keyword_overlap": 0.0259,
     "max_title_overlap": 0.4444,
     "doi_direct_hit": false,
-    "avg_citation_count": 8,
+    "avg_citation_count": 9.2,
     "median_year": 2025,
     "cs_engineering_ratio": 0.25,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "eco.ttl",
+    "ontology_filename": "ec",
     "search_query": "\"ECO - Eurocode Core Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.25,
@@ -572,7 +689,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "eepsa.ttl",
+    "ontology_filename": "eepsa",
     "search_query": "\"The EEPSA Ontology.\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -585,20 +702,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "emmo.ttl",
+    "ontology_filename": "emmo",
     "search_query": "\"Elementary Multiperspective Material Ontology (EMMO)\" ontology",
     "results_returned": 6,
     "avg_title_keyword_overlap": 0.1041,
     "avg_abstract_keyword_overlap": 0.0429,
     "max_title_overlap": 0.3125,
     "doi_direct_hit": false,
-    "avg_citation_count": 6.2,
+    "avg_citation_count": 6.5,
     "median_year": 2022,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.8333
   },
   {
-    "ontology_filename": "esair.ttl",
+    "ontology_filename": "esair",
     "search_query": "\"calidad-aire\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -611,20 +728,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "facility.ttl",
+    "ontology_filename": "eurobau",
+    "search_query": "\"Eurobau Utility Ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "facility",
     "search_query": "\"Facility Ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.175,
     "avg_abstract_keyword_overlap": 0.0333,
     "max_title_overlap": 0.25,
     "doi_direct_hit": false,
-    "avg_citation_count": 27.5,
+    "avg_citation_count": 28,
     "median_year": 2013,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.5
   },
   {
-    "ontology_filename": "ffdr.ttl",
+    "ontology_filename": "ffdr",
     "search_query": "\"Firefighters' Data Requirements Ontology\" ontology",
     "results_returned": 3,
     "avg_title_keyword_overlap": 0.2387,
@@ -637,7 +767,33 @@
     "open_access_ratio": 0.6667
   },
   {
-    "ontology_filename": "fm-ener.ttl",
+    "ontology_filename": "fgo",
+    "search_query": "\"FireGrid ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": true,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "fisa",
+    "search_query": "\"Fire Safety Ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": true,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "fm-ener",
     "search_query": "\"Facility Management Building Energy Ontology for Renovative Design Decisons\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -650,7 +806,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "fmo.ttl",
+    "ontology_filename": "fmo",
     "search_query": "\"Failure Mechanism Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -663,7 +819,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "fog.ttl",
+    "ontology_filename": "fog",
     "search_query": "\"FOG: File Ontology for Geometry formats\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0556,
@@ -676,33 +832,59 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "fso.ttl",
+    "ontology_filename": "fso",
     "search_query": "\"The Flow Systems Ontology (FSO)\" ontology",
     "results_returned": 3,
     "avg_title_keyword_overlap": 0.1414,
     "avg_abstract_keyword_overlap": 0.0453,
     "max_title_overlap": 0.2353,
     "doi_direct_hit": false,
-    "avg_citation_count": 20,
+    "avg_citation_count": 20.3,
     "median_year": 2022,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "geosparql.ttl",
-    "search_query": "\"GeoSPARQL Ontology\" ontology",
-    "results_returned": 6,
-    "avg_title_keyword_overlap": 0.0542,
-    "avg_abstract_keyword_overlap": 0.0183,
-    "max_title_overlap": 0.2222,
-    "doi_direct_hit": false,
-    "avg_citation_count": 8.2,
-    "median_year": 2021,
+    "ontology_filename": "gbmno",
+    "search_query": "\"Green Building Material Name Ontology\" ontology",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.3077,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.3077,
+    "doi_direct_hit": true,
+    "avg_citation_count": 37,
+    "median_year": 2019,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.8333
+    "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "gis4reno.ttl",
+    "ontology_filename": "gbmto",
+    "search_query": "\"Green Building Material Type Ontology\" ontology",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.3077,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.3077,
+    "doi_direct_hit": true,
+    "avg_citation_count": 37,
+    "median_year": 2019,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "geo",
+    "search_query": "\"GeoSPARQL Ontology\" ontology",
+    "results_returned": 5,
+    "avg_title_keyword_overlap": 0.0651,
+    "avg_abstract_keyword_overlap": 0.0179,
+    "max_title_overlap": 0.2222,
+    "doi_direct_hit": false,
+    "avg_citation_count": 9.6,
+    "median_year": 2023,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.8
+  },
+  {
+    "ontology_filename": "gis4reno",
     "search_query": "\"GIS-based ontology for surrounding buildings to support building renovation\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 1.0,
@@ -715,7 +897,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "hbpo.ttl",
+    "ontology_filename": "hbpo",
     "search_query": "\"Holistic Building Performance Ontology\" ontology",
     "results_returned": 3,
     "avg_title_keyword_overlap": 0.4111,
@@ -728,7 +910,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "hmo.ttl",
+    "ontology_filename": "hmo",
     "search_query": "\"Historic Masonry Ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.0526,
@@ -741,7 +923,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "icdd2ams.ttl",
+    "ontology_filename": "icdd2ams",
     "search_query": "\"Asset Condition Integration from ICDD to AMS (icdd2ams)\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0455,
@@ -754,7 +936,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "idpo.ttl",
+    "ontology_filename": "idpo",
     "search_query": "\"Information Delivery Processes Ontology (IDPO)\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -767,7 +949,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ifc4-add2.ttl",
+    "ontology_filename": "ifc",
     "search_query": "\"IFC4_ADD2_TC1\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -780,7 +962,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "into.ttl",
+    "ontology_filename": "into",
     "search_query": "\"Infrastructure Topology Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -793,7 +975,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "io.ttl",
+    "ontology_filename": "io",
     "search_query": "\"Information Objects Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -806,7 +988,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ioc.ttl",
+    "ontology_filename": "ioc",
     "search_query": "\"IOC: Internet of Construction Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -819,7 +1001,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "iot.ttl",
+    "ontology_filename": "iot",
     "search_query": "\"IoT ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.2,
@@ -832,7 +1014,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "isoprops.ttl",
+    "ontology_filename": "isoprops",
     "search_query": "\"ISO 23386 Property Ontology (ISOProps)\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -845,20 +1027,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "kpi.ttl",
+    "ontology_filename": "jup",
+    "search_query": "\"Ontology of Building Accessibility\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "kpi",
     "search_query": "\"Key Performance Indicator ontology\" ontology",
     "results_returned": 2,
     "avg_title_keyword_overlap": 0.0839,
     "avg_abstract_keyword_overlap": 0.0154,
     "max_title_overlap": 0.1053,
     "doi_direct_hit": false,
-    "avg_citation_count": 24.5,
+    "avg_citation_count": 25,
     "median_year": 2021,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "lca-c-reno.ttl",
+    "ontology_filename": "lca-c-renovation",
     "search_query": "\"LCA-C Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -871,7 +1066,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "loin.ttl",
+    "ontology_filename": "loin",
     "search_query": "\"Level of Information Need (LOIN) Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -884,7 +1079,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "mat.ttl",
+    "ontology_filename": "mat",
     "search_query": "\"Material properties ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0,
@@ -897,8 +1092,8 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "mdo.ttl",
-    "search_query": "\"ASB-ING Ontology\" ontology",
+    "ontology_filename": "core",
+    "search_query": "\"Materials Design Ontology - Core Module\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
     "avg_abstract_keyword_overlap": 0.0,
@@ -910,7 +1105,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "mep.ttl",
+    "ontology_filename": "mep",
     "search_query": "\"Distribution Element Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -923,7 +1118,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "mns.ttl",
+    "ontology_filename": "mns",
     "search_query": "\"Modelling and Standards Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0714,
@@ -936,7 +1131,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "nen2660.ttl",
+    "ontology_filename": "mpo",
+    "search_query": "\"Material Passport Ontology\" ontology",
+    "results_returned": 5,
+    "avg_title_keyword_overlap": 0.3784,
+    "avg_abstract_keyword_overlap": 0.0389,
+    "max_title_overlap": 0.4286,
+    "doi_direct_hit": false,
+    "avg_citation_count": 9,
+    "median_year": 2025,
+    "cs_engineering_ratio": 0.2,
+    "open_access_ratio": 0.8
+  },
+  {
+    "ontology_filename": "nen2660",
     "search_query": "\"NEN 2660-2:2022 - Rules for information modelling of the built environment - Normative classes and properties (RDFS, OWL, and SHACL)\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -949,20 +1157,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ocqa.ttl",
+    "ontology_filename": "obpa",
+    "search_query": "\"Ontology for Building Permit Authorities\" ontology",
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.3894,
+    "avg_abstract_keyword_overlap": 0.0544,
+    "max_title_overlap": 0.625,
+    "doi_direct_hit": false,
+    "avg_citation_count": 6,
+    "median_year": 2024,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "ocqa",
     "search_query": "\"Ontology for Construction Quality Assurence (OCQA)\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.1333,
     "avg_abstract_keyword_overlap": 0.0435,
     "max_title_overlap": 0.1333,
     "doi_direct_hit": false,
-    "avg_citation_count": 6,
+    "avg_citation_count": 5,
     "median_year": 2016,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "ofo.ttl",
+    "ontology_filename": "ofo",
     "search_query": "\"Occupant Feedback Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0,
@@ -975,7 +1196,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "omg.ttl",
+    "ontology_filename": "omg",
     "search_query": "\"OMG: Ontology for Managing Geometry\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.0588,
@@ -988,20 +1209,46 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "onem2m.ttl",
+    "ontology_filename": "onem2m",
     "search_query": "\"oneM2M Base Ontology\" ontology",
-    "results_returned": 4,
-    "avg_title_keyword_overlap": 0.0741,
-    "avg_abstract_keyword_overlap": 0.0186,
+    "results_returned": 5,
+    "avg_title_keyword_overlap": 0.0736,
+    "avg_abstract_keyword_overlap": 0.0178,
     "max_title_overlap": 0.125,
     "doi_direct_hit": false,
-    "avg_citation_count": 37,
+    "avg_citation_count": 48.2,
     "median_year": 2018,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.5
+    "open_access_ratio": 0.6
   },
   {
-    "ontology_filename": "op.ttl",
+    "ontology_filename": "OntoCityGML",
+    "search_query": "\"CityGML Ontology\" ontology",
+    "results_returned": 4,
+    "avg_title_keyword_overlap": 0.0417,
+    "avg_abstract_keyword_overlap": 0.0159,
+    "max_title_overlap": 0.1667,
+    "doi_direct_hit": false,
+    "avg_citation_count": 23,
+    "median_year": 2023,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "ontonav",
+    "search_query": "\"Indoor Navigation Ontology\" ontology",
+    "results_returned": 10,
+    "avg_title_keyword_overlap": 0.1997,
+    "avg_abstract_keyword_overlap": 0.0249,
+    "max_title_overlap": 0.3333,
+    "doi_direct_hit": false,
+    "avg_citation_count": 14.4,
+    "median_year": 2019,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.9
+  },
+  {
+    "ontology_filename": "op",
     "search_query": "\"Occupancy Profile ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1014,7 +1261,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "opm.ttl",
+    "ontology_filename": "opm",
     "search_query": "\"OPM: Ontology for Property Management\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1027,46 +1274,46 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "ph.ttl",
+    "ontology_filename": "ph",
     "search_query": "\"Project Haystack\" ontology",
-    "results_returned": 4,
-    "avg_title_keyword_overlap": 0.0894,
-    "avg_abstract_keyword_overlap": 0.0273,
+    "results_returned": 3,
+    "avg_title_keyword_overlap": 0.1192,
+    "avg_abstract_keyword_overlap": 0.0283,
     "max_title_overlap": 0.1667,
     "doi_direct_hit": false,
-    "avg_citation_count": 20,
+    "avg_citation_count": 18.3,
     "median_year": 2020,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.75
+    "open_access_ratio": 0.6667
   },
   {
-    "ontology_filename": "process.ttl",
+    "ontology_filename": "process",
     "search_query": "\"Process Ontology\" ontology",
     "results_returned": 7,
     "avg_title_keyword_overlap": 0.1035,
     "avg_abstract_keyword_overlap": 0.022,
     "max_title_overlap": 0.25,
     "doi_direct_hit": false,
-    "avg_citation_count": 236.1,
+    "avg_citation_count": 236.7,
     "median_year": 2008,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.8571
   },
   {
-    "ontology_filename": "quality.ttl",
+    "ontology_filename": "quality",
     "search_query": "\"Quality Ontology\" ontology",
-    "results_returned": 1,
-    "avg_title_keyword_overlap": 0.0909,
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.1705,
     "avg_abstract_keyword_overlap": 0.0,
-    "max_title_overlap": 0.0909,
+    "max_title_overlap": 0.25,
     "doi_direct_hit": false,
-    "avg_citation_count": 323,
-    "median_year": 2004,
+    "avg_citation_count": 189,
+    "median_year": 2005,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "rdo.ttl",
+    "ontology_filename": "rdo",
     "search_query": "\"Roof Damage Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1079,7 +1326,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "reloc.ttl",
+    "ontology_filename": "rec",
+    "search_query": "\"RealEstateCore\" ontology",
+    "results_returned": 2,
+    "avg_title_keyword_overlap": 0.3333,
+    "avg_abstract_keyword_overlap": 0.0175,
+    "max_title_overlap": 0.6667,
+    "doi_direct_hit": false,
+    "avg_citation_count": 22,
+    "median_year": 2019,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "reloc",
     "search_query": "\"Relative Location Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1092,7 +1352,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "reno-inst.ttl",
+    "ontology_filename": "reno-inst",
     "search_query": "\"Reno-Inst Ontology\" ontology",
     "results_returned": 4,
     "avg_title_keyword_overlap": 0.1875,
@@ -1105,7 +1365,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "renp.ttl",
+    "ontology_filename": "renp",
     "search_query": "\"Renovation Processes and Work Orders Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1118,33 +1378,33 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "resource.ttl",
+    "ontology_filename": "resource",
     "search_query": "\"Resource ontology\" ontology",
-    "results_returned": 6,
-    "avg_title_keyword_overlap": 0.2117,
-    "avg_abstract_keyword_overlap": 0.0179,
+    "results_returned": 7,
+    "avg_title_keyword_overlap": 0.1815,
+    "avg_abstract_keyword_overlap": 0.0189,
     "max_title_overlap": 0.4,
     "doi_direct_hit": false,
-    "avg_citation_count": 31.8,
-    "median_year": 2015,
-    "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.1667
-  },
-  {
-    "ontology_filename": "safety.ttl",
-    "search_query": "\"Safety Ontology\" ontology",
-    "results_returned": 8,
-    "avg_title_keyword_overlap": 0.1484,
-    "avg_abstract_keyword_overlap": 0.0206,
-    "max_title_overlap": 0.25,
-    "doi_direct_hit": false,
-    "avg_citation_count": 75.4,
+    "avg_citation_count": 36.4,
     "median_year": 2016,
     "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.625
+    "open_access_ratio": 0.1429
   },
   {
-    "ontology_filename": "sao.ttl",
+    "ontology_filename": "safety",
+    "search_query": "\"Safety Ontology\" ontology",
+    "results_returned": 8,
+    "avg_title_keyword_overlap": 0.1622,
+    "avg_abstract_keyword_overlap": 0.0207,
+    "max_title_overlap": 0.25,
+    "doi_direct_hit": false,
+    "avg_citation_count": 77.9,
+    "median_year": 2018,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.75
+  },
+  {
+    "ontology_filename": "sao",
     "search_query": "\"Stream Annotation Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1157,20 +1417,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref.ttl",
+    "ontology_filename": "saref",
     "search_query": "\"SAREF: the Smart Applications REFerence ontology\" ontology",
     "results_returned": 3,
     "avg_title_keyword_overlap": 0.1763,
     "avg_abstract_keyword_overlap": 0.0378,
     "max_title_overlap": 0.3333,
     "doi_direct_hit": false,
-    "avg_citation_count": 27.3,
+    "avg_citation_count": 29,
     "median_year": 2021,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "saref4agri.ttl",
+    "ontology_filename": "s4agri",
     "search_query": "\"SAREF4AGRI: an extension of SAREF for the agriculture and food domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1183,7 +1443,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4auto.ttl",
+    "ontology_filename": "s4auto",
     "search_query": "\"SAREF4AUTO: an extension of SAREF for the automotive domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1196,7 +1456,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4bldg.ttl",
+    "ontology_filename": "s4bldg",
     "search_query": "\"SAREF4BLDG: an extension of SAREF for the building domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1209,7 +1469,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4city.ttl",
+    "ontology_filename": "s4city",
     "search_query": "\"SAREF4CITY: an extension of SAREF for the Smart City domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1222,7 +1482,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4ehaw.ttl",
+    "ontology_filename": "s4ehaw",
     "search_query": "\"SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1235,7 +1495,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4ener.ttl",
+    "ontology_filename": "s4ener",
     "search_query": "\"SAREF for Energy Flexibility\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1248,7 +1508,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4envi.ttl",
+    "ontology_filename": "s4envi",
     "search_query": "\"SAREF4ENVI: an extension of SAREF for the Environment domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1261,7 +1521,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4grid.ttl",
+    "ontology_filename": "s4grid",
     "search_query": "\"SAREF4GRID: an extension of SAREF for the Smart Grid domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1274,7 +1534,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4inma.ttl",
+    "ontology_filename": "s4inma",
     "search_query": "\"SAREF4INMA: an extension of SAREF for the industry and manufacturing domain\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.6923,
@@ -1287,7 +1547,7 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "saref4lift.ttl",
+    "ontology_filename": "s4lift",
     "search_query": "\"SAREF4WEAR: an extension of SAREF for the Smart Lifts domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1300,7 +1560,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4syst.ttl",
+    "ontology_filename": "s4syst",
     "search_query": "\"SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1313,7 +1573,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4watr.ttl",
+    "ontology_filename": "s4watr",
     "search_query": "\"SAREF4WATR: an extension of SAREF for the water domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1326,7 +1586,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "saref4wear.ttl",
+    "ontology_filename": "s4wear",
     "search_query": "\"SAREF4WEAR: an extension of SAREF for the Wearables domain\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1339,7 +1599,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "sbeo.ttl",
+    "ontology_filename": "sbeo",
     "search_query": "\"SBEO: Smart Building Evacuation Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 1.0,
@@ -1352,20 +1612,46 @@
     "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "sd.ttl",
-    "search_query": "\"Sensor Data ontology\" ontology",
-    "results_returned": 2,
-    "avg_title_keyword_overlap": 0.0909,
-    "avg_abstract_keyword_overlap": 0.0374,
-    "max_title_overlap": 0.1818,
+    "ontology_filename": "sbim",
+    "search_query": "\"SemanticBIM Ontology\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
     "doi_direct_hit": false,
-    "avg_citation_count": 33,
-    "median_year": 2009,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "seas.ttl",
+    "ontology_filename": "sbonto",
+    "search_query": "\"Ontology of smart building\" ontology",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.3333,
+    "avg_abstract_keyword_overlap": 0.093,
+    "max_title_overlap": 0.3333,
+    "doi_direct_hit": true,
+    "avg_citation_count": 2,
+    "median_year": 2018,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "sd",
+    "search_query": "\"Sensor Data ontology\" ontology",
+    "results_returned": 3,
+    "avg_title_keyword_overlap": 0.1375,
+    "avg_abstract_keyword_overlap": 0.0374,
+    "max_title_overlap": 0.2308,
+    "doi_direct_hit": false,
+    "avg_citation_count": 22.3,
+    "median_year": 2010,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "seas",
     "search_query": "\"SEAS Ontology\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.1333,
@@ -1378,46 +1664,59 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "sml.ttl",
-    "search_query": "\"EN 17632-1:2022 / EN 17632-2:2024 - BIM Semantic modelling and linking (SML) - Normative classes and properties (RDFS, OWL, and SHACL)\" ontology",
-    "results_returned": 0,
-    "avg_title_keyword_overlap": 0.0,
-    "avg_abstract_keyword_overlap": 0.0,
-    "max_title_overlap": 0.0,
+    "ontology_filename": "sero",
+    "search_query": "\"Steel Element Reuse Ontology\" ontology",
+    "results_returned": 3,
+    "avg_title_keyword_overlap": 0.2841,
+    "avg_abstract_keyword_overlap": 0.0254,
+    "max_title_overlap": 0.3636,
     "doi_direct_hit": false,
-    "avg_citation_count": 0.0,
-    "median_year": 0,
-    "cs_engineering_ratio": 0.0,
-    "open_access_ratio": 0.0
+    "avg_citation_count": 3,
+    "median_year": 2025,
+    "cs_engineering_ratio": 0.3333,
+    "open_access_ratio": 1.0
   },
   {
-    "ontology_filename": "sosa.ttl",
+    "ontology_filename": "sml",
+    "search_query": "\"EN 17632-1:2022 / EN 17632-2:2024 - BIM Semantic modelling and linking (SML) - Normative classes and properties (RDFS, OWL, and SHACL)\" ontology",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.1364,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.1364,
+    "doi_direct_hit": false,
+    "avg_citation_count": 2,
+    "median_year": 2023,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "sosa",
     "search_query": "\"Sensor, Observation, Sample, and Actuator (SOSA) Ontology\" ontology",
     "results_returned": 5,
     "avg_title_keyword_overlap": 0.1064,
     "avg_abstract_keyword_overlap": 0.0556,
     "max_title_overlap": 0.2143,
     "doi_direct_hit": false,
-    "avg_citation_count": 145.8,
+    "avg_citation_count": 149.4,
     "median_year": 2020,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.8
   },
   {
-    "ontology_filename": "ssn.ttl",
+    "ontology_filename": "ssn",
     "search_query": "\"Semantic Sensor Network Ontology\" ontology",
     "results_returned": 9,
     "avg_title_keyword_overlap": 0.263,
     "avg_abstract_keyword_overlap": 0.0481,
     "max_title_overlap": 0.5,
     "doi_direct_hit": false,
-    "avg_citation_count": 220.8,
+    "avg_citation_count": 221.6,
     "median_year": 2012,
     "cs_engineering_ratio": 0.0,
     "open_access_ratio": 0.4444
   },
   {
-    "ontology_filename": "stg.ttl",
+    "ontology_filename": "stg",
     "search_query": "\"STG: Scan-to-Graph\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1430,7 +1729,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "tempo.ttl",
+    "ontology_filename": "tempo",
     "search_query": "\"Data Template Ontology (TempO)\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1443,7 +1742,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-actor.ttl",
+    "ontology_filename": "th-actor",
     "search_query": "\"Users and Preference Information\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1456,7 +1755,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-building.ttl",
+    "ontology_filename": "th-building",
     "search_query": "\"Architecture and Building Physics Information Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1469,7 +1768,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-energy.ttl",
+    "ontology_filename": "th-energy",
     "search_query": "\"Energy and Resource Information\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1482,7 +1781,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-process.ttl",
+    "ontology_filename": "th-process",
     "search_query": "\"User Behavior and Building Process Information\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1495,7 +1794,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-sharedvoc.ttl",
+    "ontology_filename": "th-sharedvoc",
     "search_query": "\"Buildling Ontology Shared Vocabulary\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1508,7 +1807,7 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "th-weather.ttl",
+    "ontology_filename": "th-weather",
     "search_query": "\"Weather and Exterior Influence Information\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1521,7 +1820,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "unocs.ttl",
+    "ontology_filename": "uno",
+    "search_query": "\"User Navigation Ontology\" ontology",
+    "results_returned": 1,
+    "avg_title_keyword_overlap": 0.1429,
+    "avg_abstract_keyword_overlap": 0.0291,
+    "max_title_overlap": 0.1429,
+    "doi_direct_hit": false,
+    "avg_citation_count": 9,
+    "median_year": 2022,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 1.0
+  },
+  {
+    "ontology_filename": "unocs",
     "search_query": "\"Digital Construction Agents\" ontology",
     "results_returned": 1,
     "avg_title_keyword_overlap": 0.1111,
@@ -1534,7 +1846,20 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "weat.ttl",
+    "ontology_filename": "upo",
+    "search_query": "\"User Profile Ontology\" ontology",
+    "results_returned": 10,
+    "avg_title_keyword_overlap": 0.2646,
+    "avg_abstract_keyword_overlap": 0.0281,
+    "max_title_overlap": 0.4286,
+    "doi_direct_hit": true,
+    "avg_citation_count": 37.8,
+    "median_year": 2010,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.3
+  },
+  {
+    "ontology_filename": "weat",
     "search_query": "\"BIMERR Weather Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
@@ -1547,8 +1872,21 @@
     "open_access_ratio": 0.0
   },
   {
-    "ontology_filename": "wgs84.ttl",
+    "ontology_filename": "wgs84_pos",
     "search_query": "\"WGS84 Geo Positioning: an RDF vocabulary\" ontology",
+    "results_returned": 0,
+    "avg_title_keyword_overlap": 0.0,
+    "avg_abstract_keyword_overlap": 0.0,
+    "max_title_overlap": 0.0,
+    "doi_direct_hit": false,
+    "avg_citation_count": 0.0,
+    "median_year": 0,
+    "cs_engineering_ratio": 0.0,
+    "open_access_ratio": 0.0
+  },
+  {
+    "ontology_filename": "xemo",
+    "search_query": "\"Construction Site Emission Management Ontology\" ontology",
     "results_returned": 0,
     "avg_title_keyword_overlap": 0.0,
     "avg_abstract_keyword_overlap": 0.0,

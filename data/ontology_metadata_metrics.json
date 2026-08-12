@@ -1,6 +1,6 @@
 [
   {
-    "filename": "aec3po.ttl",
+    "filename": "aec3po",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -31,7 +31,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "aic.ttl",
+    "filename": "aic",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -42,7 +42,7 @@
     "axiom_count": 0,
     "annotation_coverage_pct": 100.0,
     "comment_coverage_pct": 0.0,
-    "import_count": 13,
+    "import_count": 2,
     "language_count": 0,
     "has_title": true,
     "has_namespace_uri": true,
@@ -62,7 +62,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ao.ttl",
+    "filename": "ao",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -93,7 +93,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "aoi.ttl",
+    "filename": "aoi",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -124,7 +124,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "asbingowl.ttl",
+    "filename": "asb",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -155,7 +155,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bao.ttl",
+    "filename": "bao",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -186,7 +186,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bcao.ttl",
+    "filename": "bcao",
     "fields_total": 13,
     "fields_filled": 6,
     "completeness_pct": 46.2,
@@ -217,7 +217,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bcfowl.ttl",
+    "filename": "bcfowl",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -248,7 +248,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bem-reno.ttl",
+    "filename": "bem-reno",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -279,7 +279,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "beo.ttl",
+    "filename": "beo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -310,7 +310,100 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bm.ttl",
+    "filename": "bfp",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 5,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 3.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "bimdo",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 3,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 2.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "bimso",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 2,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 2.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "bm",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -341,7 +434,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bop.ttl",
+    "filename": "bop",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -372,7 +465,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bot.ttl",
+    "filename": "bot",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -403,7 +496,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "bpo.ttl",
+    "filename": "bpo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -434,7 +527,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "brick.ttl",
+    "filename": "brick",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -465,7 +558,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "brot.ttl",
+    "filename": "brot",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -496,7 +589,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "building.ttl",
+    "filename": "building",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -527,7 +620,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "cdc.ttl",
+    "filename": "camo",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 1,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "cdc",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -558,7 +682,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ci.ttl",
+    "filename": "cdo",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 6,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 2.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "ceo",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 1,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "ci",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -589,7 +775,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "contax.ttl",
+    "filename": "conse",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 5,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 3.0,
+    "accessibility_score": 1.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "contax",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -620,7 +837,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "cr.ttl",
+    "filename": "cr",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -651,7 +868,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "cterm.ttl",
+    "filename": "cterm",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -682,7 +899,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "cto.ttl",
+    "filename": "cto",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -713,7 +930,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dano.ttl",
+    "filename": "dano",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -744,7 +961,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "db.ttl",
+    "filename": "db",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -775,7 +992,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dica.ttl",
+    "filename": "dica",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -806,7 +1023,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicc.ttl",
+    "filename": "dicc",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -837,7 +1054,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dice.ttl",
+    "filename": "dice",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -868,7 +1085,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dices.ttl",
+    "filename": "dices",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -899,7 +1116,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dici.ttl",
+    "filename": "dici",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -930,7 +1147,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicl.ttl",
+    "filename": "dicl",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -961,7 +1178,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "diclvl.ttl",
+    "filename": "diclvl",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -992,7 +1209,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicm.ttl",
+    "filename": "dicm",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1023,7 +1240,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicob.ttl",
+    "filename": "dicob",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1054,7 +1271,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicp.ttl",
+    "filename": "dicp",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1085,7 +1302,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicstg.ttl",
+    "filename": "dicstg",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -1116,7 +1333,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicu.ttl",
+    "filename": "dicu",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -1147,7 +1364,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dicv.ttl",
+    "filename": "dicv",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1178,7 +1395,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dogont.ttl",
+    "filename": "dmo",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 0.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": false
+  },
+  {
+    "filename": "do",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "dogont",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1209,7 +1488,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dor.ttl",
+    "filename": "dor",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -1240,7 +1519,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dot.ttl",
+    "filename": "dot",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1271,7 +1550,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dstv.ttl",
+    "filename": "dstv",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -1302,7 +1581,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "dtc.ttl",
+    "filename": "dtc",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -1324,7 +1603,7 @@
     "data_property_count": 21,
     "object_property_count": 35,
     "annotation_score": 100.0,
-    "foops_score": 0.5,
+    "foops_score": 0.04,
     "alignment_score": 3.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -1333,7 +1612,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "eco.ttl",
+    "filename": "ec",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1364,7 +1643,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "eepsa.ttl",
+    "filename": "eepsa",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1395,7 +1674,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "emmo.ttl",
+    "filename": "emmo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1426,7 +1705,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "esair.ttl",
+    "filename": "esair",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1457,7 +1736,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "facility.ttl",
+    "filename": "eurobau",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 2,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": true,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 2.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": true,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "facility",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1488,7 +1798,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ffdr.ttl",
+    "filename": "ffdr",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1519,7 +1829,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "fm-ener.ttl",
+    "filename": "fgo",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 1,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": true,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 1.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "fisa",
+    "fields_total": 13,
+    "fields_filled": 9,
+    "completeness_pct": 69.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 8,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": true,
+    "has_description": true,
+    "has_license": true,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.19,
+    "alignment_score": 3.0,
+    "accessibility_score": 3.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": true,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "fm-ener",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -1550,7 +1922,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "fmo.ttl",
+    "filename": "fmo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1581,7 +1953,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "fog.ttl",
+    "filename": "fog",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1612,7 +1984,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "fso.ttl",
+    "filename": "fso",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1643,7 +2015,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "geosparql.ttl",
+    "filename": "gbmno",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "gbmto",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "geo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1674,7 +2108,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "gis4reno.ttl",
+    "filename": "gis4reno",
     "fields_total": 13,
     "fields_filled": 6,
     "completeness_pct": 46.2,
@@ -1705,7 +2139,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "hbpo.ttl",
+    "filename": "hbpo",
     "fields_total": 13,
     "fields_filled": 6,
     "completeness_pct": 46.2,
@@ -1736,7 +2170,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "hmo.ttl",
+    "filename": "hmo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1767,7 +2201,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "icdd2ams.ttl",
+    "filename": "icdd2ams",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -1798,7 +2232,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "idpo.ttl",
+    "filename": "idpo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1829,7 +2263,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ifc4-add2.ttl",
+    "filename": "ifc",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -1851,7 +2285,7 @@
     "data_property_count": 0,
     "object_property_count": 1585,
     "annotation_score": 0.0,
-    "foops_score": 0.57,
+    "foops_score": 0.04,
     "alignment_score": 1.0,
     "accessibility_score": 3.0,
     "quality_score": 1.0,
@@ -1860,7 +2294,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "into.ttl",
+    "filename": "into",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1882,7 +2316,7 @@
     "data_property_count": 2,
     "object_property_count": 17,
     "annotation_score": 100.0,
-    "foops_score": 0.15,
+    "foops_score": 0.04,
     "alignment_score": 1.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -1891,7 +2325,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "io.ttl",
+    "filename": "io",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1922,7 +2356,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ioc.ttl",
+    "filename": "ioc",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1953,7 +2387,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "iot.ttl",
+    "filename": "iot",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -1984,7 +2418,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "isoprops.ttl",
+    "filename": "isoprops",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -2015,7 +2449,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "kpi.ttl",
+    "filename": "jup",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": true,
+    "has_description": true,
+    "has_license": true,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.08,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": false
+  },
+  {
+    "filename": "kpi",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2046,7 +2511,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "lca-c-reno.ttl",
+    "filename": "lca-c-renovation",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -2077,7 +2542,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "loin.ttl",
+    "filename": "loin",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2108,7 +2573,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "mat.ttl",
+    "filename": "mat",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2139,38 +2604,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "mdo.ttl",
+    "filename": "core",
     "fields_total": 13,
-    "fields_filled": 9,
-    "completeness_pct": 69.2,
+    "fields_filled": 10,
+    "completeness_pct": 76.9,
     "parse_success": true,
     "parse_error": "",
-    "class_count": 460,
-    "property_count": 901,
+    "class_count": 13,
+    "property_count": 13,
     "axiom_count": 0,
-    "annotation_coverage_pct": 23.9,
+    "annotation_coverage_pct": 93.3,
     "comment_coverage_pct": 0.0,
-    "import_count": 3,
+    "import_count": 4,
     "language_count": 0,
     "has_title": true,
     "has_namespace_uri": true,
     "has_description": true,
     "has_license": true,
-    "has_version": false,
+    "has_version": true,
     "has_creators": true,
-    "data_property_count": 352,
-    "object_property_count": 549,
-    "annotation_score": 23.9,
-    "foops_score": 0.66,
+    "data_property_count": 3,
+    "object_property_count": 10,
+    "annotation_score": 93.3,
+    "foops_score": 0.19,
     "alignment_score": 1.0,
     "accessibility_score": 3.0,
-    "quality_score": 1.2,
+    "quality_score": 1.9,
     "has_documentation": true,
     "has_serialization": true,
     "has_conceptual_model": true
   },
   {
-    "filename": "mep.ttl",
+    "filename": "mep",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -2201,7 +2666,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "mns.ttl",
+    "filename": "mns",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2225,14 +2690,45 @@
     "annotation_score": 70.8,
     "foops_score": 0.19,
     "alignment_score": 2.0,
-    "accessibility_score": 2.0,
-    "quality_score": 0.7,
-    "has_documentation": false,
+    "accessibility_score": 3.0,
+    "quality_score": 1.7,
+    "has_documentation": true,
     "has_serialization": true,
-    "has_conceptual_model": false
+    "has_conceptual_model": true
   },
   {
-    "filename": "nen2660.ttl",
+    "filename": "mpo",
+    "fields_total": 13,
+    "fields_filled": 7,
+    "completeness_pct": 53.8,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 5,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": true,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 2.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "nen2660",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -2263,7 +2759,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ocqa.ttl",
+    "filename": "obpa",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 10,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": true,
+    "has_description": true,
+    "has_license": false,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.15,
+    "alignment_score": 3.0,
+    "accessibility_score": 3.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": true,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "ocqa",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2294,7 +2821,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ofo.ttl",
+    "filename": "ofo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2325,7 +2852,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "omg.ttl",
+    "filename": "omg",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2356,7 +2883,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "onem2m.ttl",
+    "filename": "onem2m",
     "fields_total": 13,
     "fields_filled": 6,
     "completeness_pct": 46.2,
@@ -2387,7 +2914,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "op.ttl",
+    "filename": "OntoCityGML",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "ontonav",
+    "fields_total": 13,
+    "fields_filled": 7,
+    "completeness_pct": 53.8,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 1,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 2.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": true,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "op",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2418,7 +3007,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "opm.ttl",
+    "filename": "opm",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2449,7 +3038,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ph.ttl",
+    "filename": "ph",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -2480,7 +3069,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "process.ttl",
+    "filename": "process",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2511,7 +3100,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "quality.ttl",
+    "filename": "quality",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2542,7 +3131,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "rdo.ttl",
+    "filename": "rdo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2573,7 +3162,38 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "reloc.ttl",
+    "filename": "rec",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 5,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": true,
+    "has_version": true,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 3.0,
+    "accessibility_score": 2.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": true,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "reloc",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2604,7 +3224,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "reno-inst.ttl",
+    "filename": "reno-inst",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -2635,7 +3255,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "renp.ttl",
+    "filename": "renp",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2666,7 +3286,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "resource.ttl",
+    "filename": "resource",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2697,7 +3317,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "safety.ttl",
+    "filename": "safety",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2728,7 +3348,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "sao.ttl",
+    "filename": "sao",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -2759,7 +3379,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref.ttl",
+    "filename": "saref",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2781,7 +3401,7 @@
     "data_property_count": 8,
     "object_property_count": 64,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.81,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2790,7 +3410,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4agri.ttl",
+    "filename": "s4agri",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2812,7 +3432,7 @@
     "data_property_count": 4,
     "object_property_count": 19,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.84,
     "alignment_score": 3.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2821,7 +3441,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4auto.ttl",
+    "filename": "s4auto",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2843,7 +3463,7 @@
     "data_property_count": 8,
     "object_property_count": 6,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2852,7 +3472,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4bldg.ttl",
+    "filename": "s4bldg",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2874,7 +3494,7 @@
     "data_property_count": 81,
     "object_property_count": 6,
     "annotation_score": 100.0,
-    "foops_score": 0.08,
+    "foops_score": 0.75,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2883,7 +3503,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4city.ttl",
+    "filename": "s4city",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2905,7 +3525,7 @@
     "data_property_count": 6,
     "object_property_count": 21,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.81,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2914,7 +3534,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4ehaw.ttl",
+    "filename": "s4ehaw",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2936,7 +3556,7 @@
     "data_property_count": 10,
     "object_property_count": 12,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2945,7 +3565,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4ener.ttl",
+    "filename": "s4ener",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2967,7 +3587,7 @@
     "data_property_count": 76,
     "object_property_count": 97,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.81,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -2976,7 +3596,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4envi.ttl",
+    "filename": "s4envi",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -2998,7 +3618,7 @@
     "data_property_count": 6,
     "object_property_count": 28,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.81,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3007,7 +3627,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4grid.ttl",
+    "filename": "s4grid",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3029,7 +3649,7 @@
     "data_property_count": 45,
     "object_property_count": 27,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3038,7 +3658,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4inma.ttl",
+    "filename": "s4inma",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3060,7 +3680,7 @@
     "data_property_count": 10,
     "object_property_count": 16,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.8,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3069,7 +3689,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4lift.ttl",
+    "filename": "s4lift",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3091,7 +3711,7 @@
     "data_property_count": 16,
     "object_property_count": 13,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3100,7 +3720,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4syst.ttl",
+    "filename": "s4syst",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3122,7 +3742,7 @@
     "data_property_count": 0,
     "object_property_count": 9,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 1.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3131,7 +3751,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4watr.ttl",
+    "filename": "s4watr",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3153,7 +3773,7 @@
     "data_property_count": 14,
     "object_property_count": 12,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.77,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3162,7 +3782,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "saref4wear.ttl",
+    "filename": "s4wear",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3184,7 +3804,7 @@
     "data_property_count": 6,
     "object_property_count": 19,
     "annotation_score": 100.0,
-    "foops_score": 0.04,
+    "foops_score": 0.8,
     "alignment_score": 2.0,
     "accessibility_score": 3.0,
     "quality_score": 2.0,
@@ -3193,7 +3813,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "sbeo.ttl",
+    "filename": "sbeo",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3224,7 +3844,69 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "sd.ttl",
+    "filename": "sbim",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 10,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 3.0,
+    "accessibility_score": 1.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": true,
+    "has_conceptual_model": false
+  },
+  {
+    "filename": "sbonto",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 0.0,
+    "quality_score": 0.0,
+    "has_documentation": false,
+    "has_serialization": false,
+    "has_conceptual_model": false
+  },
+  {
+    "filename": "sd",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3255,7 +3937,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "seas.ttl",
+    "filename": "seas",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3286,7 +3968,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "sml.ttl",
+    "filename": "sero",
+    "fields_total": 13,
+    "fields_filled": 6,
+    "completeness_pct": 46.2,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 4,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 1.0,
+    "accessibility_score": 0.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": false
+  },
+  {
+    "filename": "sml",
     "fields_total": 13,
     "fields_filled": 6,
     "completeness_pct": 46.2,
@@ -3317,7 +4030,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "sosa.ttl",
+    "filename": "sosa",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -3348,7 +4061,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "ssn.ttl",
+    "filename": "ssn",
     "fields_total": 13,
     "fields_filled": 10,
     "completeness_pct": 76.9,
@@ -3379,7 +4092,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "stg.ttl",
+    "filename": "stg",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3410,7 +4123,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "tempo.ttl",
+    "filename": "tempo",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -3441,7 +4154,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "th-actor.ttl",
+    "filename": "th-actor",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3472,7 +4185,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "th-building.ttl",
+    "filename": "th-building",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3503,7 +4216,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "th-energy.ttl",
+    "filename": "th-energy",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3534,7 +4247,7 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "th-process.ttl",
+    "filename": "th-process",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3565,7 +4278,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "th-sharedvoc.ttl",
+    "filename": "th-sharedvoc",
     "fields_total": 13,
     "fields_filled": 7,
     "completeness_pct": 53.8,
@@ -3596,7 +4309,7 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "th-weather.ttl",
+    "filename": "th-weather",
     "fields_total": 13,
     "fields_filled": 8,
     "completeness_pct": 61.5,
@@ -3627,7 +4340,38 @@
     "has_conceptual_model": false
   },
   {
-    "filename": "unocs.ttl",
+    "filename": "uno",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "unocs",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -3658,7 +4402,38 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "weat.ttl",
+    "filename": "upo",
+    "fields_total": 13,
+    "fields_filled": 5,
+    "completeness_pct": 38.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 0,
+    "property_count": 0,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 0.0,
+    "comment_coverage_pct": 0.0,
+    "import_count": 0,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": false,
+    "has_description": true,
+    "has_license": false,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 0,
+    "annotation_score": 0.0,
+    "foops_score": 0.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
+    "quality_score": 1.0,
+    "has_documentation": true,
+    "has_serialization": false,
+    "has_conceptual_model": true
+  },
+  {
+    "filename": "weat",
     "fields_total": 13,
     "fields_filled": 9,
     "completeness_pct": 69.2,
@@ -3689,18 +4464,18 @@
     "has_conceptual_model": true
   },
   {
-    "filename": "wgs84.ttl",
+    "filename": "wgs84_pos",
     "fields_total": 13,
-    "fields_filled": 8,
-    "completeness_pct": 61.5,
+    "fields_filled": 7,
+    "completeness_pct": 53.8,
     "parse_success": true,
     "parse_error": "",
-    "class_count": 2,
-    "property_count": 1,
+    "class_count": 0,
+    "property_count": 0,
     "axiom_count": 0,
     "annotation_coverage_pct": 0.0,
     "comment_coverage_pct": 0.0,
-    "import_count": 3,
+    "import_count": 0,
     "language_count": 0,
     "has_title": true,
     "has_namespace_uri": true,
@@ -3709,14 +4484,45 @@
     "has_version": true,
     "has_creators": false,
     "data_property_count": 0,
-    "object_property_count": 1,
+    "object_property_count": 0,
     "annotation_score": 0.0,
     "foops_score": 0.23,
-    "alignment_score": 1.0,
-    "accessibility_score": 2.0,
+    "alignment_score": 0.0,
+    "accessibility_score": 1.0,
     "quality_score": 1.0,
     "has_documentation": true,
-    "has_serialization": true,
+    "has_serialization": false,
     "has_conceptual_model": false
+  },
+  {
+    "filename": "xemo",
+    "fields_total": 13,
+    "fields_filled": 8,
+    "completeness_pct": 61.5,
+    "parse_success": true,
+    "parse_error": "",
+    "class_count": 13,
+    "property_count": 14,
+    "axiom_count": 0,
+    "annotation_coverage_pct": 96.3,
+    "comment_coverage_pct": 0.0,
+    "import_count": 8,
+    "language_count": 0,
+    "has_title": true,
+    "has_namespace_uri": true,
+    "has_description": true,
+    "has_license": true,
+    "has_version": false,
+    "has_creators": false,
+    "data_property_count": 0,
+    "object_property_count": 14,
+    "annotation_score": 96.3,
+    "foops_score": 0.15,
+    "alignment_score": 3.0,
+    "accessibility_score": 3.0,
+    "quality_score": 1.0,
+    "has_documentation": false,
+    "has_serialization": true,
+    "has_conceptual_model": true
   }
 ]

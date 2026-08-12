@@ -1,5 +1,5 @@
 {
- "aec3po.ttl": {
+ "aec3po": {
   "queries": [
    "\"AEC3PO\" ontology",
    "\"AEC3PO\" Planning Permission ontology",
@@ -60,7 +60,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "aic.ttl": {
+ "aic": {
   "queries": [
    "\"Agents in Construction (AiC) Ontology\" ontology",
    "\"AiC\" ontology",
@@ -86,13 +86,7 @@
    "site",
    "represents",
    "human",
-   "workers",
-   "beo",
-   "bot",
-   "csite",
-   "cto",
-   "dica",
-   "dice"
+   "workers"
   ],
   "exclude_terms": [
    "anatomy",
@@ -128,7 +122,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ao.ttl": {
+ "ao": {
   "queries": [
    "\"Annotations Ontology\" ontology",
    "\"Annotations Ontology\" Information Management ontology",
@@ -191,7 +185,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "aoi.ttl": {
+ "aoi": {
   "queries": [
    "\"Areas of Interests\" ontology",
    "\"Areas of Interests\" BE Product (Building) ontology",
@@ -254,7 +248,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "asbingowl.ttl": {
+ "asb": {
   "queries": [
    "\"ASB-ING Ontology\" ontology",
    "\"ASB-ING Ontology\" BE Product (Infrastructure) ontology",
@@ -316,7 +310,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "bao.ttl": {
+ "bao": {
   "queries": [
    "\"Building Assessment Ontology\" ontology",
    "\"Building Assessment Ontology\" Standards, Codes and Certifications ontology",
@@ -377,7 +371,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "bcao.ttl": {
+ "bcao": {
   "queries": [
    "\"Building Circularity Assessment Ontology\" ontology",
    "\"Building Circularity Assessment Ontology\" Circular Economy ontology",
@@ -439,7 +433,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "bcfowl.ttl": {
+ "bcfowl": {
   "queries": [
    "\"BIM collaboration Format Ontology\" ontology",
    "\"BIM collaboration Format Ontology\" Information Management ontology",
@@ -506,7 +500,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "bem-reno.ttl": {
+ "bem-reno": {
   "queries": [
    "\"BEM-Reno Ontology\" ontology",
    "\"BEM-Reno Ontology\" Energy ontology",
@@ -565,7 +559,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "beo.ttl": {
+ "beo": {
   "queries": [
    "\"Building Element Ontology\" ontology",
    "\"Building Element Ontology\" BE Product (Building) ontology",
@@ -625,7 +619,188 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "bm.ttl": {
+ "bfp": {
+  "queries": [
+   "\"Building Fire Protection\" ontology",
+   "\"Building Fire Protection\" Fire Safety ontology"
+  ],
+  "required_terms": [
+   "Building Fire Protection"
+  ],
+  "optional_terms": [
+   "Fire Safety",
+   "proposed support",
+   "support modelling",
+   "modelling three",
+   "requirements geometric",
+   "fire",
+   "protection",
+   "safety",
+   "proposed",
+   "support",
+   "modelling",
+   "three",
+   "requirements",
+   "geometric",
+   "topology",
+   "physical",
+   "qudt",
+   "unit",
+   "bot",
+   "brick"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.autcon.2022.104728"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "bimdo": {
+  "queries": [
+   "\"BIM design ontology\" ontology",
+   "\"BIM design ontology\" BE Product (Building) ontology",
+   "\"bimdo\" ontology"
+  ],
+  "required_terms": [
+   "BIM design ontology"
+  ],
+  "optional_terms": [
+   "BE Product (Building)",
+   "provide conceptual",
+   "provide",
+   "conceptual",
+   "characterising",
+   "properties",
+   "qudt",
+   "bimso",
+   "bimdo"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": true,
+  "required_terms_all": []
+ },
+ "bimso": {
+  "queries": [
+   "\"BIM shared ontology\" ontology",
+   "\"BIM shared ontology\" BE Product (Building) ontology",
+   "\"bimso\" ontology"
+  ],
+  "required_terms": [
+   "BIM shared ontology"
+  ],
+  "optional_terms": [
+   "BE Product (Building)",
+   "providing conceptual",
+   "conceptual knowledge",
+   "that extended",
+   "extended build",
+   "shared",
+   "foundation",
+   "providing",
+   "conceptual",
+   "knowledge",
+   "that",
+   "extended",
+   "build",
+   "various",
+   "qudt",
+   "bimso"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "bm": {
   "queries": [
    "\"BIMERR Metadata ontology\" ontology",
    "\"BIMERR Metadata ontology\" Information Management ontology",
@@ -686,7 +861,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "bop.ttl": {
+ "bop": {
   "queries": [
    "\"Building Performance Ontology\" ontology",
    "\"Building Performance Ontology\" Energy ontology",
@@ -750,7 +925,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "bot.ttl": {
+ "bot": {
   "queries": [
    "\"The Building Topology Ontology (BOT)\" ontology",
    "\"BOT\" ontology",
@@ -814,7 +989,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "bpo.ttl": {
+ "bpo": {
   "queries": [
    "\"Building Product Ontology\" ontology",
    "\"Building Product Ontology\" BE Product (Building) ontology",
@@ -877,7 +1052,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "brick.ttl": {
+ "brick": {
   "queries": [
    "\"Brick\" ontology",
    "\"Brick\" BE Product (Building) ontology"
@@ -939,7 +1114,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "brot.ttl": {
+ "brot": {
   "queries": [
    "\"Bridge Topology Ontology\" ontology",
    "\"Bridge Topology Ontology\" BE Product (Infrastructure) ontology",
@@ -1001,7 +1176,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "building.ttl": {
+ "building": {
   "queries": [
    "\"Building Ontology\" ontology",
    "\"Building Ontology\" BE Product (Building) ontology",
@@ -1070,7 +1245,69 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "cdc.ttl": {
+ "camo": {
+  "queries": [
+   "\"Circular Materials and Activities Ontologies\" ontology",
+   "\"Circular Materials and Activities Ontologies\" Circular Economy ontology",
+   "\"camo\" ontology"
+  ],
+  "required_terms": [
+   "Circular Materials and Activities Ontologies"
+  ],
+  "optional_terms": [
+   "Circular Economy",
+   "Materials",
+   "provides classification",
+   "different materials",
+   "activities which",
+   "epea institution",
+   "circular",
+   "activities",
+   "economy",
+   "provides",
+   "classification",
+   "different",
+   "which",
+   "epea",
+   "institution",
+   "prt",
+   "camo"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "cdc": {
   "queries": [
    "\"CDC: Construction Dataset Context ontology\" ontology",
    "\"CDC: Construction Dataset Context ontology\" Information Management ontology",
@@ -1131,7 +1368,133 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ci.ttl": {
+ "cdo": {
+  "queries": [
+   "\"Concrete Damage Ontology\" ontology",
+   "\"Concrete Damage Ontology\" Quality ontology"
+  ],
+  "required_terms": [
+   "Concrete Damage Ontology"
+  ],
+  "optional_terms": [
+   "Quality",
+   "Safety",
+   "COGITO",
+   "extending damage",
+   "damage topology",
+   "represent damage",
+   "damage mechanisms",
+   "concrete",
+   "damage",
+   "extending",
+   "topology",
+   "represent",
+   "mechanisms",
+   "specific",
+   "reinforced",
+   "bot",
+   "dot",
+   "cdo",
+   "beo",
+   "props",
+   "aoi"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "ceo": {
+  "queries": [
+   "\"Circular Exchange Ontology\" ontology",
+   "\"Circular Exchange Ontology\" Circular Economy ontology"
+  ],
+  "required_terms": [
+   "Circular Exchange Ontology"
+  ],
+  "optional_terms": [
+   "Circular Economy",
+   "Materials",
+   "necessary undergo",
+   "undergo material",
+   "material exchange",
+   "exchange between",
+   "circular",
+   "exchange",
+   "economy",
+   "describes",
+   "necessary",
+   "undergo",
+   "material",
+   "between",
+   "different",
+   "actors",
+   "prt"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "ci": {
   "queries": [
    "\"The Cost Item (CI) Ontology\" ontology",
    "\"CI\" ontology",
@@ -1196,7 +1559,72 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "contax.ttl": {
+ "conse": {
+  "queries": [
+   "\"Construction Semantic Enrichment Ontology\" ontology",
+   "\"Construction Semantic Enrichment Ontology\" Production (Process) ontology",
+   "\"conse\" ontology"
+  ],
+  "required_terms": [
+   "Construction Semantic Enrichment Ontology"
+  ],
+  "optional_terms": [
+   "Production (Process)",
+   "offers formal",
+   "formal representation",
+   "representation visual",
+   "relevant construction",
+   "construction",
+   "enrichment",
+   "production",
+   "offers",
+   "formal",
+   "representation",
+   "visual",
+   "relevant",
+   "site",
+   "dolce",
+   "dica",
+   "dice",
+   "conse"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.aei.2024.102446"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "contax": {
   "queries": [
    "\"ConTax ontology\" ontology",
    "\"ConTax ontology\" BE Product (Building) ontology",
@@ -1265,7 +1693,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "cr.ttl": {
+ "cr": {
   "queries": [
    "\"The Construction Resources (CR) Ontology\" ontology",
    "\"CR\" ontology",
@@ -1332,7 +1760,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "cterm.ttl": {
+ "cterm": {
   "queries": [
    "\"The Construction Terminology (CTERM) Ontology\" ontology",
    "\"CTERM\" ontology",
@@ -1397,7 +1825,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "cto.ttl": {
+ "cto": {
   "queries": [
    "\"CTO: Construction Tasks Ontology\" ontology",
    "\"CTO: Construction Tasks Ontology\" Production (Process) ontology",
@@ -1462,7 +1890,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dano.ttl": {
+ "dano": {
   "queries": [
    "\"Drawing Analyis Ontology (DAnO)\" ontology",
    "\"DAnO\" ontology",
@@ -1526,7 +1954,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "db.ttl": {
+ "db": {
   "queries": [
    "\"Digital Buildings\" ontology",
    "\"Digital Buildings\" BE Product (Building) ontology"
@@ -1588,7 +2016,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "dica.ttl": {
+ "dica": {
   "queries": [
    "\"Digital Construction Agents\" ontology",
    "\"Digital Construction Agents\" Resources ontology",
@@ -1653,7 +2081,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicc.ttl": {
+ "dicc": {
   "queries": [
    "\"Digital Construction Contexts\" ontology",
    "\"Digital Construction Contexts\" Production (Process) ontology",
@@ -1719,7 +2147,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dice.ttl": {
+ "dice": {
   "queries": [
    "\"Digital Construction Entities\" ontology",
    "\"Digital Construction Entities\" Production (Process) ontology",
@@ -1785,7 +2213,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dices.ttl": {
+ "dices": {
   "queries": [
    "\"Digital Construction Energy\" ontology",
    "\"Digital Construction Energy\" Energy ontology",
@@ -1853,7 +2281,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dici.ttl": {
+ "dici": {
   "queries": [
    "\"Digital Construction Information\" ontology",
    "\"Digital Construction Information\" Information Management ontology",
@@ -1922,7 +2350,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicl.ttl": {
+ "dicl": {
   "queries": [
    "\"Digital Construction Lifecycle\" ontology",
    "\"Digital Construction Lifecycle\" Production (Process) ontology",
@@ -1995,7 +2423,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "diclvl.ttl": {
+ "diclvl": {
   "queries": [
    "\"A vocabulary for LOD levels\" ontology",
    "\"A vocabulary for LOD levels\" BE Product (Building) ontology",
@@ -2062,7 +2490,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicm.ttl": {
+ "dicm": {
   "queries": [
    "\"Digital Construction Materials\" ontology",
    "\"Digital Construction Materials\" Materials ontology",
@@ -2129,7 +2557,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicob.ttl": {
+ "dicob": {
   "queries": [
    "\"Digital Construction Occupancy\" ontology",
    "\"Digital Construction Occupancy\" Comfort ontology",
@@ -2201,7 +2629,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicp.ttl": {
+ "dicp": {
   "queries": [
    "\"Digital Construction Processes\" ontology",
    "\"Digital Construction Processes\" Production (Process) ontology",
@@ -2268,7 +2696,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicstg.ttl": {
+ "dicstg": {
   "queries": [
    "\"A vocabulary for BLCS stages\" ontology",
    "\"A vocabulary for BLCS stages\" Production (Process) ontology",
@@ -2335,7 +2763,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicu.ttl": {
+ "dicu": {
   "queries": [
    "\"Digital Construction Units\" ontology",
    "\"Digital Construction Units\" Energy ontology",
@@ -2402,7 +2830,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dicv.ttl": {
+ "dicv": {
   "queries": [
    "\"Digital Construction Variables\" ontology",
    "\"Digital Construction Variables\" Production (Process) ontology",
@@ -2467,7 +2895,127 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dogont.ttl": {
+ "dmo": {
+  "queries": [
+   "\"Damage Mechanics Ontology\" ontology",
+   "\"Damage Mechanics Ontology\" Quality ontology"
+  ],
+  "required_terms": [
+   "Damage Mechanics Ontology"
+  ],
+  "optional_terms": [
+   "Quality",
+   "Safety",
+   "damage topology",
+   "defines reduced",
+   "reduced material",
+   "material parameters",
+   "damage",
+   "mechanics",
+   "topology",
+   "defines",
+   "reduced",
+   "material",
+   "parameters",
+   "describe",
+   "mechanical"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "do": {
+  "queries": [
+   "\"Defect Ontology\" ontology",
+   "\"Defect Ontology\" Quality ontology"
+  ],
+  "required_terms": [
+   "Defect Ontology"
+  ],
+  "optional_terms": [
+   "Quality",
+   "Safety",
+   "developed describe",
+   "describe defects",
+   "defects construction",
+   "components provides",
+   "defect",
+   "developed",
+   "describe",
+   "defects",
+   "construction",
+   "components",
+   "provides",
+   "structured",
+   "representation"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.autcon.2016.05.003"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "dogont": {
   "queries": [
    "\"DogOnt: Ontology Modeling for Intelligent Domotic Environments\" ontology",
    "\"DogOnt: Ontology Modeling for Intelligent Domotic Environments\" IoT Sensors/Actuators ontology",
@@ -2534,7 +3082,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dor.ttl": {
+ "dor": {
   "queries": [
    "\"Decommissioning and Reuse Ontology\" ontology",
    "\"Decommissioning and Reuse Ontology\" Circular Economy ontology",
@@ -2602,7 +3150,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dot.ttl": {
+ "dot": {
   "queries": [
    "\"Damage Topology Ontology\" ontology",
    "\"Damage Topology Ontology\" Quality ontology",
@@ -2665,7 +3213,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dstv.ttl": {
+ "dstv": {
   "queries": [
    "\"DSTV:Steel Construction Ontology\" ontology",
    "\"DSTV:Steel Construction Ontology\" BE Product (Building) ontology",
@@ -2730,7 +3278,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "dtc.ttl": {
+ "dtc": {
   "queries": [
    "\"Digital Twin Construction Ontology\" ontology",
    "\"Digital Twin Construction Ontology\" Production (Process) ontology",
@@ -2795,7 +3343,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "eco.ttl": {
+ "ec": {
   "queries": [
    "\"ECO - Eurocode Core Ontology\" ontology",
    "\"ECO - Eurocode Core Ontology\" Structural (Performance) ontology",
@@ -2860,7 +3408,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "eepsa.ttl": {
+ "eepsa": {
   "queries": [
    "\"The EEPSA Ontology.\" ontology",
    "\"The EEPSA Ontology.\" Energy ontology",
@@ -2921,7 +3469,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "emmo.ttl": {
+ "emmo": {
   "queries": [
    "\"Elementary Multiperspective Material Ontology (EMMO)\" ontology",
    "\"EMMO\" ontology",
@@ -2986,7 +3534,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "esair.ttl": {
+ "esair": {
   "queries": [
    "\"calidad-aire\" ontology",
    "\"calidad-aire\" IoT Sensors/Actuators ontology",
@@ -3054,7 +3602,68 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "facility.ttl": {
+ "eurobau": {
+  "queries": [
+   "\"Eurobau Utility Ontology\" ontology",
+   "\"Eurobau Utility Ontology\" Materials ontology",
+   "\"eurobau\" ontology"
+  ],
+  "required_terms": [
+   "Eurobau Utility Ontology",
+   "ISO 3166-2"
+  ],
+  "optional_terms": [
+   "Materials",
+   "extends goodrelations",
+   "goodrelations describe",
+   "describe material",
+   "material offerings",
+   "eurobau",
+   "utility",
+   "extends",
+   "goodrelations",
+   "describe",
+   "material",
+   "offerings",
+   "such",
+   "delivery",
+   "modes"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "facility": {
   "queries": [
    "\"Facility Ontology\" ontology",
    "\"Facility Ontology\" BE Product (Building) ontology",
@@ -3118,7 +3727,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ffdr.ttl": {
+ "ffdr": {
   "queries": [
    "\"Firefighters' Data Requirements Ontology\" ontology",
    "\"Firefighters' Data Requirements Ontology\" Fire Safety ontology",
@@ -3185,7 +3794,139 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "fm-ener.ttl": {
+ "fgo": {
+  "queries": [
+   "\"FireGrid ontology\" ontology",
+   "\"FireGrid ontology\" Fire Safety ontology"
+  ],
+  "required_terms": [
+   "FireGrid ontology"
+  ],
+  "optional_terms": [
+   "Fire Safety",
+   "IoT Sensors/Actuators",
+   "concepts state",
+   "state parameters",
+   "parameters events",
+   "events hazards",
+   "firegrid",
+   "fire",
+   "safety",
+   "sensors",
+   "actuators",
+   "concepts",
+   "state",
+   "parameters",
+   "events",
+   "hazards",
+   "spatiotemporal",
+   "relationships",
+   "rooms",
+   "dolce"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.jpdc.2010.06.005"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "fisa": {
+  "queries": [
+   "\"Fire Safety Ontology\" ontology",
+   "\"Fire Safety Ontology\" Fire Safety ontology",
+   "\"https://purl.org/fisa\"",
+   "\"fisa\" ontology"
+  ],
+  "required_terms": [
+   "Fire Safety Ontology",
+   "https://purl.org/fisa",
+   "http://purl.org/fisa"
+  ],
+  "optional_terms": [
+   "Fire Safety",
+   "fisa enables",
+   "enables classification",
+   "safety considerations",
+   "fire",
+   "safety",
+   "fisa",
+   "enables",
+   "classification",
+   "components",
+   "considerations",
+   "establish",
+   "swrl",
+   "swrla",
+   "swrlb",
+   "bot"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.aei.2023.102314"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "fm-ener": {
   "queries": [
    "\"Facility Management Building Energy Ontology for Renovative Design Decisons\" ontology",
    "\"Facility Management Building Energy Ontology for Renovative Design Decisons\" Facilities Management ontology",
@@ -3251,7 +3992,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "fmo.ttl": {
+ "fmo": {
   "queries": [
    "\"Failure Mechanism Ontology\" ontology",
    "\"Failure Mechanism Ontology\" Quality ontology",
@@ -3320,7 +4061,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "fog.ttl": {
+ "fog": {
   "queries": [
    "\"FOG: File Ontology for Geometry formats\" ontology",
    "\"FOG: File Ontology for Geometry formats\" Geometry ontology",
@@ -3382,7 +4123,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "fso.ttl": {
+ "fso": {
   "queries": [
    "\"The Flow Systems Ontology (FSO)\" ontology",
    "\"FSO\" ontology",
@@ -3446,7 +4187,138 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "geosparql.ttl": {
+ "gbmno": {
+  "queries": [
+   "\"Green Building Material Name Ontology\" ontology",
+   "\"Green Building Material Name Ontology\" Materials ontology",
+   "\"gbmno\" ontology"
+  ],
+  "required_terms": [
+   "Green Building Material Name Ontology"
+  ],
+  "optional_terms": [
+   "Materials",
+   "Circular Economy",
+   "provides controlled",
+   "controlled vocabulary",
+   "vocabulary naming",
+   "naming interior",
+   "green",
+   "material",
+   "name",
+   "circular",
+   "economy",
+   "provides",
+   "controlled",
+   "vocabulary",
+   "naming",
+   "interior",
+   "supports",
+   "gbmno"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.autcon.2019.01.015"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "gbmto": {
+  "queries": [
+   "\"Green Building Material Type Ontology\" ontology",
+   "\"Green Building Material Type Ontology\" Materials ontology",
+   "\"gbmto\" ontology"
+  ],
+  "required_terms": [
+   "Green Building Material Type Ontology"
+  ],
+  "optional_terms": [
+   "Materials",
+   "Circular Economy",
+   "defines structured",
+   "structured taxonomy",
+   "taxonomy categorizing",
+   "categorizing interior",
+   "green",
+   "material",
+   "type",
+   "circular",
+   "economy",
+   "defines",
+   "structured",
+   "taxonomy",
+   "categorizing",
+   "interior",
+   "facilitating",
+   "lifecycle",
+   "gbmto"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.1016/j.autcon.2019.01.015"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "geo": {
   "queries": [
    "\"GeoSPARQL Ontology\" ontology",
    "\"GeoSPARQL Ontology\" Geographic Information ontology",
@@ -3512,7 +4384,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "gis4reno.ttl": {
+ "gis4reno": {
   "queries": [
    "\"GIS-based ontology for surrounding buildings to support building renovation\" ontology",
    "\"GIS-based ontology for surrounding buildings to support building renovation\" BE Product (Building) ontology",
@@ -3573,7 +4445,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "hbpo.ttl": {
+ "hbpo": {
   "queries": [
    "\"Holistic Building Performance Ontology\" ontology",
    "\"Holistic Building Performance Ontology\" Facilities Management ontology",
@@ -3638,7 +4510,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "hmo.ttl": {
+ "hmo": {
   "queries": [
    "\"Historic Masonry Ontology\" ontology",
    "\"Historic Masonry Ontology\" BE Product (Building) ontology",
@@ -3706,7 +4578,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "icdd2ams.ttl": {
+ "icdd2ams": {
   "queries": [
    "\"Asset Condition Integration from ICDD to AMS (icdd2ams)\" ontology",
    "\"icdd2ams\" ontology",
@@ -3777,7 +4649,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "idpo.ttl": {
+ "idpo": {
   "queries": [
    "\"Information Delivery Processes Ontology (IDPO)\" ontology",
    "\"IDPO\" ontology",
@@ -3841,7 +4713,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ifc4-add2.ttl": {
+ "ifc": {
   "queries": [
    "\"IFC4_ADD2_TC1\" ontology",
    "\"IFC4_ADD2_TC1\" BE Product (Building) ontology",
@@ -3905,7 +4777,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "into.ttl": {
+ "into": {
   "queries": [
    "\"Infrastructure Topology Ontology\" ontology",
    "\"Infrastructure Topology Ontology\" BE Product (Infrastructure) ontology",
@@ -3966,7 +4838,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "io.ttl": {
+ "io": {
   "queries": [
    "\"Information Objects Ontology\" ontology",
    "\"Information Objects Ontology\" Information Management ontology",
@@ -4027,7 +4899,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "ioc.ttl": {
+ "ioc": {
   "queries": [
    "\"IOC: Internet of Construction Ontology\" ontology",
    "\"IOC: Internet of Construction Ontology\" Production (Process) ontology",
@@ -4093,7 +4965,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "iot.ttl": {
+ "iot": {
   "queries": [
    "\"IoT ontology\" ontology",
    "\"IoT ontology\" IoT Sensors/Actuators ontology",
@@ -4157,7 +5029,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "isoprops.ttl": {
+ "isoprops": {
   "queries": [
    "\"ISO 23386 Property Ontology (ISOProps)\" ontology",
    "\"ISOProps\" ontology",
@@ -4224,7 +5096,69 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "kpi.ttl": {
+ "jup": {
+  "queries": [
+   "\"Ontology of Building Accessibility\" ontology",
+   "\"Ontology of Building Accessibility\" Mobility/Transport ontology",
+   "\"http://w3id.org/charta77/jup\""
+  ],
+  "required_terms": [
+   "Ontology of Building Accessibility",
+   "http://w3id.org/charta77/jup",
+   "https://w3id.org/charta77/jup"
+  ],
+  "optional_terms": [
+   "Mobility/Transport",
+   "accessibility created",
+   "created within",
+   "maps without",
+   "without barriers",
+   "accessibility",
+   "mobility",
+   "transport",
+   "vocabulary",
+   "created",
+   "within",
+   "maps",
+   "without",
+   "barriers",
+   "realized"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "kpi": {
   "queries": [
    "\"Key Performance Indicator ontology\" ontology",
    "\"Key Performance Indicator ontology\" Energy ontology",
@@ -4287,7 +5221,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "lca-c-reno.ttl": {
+ "lca-c-renovation": {
   "queries": [
    "\"LCA-C Ontology\" ontology",
    "\"LCA-C Ontology\" Energy ontology",
@@ -4347,7 +5281,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "loin.ttl": {
+ "loin": {
   "queries": [
    "\"Level of Information Need (LOIN) Ontology\" ontology",
    "\"LOIN\" ontology",
@@ -4414,7 +5348,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "mat.ttl": {
+ "mat": {
   "queries": [
    "\"Material properties ontology\" ontology",
    "\"Material properties ontology\" Materials ontology",
@@ -4478,33 +5412,35 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "mdo.ttl": {
+ "core": {
   "queries": [
-   "\"ASB-ING Ontology\" ontology",
-   "\"ASB-ING Ontology\" BE Product (Infrastructure) ontology",
-   "\"https://w3id.org/asbingowl/core\""
+   "\"Materials Design Ontology - Core Module\" ontology",
+   "\"Materials Design Ontology - Core Module\" Materials ontology",
+   "\"https://w3id.org/mdo/core\"",
+   "\"core\" ontology"
   ],
   "required_terms": [
-   "ASB-ING Ontology",
-   "https://w3id.org/asbingowl/core",
-   "http://w3id.org/asbingowl/core"
+   "Materials Design Ontology - Core Module",
+   "https://w3id.org/mdo/core",
+   "http://w3id.org/mdo/core"
   ],
   "optional_terms": [
-   "BE Product (Infrastructure)",
-   "Quality",
-   "asbing german",
-   "describe infrastructural",
-   "infrastructural artefacts",
-   "artefacts many",
-   "infrastructure",
-   "asbing",
-   "german",
-   "describe",
-   "infrastructural",
-   "artefacts",
-   "many",
-   "cases",
-   "supports"
+   "Materials",
+   "field representing",
+   "knowledge specifically",
+   "solid state",
+   "state physics",
+   "module",
+   "field",
+   "representing",
+   "knowledge",
+   "specifically",
+   "solid",
+   "state",
+   "physics",
+   "qudt",
+   "unit",
+   "core"
   ],
   "exclude_terms": [
    "anatomy",
@@ -4537,10 +5473,10 @@
    "systems biology"
   ],
   "known_dois": [],
-  "generic_name": true,
+  "generic_name": false,
   "required_terms_all": []
  },
- "mep.ttl": {
+ "mep": {
   "queries": [
    "\"Distribution Element Ontology\" ontology",
    "\"Distribution Element Ontology\" BE Product (Building) ontology",
@@ -4603,7 +5539,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "mns.ttl": {
+ "mns": {
   "queries": [
    "\"Modelling and Standards Ontology\" ontology",
    "\"https://w3id.org/mns\""
@@ -4665,7 +5601,71 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "nen2660.ttl": {
+ "mpo": {
+  "queries": [
+   "\"Material Passport Ontology\" ontology",
+   "\"Material Passport Ontology\" Circular Economy ontology"
+  ],
+  "required_terms": [
+   "Material Passport Ontology"
+  ],
+  "optional_terms": [
+   "Circular Economy",
+   "represents manufactured",
+   "components materials",
+   "includes sustainability",
+   "sustainability composition",
+   "material",
+   "passport",
+   "circular",
+   "economy",
+   "represents",
+   "manufactured",
+   "components",
+   "materials",
+   "includes",
+   "sustainability",
+   "composition",
+   "properties",
+   "dcmi",
+   "emmo",
+   "mdo"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "nen2660": {
   "queries": [
    "\"NEN 2660-2:2022 - Rules for information modelling of the built environment - Normative classes and properties (RDFS, OWL, and SHACL)\" ontology",
    "\"NEN 2660-2:2022 - Rules for information modelling of the built environment - Normative classes and properties (RDFS, OWL, and SHACL)\" Standards, Codes and Certifications ontology",
@@ -4739,7 +5739,74 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ocqa.ttl": {
+ "obpa": {
+  "queries": [
+   "\"Ontology for Building Permit Authorities\" ontology",
+   "\"Ontology for Building Permit Authorities\" Planning Permission ontology",
+   "\"https://sebseis.github.io/OBPA\"",
+   "\"obpa\" ontology"
+  ],
+  "required_terms": [
+   "Ontology for Building Permit Authorities",
+   "https://sebseis.github.io/OBPA",
+   "http://sebseis.github.io/OBPA"
+  ],
+  "optional_terms": [
+   "Planning Permission",
+   "that covers",
+   "permit authority",
+   "authority along",
+   "called assignment",
+   "permit",
+   "authorities",
+   "planning",
+   "permission",
+   "that",
+   "covers",
+   "representation",
+   "authority",
+   "along",
+   "subprocess",
+   "called",
+   "wgs84_pos",
+   "bot",
+   "obpa"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "ocqa": {
   "queries": [
    "\"Ontology for Construction Quality Assurence (OCQA)\" ontology",
    "\"OCQA\" ontology",
@@ -4808,7 +5875,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ofo.ttl": {
+ "ofo": {
   "queries": [
    "\"Occupant Feedback Ontology\" ontology",
    "\"Occupant Feedback Ontology\" Comfort ontology",
@@ -4868,7 +5935,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "omg.ttl": {
+ "omg": {
   "queries": [
    "\"OMG: Ontology for Managing Geometry\" ontology",
    "\"OMG: Ontology for Managing Geometry\" BE Product (Building) ontology",
@@ -4931,7 +5998,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "onem2m.ttl": {
+ "onem2m": {
   "queries": [
    "\"oneM2M Base Ontology\" ontology",
    "\"oneM2M Base Ontology\" IoT Sensors/Actuators ontology",
@@ -4992,7 +6059,128 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "op.ttl": {
+ "OntoCityGML": {
+  "queries": [
+   "\"CityGML Ontology\" ontology",
+   "\"CityGML Ontology\" Geographic Information ontology",
+   "\"OntoCityGML\" ontology"
+  ],
+  "required_terms": [
+   "CityGML Ontology"
+  ],
+  "optional_terms": [
+   "Geographic Information",
+   "version citygml",
+   "citygml enables",
+   "enables modelling",
+   "modelling urban",
+   "citygml",
+   "geographic",
+   "version",
+   "enables",
+   "modelling",
+   "urban",
+   "city",
+   "structures",
+   "supporting",
+   "OntoCityGML"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "ontonav": {
+  "queries": [
+   "\"Indoor Navigation Ontology\" ontology",
+   "\"Indoor Navigation Ontology\" Mobility/Transport ontology",
+   "\"ontonav\" ontology"
+  ],
+  "required_terms": [
+   "Indoor Navigation Ontology"
+  ],
+  "optional_terms": [
+   "Mobility/Transport",
+   "indoor route",
+   "route guidance",
+   "guidance including",
+   "including navigation",
+   "indoor",
+   "navigation",
+   "mobility",
+   "transport",
+   "defines",
+   "route",
+   "guidance",
+   "including",
+   "paths",
+   "spatial",
+   "ontonav"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "op": {
   "queries": [
    "\"Occupancy Profile ontology\" ontology",
    "\"Occupancy Profile ontology\" Comfort ontology",
@@ -5054,7 +6242,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "opm.ttl": {
+ "opm": {
   "queries": [
    "\"OPM: Ontology for Property Management\" ontology",
    "\"OPM: Ontology for Property Management\" Facilities Management ontology",
@@ -5117,7 +6305,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ph.ttl": {
+ "ph": {
   "queries": [
    "\"Project Haystack\" ontology",
    "\"Project Haystack\" IoT Sensors/Actuators ontology",
@@ -5180,7 +6368,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "process.ttl": {
+ "process": {
   "queries": [
    "\"Process Ontology\" ontology",
    "\"Process Ontology\" Production (Process) ontology",
@@ -5245,7 +6433,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "quality.ttl": {
+ "quality": {
   "queries": [
    "\"Quality Ontology\" ontology",
    "\"Quality Ontology\" Quality ontology",
@@ -5307,7 +6495,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "rdo.ttl": {
+ "rdo": {
   "queries": [
    "\"Roof Damage Ontology\" ontology",
    "\"Roof Damage Ontology\" Quality ontology",
@@ -5371,7 +6559,70 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "reloc.ttl": {
+ "rec": {
+  "queries": [
+   "\"RealEstateCore\" ontology",
+   "\"RealEstateCore\" Real Estate ontology"
+  ],
+  "required_terms": [
+   "RealEstateCore"
+  ],
+  "optional_terms": [
+   "Real Estate",
+   "realestatecore common",
+   "common language",
+   "language that",
+   "that enable",
+   "real",
+   "estate",
+   "common",
+   "language",
+   "that",
+   "enable",
+   "control",
+   "over",
+   "development",
+   "qudt",
+   "dash",
+   "geojson",
+   "brick",
+   "brickpatches"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "reloc": {
   "queries": [
    "\"Relative Location Ontology\" ontology",
    "\"Relative Location Ontology\" Geometry ontology",
@@ -5432,7 +6683,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "reno-inst.ttl": {
+ "reno-inst": {
   "queries": [
    "\"Reno-Inst Ontology\" ontology",
    "\"Reno-Inst Ontology\" Energy ontology",
@@ -5491,7 +6742,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "renp.ttl": {
+ "renp": {
   "queries": [
    "\"Renovation Processes and Work Orders Ontology\" ontology",
    "\"Renovation Processes and Work Orders Ontology\" Production (Process) ontology",
@@ -5559,7 +6810,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "resource.ttl": {
+ "resource": {
   "queries": [
    "\"Resource ontology\" ontology",
    "\"Resource ontology\" Resources ontology",
@@ -5623,7 +6874,7 @@
   "generic_name": true,
   "required_terms_all": []
  },
- "safety.ttl": {
+ "safety": {
   "queries": [
    "\"Safety Ontology\" ontology",
    "\"Safety Ontology\" Safety ontology",
@@ -5685,7 +6936,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "sao.ttl": {
+ "sao": {
   "queries": [
    "\"Stream Annotation Ontology\" ontology",
    "\"Stream Annotation Ontology\" IoT Sensors/Actuators ontology",
@@ -5747,7 +6998,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref.ttl": {
+ "saref": {
   "queries": [
    "\"SAREF: the Smart Applications REFerence ontology\" ontology",
    "\"SAREF: the Smart Applications REFerence ontology\" IoT Sensors/Actuators ontology",
@@ -5813,7 +7064,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4agri.ttl": {
+ "s4agri": {
   "queries": [
    "\"SAREF4AGRI: an extension of SAREF for the agriculture and food domain\" ontology",
    "\"SAREF4AGRI: an extension of SAREF for the agriculture and food domain\" IoT Sensors/Actuators ontology",
@@ -5882,7 +7133,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4auto.ttl": {
+ "s4auto": {
   "queries": [
    "\"SAREF4AUTO: an extension of SAREF for the automotive domain\" ontology",
    "\"SAREF4AUTO: an extension of SAREF for the automotive domain\" IoT Sensors/Actuators ontology",
@@ -5952,7 +7203,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4bldg.ttl": {
+ "s4bldg": {
   "queries": [
    "\"SAREF4BLDG: an extension of SAREF for the building domain\" ontology",
    "\"SAREF4BLDG: an extension of SAREF for the building domain\" IoT Sensors/Actuators ontology",
@@ -6021,7 +7272,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4city.ttl": {
+ "s4city": {
   "queries": [
    "\"SAREF4CITY: an extension of SAREF for the Smart City domain\" ontology",
    "\"SAREF4CITY: an extension of SAREF for the Smart City domain\" IoT Sensors/Actuators ontology",
@@ -6092,7 +7343,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4ehaw.ttl": {
+ "s4ehaw": {
   "queries": [
    "\"SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain\" ontology",
    "\"SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain\" IoT Sensors/Actuators ontology",
@@ -6162,7 +7413,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4ener.ttl": {
+ "s4ener": {
   "queries": [
    "\"SAREF for Energy Flexibility\" ontology",
    "\"SAREF for Energy Flexibility\" IoT Sensors/Actuators ontology",
@@ -6231,7 +7482,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4envi.ttl": {
+ "s4envi": {
   "queries": [
    "\"SAREF4ENVI: an extension of SAREF for the Environment domain\" ontology",
    "\"SAREF4ENVI: an extension of SAREF for the Environment domain\" IoT Sensors/Actuators ontology",
@@ -6301,7 +7552,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4grid.ttl": {
+ "s4grid": {
   "queries": [
    "\"SAREF4GRID: an extension of SAREF for the Smart Grid domain\" ontology",
    "\"SAREF4GRID: an extension of SAREF for the Smart Grid domain\" IoT Sensors/Actuators ontology",
@@ -6371,7 +7622,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4inma.ttl": {
+ "s4inma": {
   "queries": [
    "\"SAREF4INMA: an extension of SAREF for the industry and manufacturing domain\" ontology",
    "\"SAREF4INMA: an extension of SAREF for the industry and manufacturing domain\" IoT Sensors/Actuators ontology",
@@ -6440,7 +7691,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4lift.ttl": {
+ "s4lift": {
   "queries": [
    "\"SAREF4WEAR: an extension of SAREF for the Smart Lifts domain\" ontology",
    "\"SAREF4WEAR: an extension of SAREF for the Smart Lifts domain\" IoT Sensors/Actuators ontology",
@@ -6512,7 +7763,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4syst.ttl": {
+ "s4syst": {
   "queries": [
    "\"SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections\" ontology",
    "\"SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections\" IoT Sensors/Actuators ontology",
@@ -6576,7 +7827,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4watr.ttl": {
+ "s4watr": {
   "queries": [
    "\"SAREF4WATR: an extension of SAREF for the water domain\" ontology",
    "\"SAREF4WATR: an extension of SAREF for the water domain\" IoT Sensors/Actuators ontology",
@@ -6646,7 +7897,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "saref4wear.ttl": {
+ "s4wear": {
   "queries": [
    "\"SAREF4WEAR: an extension of SAREF for the Wearables domain\" ontology",
    "\"SAREF4WEAR: an extension of SAREF for the Wearables domain\" IoT Sensors/Actuators ontology",
@@ -6716,7 +7967,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "sbeo.ttl": {
+ "sbeo": {
   "queries": [
    "\"SBEO: Smart Building Evacuation Ontology\" ontology",
    "\"SBEO: Smart Building Evacuation Ontology\" Safety ontology",
@@ -6782,7 +8033,130 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "sd.ttl": {
+ "sbim": {
+  "queries": [
+   "\"SemanticBIM Ontology\" ontology",
+   "\"SemanticBIM Ontology\" BE Product (Building) ontology",
+   "\"sbim\" ontology"
+  ],
+  "required_terms": [
+   "SemanticBIM Ontology"
+  ],
+  "optional_terms": [
+   "BE Product (Building)",
+   "BE Product (Infrastructure)",
+   "generated through",
+   "semanticbim",
+   "infrastructure",
+   "sbim",
+   "represents",
+   "storey",
+   "generated",
+   "through",
+   "translating",
+   "into",
+   "qudt",
+   "seas",
+   "bot",
+   "bpo",
+   "omg"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "sbonto": {
+  "queries": [
+   "\"Ontology of smart building\" ontology",
+   "\"Ontology of smart building\" Energy ontology",
+   "\"sbonto\" ontology"
+  ],
+  "required_terms": [
+   "Ontology of smart building"
+  ],
+  "optional_terms": [
+   "Energy",
+   "basic knowledge",
+   "level notion",
+   "computer communication",
+   "communication technology",
+   "basic",
+   "knowledge",
+   "level",
+   "notion",
+   "applied",
+   "equipped",
+   "computer",
+   "communication",
+   "sbonto"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.17654/EC017051101"
+  ],
+  "generic_name": true,
+  "required_terms_all": []
+ },
+ "sd": {
   "queries": [
    "\"Sensor Data ontology\" ontology",
    "\"Sensor Data ontology\" IoT Sensors/Actuators ontology",
@@ -6845,7 +8219,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "seas.ttl": {
+ "seas": {
   "queries": [
    "\"SEAS Ontology\" ontology",
    "\"SEAS Ontology\" Energy ontology",
@@ -6909,7 +8283,74 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "sml.ttl": {
+ "sero": {
+  "queries": [
+   "\"Steel Element Reuse Ontology\" ontology",
+   "\"Steel Element Reuse Ontology\" Circular Economy ontology",
+   "\"sero\" ontology"
+  ],
+  "required_terms": [
+   "Steel Element Reuse Ontology"
+  ],
+  "optional_terms": [
+   "Circular Economy",
+   "Materials",
+   "assessing reusability",
+   "reusability steel",
+   "steel beams",
+   "beams audits",
+   "steel",
+   "reuse",
+   "circular",
+   "economy",
+   "assessing",
+   "reusability",
+   "beams",
+   "audits",
+   "captures",
+   "material",
+   "properties",
+   "beo",
+   "dicm",
+   "dot",
+   "cdo",
+   "sero"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "sml": {
   "queries": [
    "\"EN 17632-1:2022 / EN 17632-2:2024 - BIM Semantic modelling and linking (SML) - Normative classes and properties (RDFS, OWL, and SHACL)\" ontology",
    "\"SML\" ontology",
@@ -6981,7 +8422,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "sosa.ttl": {
+ "sosa": {
   "queries": [
    "\"Sensor, Observation, Sample, and Actuator (SOSA) Ontology\" ontology",
    "\"SOSA\" ontology",
@@ -7047,7 +8488,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "ssn.ttl": {
+ "ssn": {
   "queries": [
    "\"Semantic Sensor Network Ontology\" ontology",
    "\"Semantic Sensor Network Ontology\" IoT Sensors/Actuators ontology",
@@ -7108,7 +8549,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "stg.ttl": {
+ "stg": {
   "queries": [
    "\"STG: Scan-to-Graph\" ontology",
    "\"STG: Scan-to-Graph\" BE Product (Building) ontology",
@@ -7172,7 +8613,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "tempo.ttl": {
+ "tempo": {
   "queries": [
    "\"Data Template Ontology (TempO)\" ontology",
    "\"TempO\" ontology",
@@ -7243,7 +8684,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-actor.ttl": {
+ "th-actor": {
   "queries": [
    "\"Users and Preference Information\" ontology",
    "\"Users and Preference Information\" Comfort ontology",
@@ -7306,7 +8747,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-building.ttl": {
+ "th-building": {
   "queries": [
    "\"Architecture and Building Physics Information Ontology\" ontology",
    "\"Architecture and Building Physics Information Ontology\" BE Product (Building) ontology",
@@ -7372,7 +8813,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-energy.ttl": {
+ "th-energy": {
   "queries": [
    "\"Energy and Resource Information\" ontology",
    "\"Energy and Resource Information\" Energy ontology",
@@ -7435,7 +8876,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-process.ttl": {
+ "th-process": {
   "queries": [
    "\"User Behavior and Building Process Information\" ontology",
    "\"User Behavior and Building Process Information\" Energy ontology",
@@ -7498,7 +8939,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-sharedvoc.ttl": {
+ "th-sharedvoc": {
   "queries": [
    "\"Buildling Ontology Shared Vocabulary\" ontology",
    "\"Buildling Ontology Shared Vocabulary\" BE Product (Building) ontology",
@@ -7561,7 +9002,7 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "th-weather.ttl": {
+ "th-weather": {
   "queries": [
    "\"Weather and Exterior Influence Information\" ontology",
    "\"Weather and Exterior Influence Information\" Weather/Climate ontology",
@@ -7627,7 +9068,67 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "unocs.ttl": {
+ "uno": {
+  "queries": [
+   "\"User Navigation Ontology\" ontology",
+   "\"User Navigation Ontology\" Mobility/Transport ontology"
+  ],
+  "required_terms": [
+   "User Navigation Ontology"
+  ],
+  "optional_terms": [
+   "Mobility/Transport",
+   "indoor pedestrian",
+   "pedestrian navigation",
+   "navigation that",
+   "that integrates",
+   "user",
+   "navigation",
+   "mobility",
+   "transport",
+   "indoor",
+   "pedestrian",
+   "that",
+   "integrates",
+   "structures",
+   "spatial",
+   "context"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "unocs": {
   "queries": [
    "\"Digital Construction Agents\" ontology",
    "\"Digital Construction Agents\" Safety ontology",
@@ -7695,7 +9196,69 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "weat.ttl": {
+ "upo": {
+  "queries": [
+   "\"User Profile Ontology\" ontology",
+   "\"User Profile Ontology\" Mobility/Transport ontology"
+  ],
+  "required_terms": [
+   "User Profile Ontology"
+  ],
+  "optional_terms": [
+   "Mobility/Transport",
+   "includes classes",
+   "classes that",
+   "that describe",
+   "describe different",
+   "user",
+   "profile",
+   "mobility",
+   "transport",
+   "includes",
+   "classes",
+   "that",
+   "describe",
+   "different",
+   "types",
+   "other"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [
+   "10.3233/AIS-2009-0033"
+  ],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "weat": {
   "queries": [
    "\"BIMERR Weather Ontology\" ontology",
    "\"BIMERR Weather Ontology\" Weather/Climate ontology",
@@ -7760,12 +9323,12 @@
   "generic_name": false,
   "required_terms_all": []
  },
- "wgs84.ttl": {
+ "wgs84_pos": {
   "queries": [
    "\"WGS84 Geo Positioning: an RDF vocabulary\" ontology",
    "\"WGS84 Geo Positioning: an RDF vocabulary\" Geographic Information ontology",
    "\"https://w3.org/2003/01/geo/wgs84_pos\"",
-   "\"wgs84\" ontology"
+   "\"wgs84_pos\" ontology"
   ],
   "required_terms": [
    "WGS84 Geo Positioning: an RDF vocabulary",
@@ -7790,6 +9353,76 @@
    "namespace",
    "representing",
    "wgs84_pos"
+  ],
+  "exclude_terms": [
+   "anatomy",
+   "apoptosis",
+   "bioinformatics",
+   "biology",
+   "biomedical",
+   "cancer",
+   "clinical",
+   "disease",
+   "drug",
+   "gene",
+   "genomic",
+   "medicine",
+   "neuroscience",
+   "psychology",
+   "tourism",
+   "cognitive science",
+   "gene expression",
+   "genetics",
+   "health care",
+   "hospital",
+   "human health",
+   "lymphocyte",
+   "nucleic acid",
+   "philosophy",
+   "protein",
+   "single-cell",
+   "stem cell",
+   "systems biology"
+  ],
+  "known_dois": [],
+  "generic_name": false,
+  "required_terms_all": []
+ },
+ "xemo": {
+  "queries": [
+   "\"Construction Site Emission Management Ontology\" ontology",
+   "\"Construction Site Emission Management Ontology\" Energy ontology",
+   "\"https://github.com/AlessandroBruttini/XEMO\"",
+   "\"xemo\" ontology"
+  ],
+  "required_terms": [
+   "Construction Site Emission Management Ontology",
+   "https://github.com/AlessandroBruttini/XEMO",
+   "http://github.com/AlessandroBruttini/XEMO"
+  ],
+  "optional_terms": [
+   "Energy",
+   "Production (Process)",
+   "xemo represents",
+   "represents urban",
+   "urban region",
+   "region containing",
+   "construction",
+   "site",
+   "emission",
+   "production",
+   "xemo",
+   "represents",
+   "urban",
+   "region",
+   "containing",
+   "more",
+   "sites",
+   "demo",
+   "qudt",
+   "unit",
+   "bot",
+   "dicp"
   ],
   "exclude_terms": [
    "anatomy",

@@ -1,16 +1,24 @@
 """
 step1_extract_metadata.py – Phase 2: Ontology Metadata (from curated repo JSON)
 
-Instead of downloading ~120 TTL files and parsing each with rdflib, this step
-reads the CURATED metadata the CyberbuildLab/BE-OLS repository already maintains
-in ``data/Ontologies_forRepo.json`` (auto-generated from the collaborators'
-``Ontologies.xlsx`` workbook). That file provides richer, human-curated fields
-(domains, publisher, quality/FOOPS/alignment scores, class & property counts)
-and avoids TTL parse failures entirely.
+The CURATED metadata maintained by the CyberbuildLab/BE-OLS repository in
+``data/Ontologies_forRepo.json`` (auto-generated from the collaborators'
+``Ontologies.xlsx`` workbook) is the single source of truth for this step.
+Every curated record becomes one ontology row.
 
-To keep the rest of the pipeline (steps 2–4) unchanged, each curated record is
-matched to its ``.ttl`` filename in the repo's ``Ontologies_TTL`` folder and
-mapped onto the existing OntologyRow / MetadataMetrics schema keyed by filename.
+Earlier versions enumerated the repo's ``Ontologies_TTL`` folder and looked up
+a curated record per filename. That made the TTL folder the real source: any
+curated ontology without a TTL file was invisible to the whole pipeline, which
+dropped 26 of the 146 curated records. It also allowed silent mis-joins - a
+filename could match the wrong record and inherit its title, namespace and
+description - so the matching layer is gone entirely.
+
+Ontologies are keyed by curated ``Prefix``, which is unique across all records
+and never blank. ``URI`` is unsuitable as a key: 31 records leave it empty.
+
+Note: ``MetadataMetrics.parse_success`` no longer denotes TTL parsing (nothing
+is parsed here). It records whether a curated record yielded a usable row, and
+is retained because step 4 reads it.
 
 Outputs (unchanged, written under the data/ directory):
   data/ontology_metadata.csv / .json          – extracted metadata per ontology
@@ -23,7 +31,7 @@ import ast
 import re
 from pathlib import Path
 from statistics import mean
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 import requests
 
@@ -35,16 +43,8 @@ from common import (
 )
 
 # ---------------------------------------------------------------------------
-# Data sources
+# Data source
 # ---------------------------------------------------------------------------
-GITHUB_API_URL = (
-    "https://api.github.com/repos/CyberbuildLab/BE-OLS"
-    "/contents/data/source/Ontologies_TTL"
-)
-RAW_BASE = (
-    "https://raw.githubusercontent.com/CyberbuildLab/BE-OLS"
-    "/main/data/source/Ontologies_TTL"
-)
 # Curated metadata maintained in the repo (generated from Ontologies.xlsx).
 REPO_METADATA_URL = (
     "https://raw.githubusercontent.com/CyberbuildLab/BE-OLS"
@@ -54,40 +54,14 @@ REPO_METADATA_URL = (
 PROJECT_DIR = Path(__file__).parent
 DATA_DIR = PROJECT_DIR / "data"
 
-# Explicit filename-stem -> curated-record Prefix aliases for the handful of
-# TTL files whose name does not equal (or normalise to) the curated Prefix.
-STEM_PREFIX_ALIASES = {
-    "geosparql": "geo",
-    "asbingowl": "asb",
-    "eco": "ec",
-    "ifc4-add2": "ifc",
-    "lca-c-reno": "lca-c-renovation",
-    "mdo": "core",
-}
-
 
 # ---------------------------------------------------------------------------
-# Fetch the authoritative TTL filename list (names only – no download/parse)
-# ---------------------------------------------------------------------------
-
-def fetch_ttl_file_list() -> List[str]:
-    """Return the list of ``.ttl`` filenames in the repo's Ontologies_TTL folder."""
-    print("[Step 1] Fetching TTL filename list from GitHub …")
-    resp = requests.get(GITHUB_API_URL, timeout=30)
-    resp.raise_for_status()
-    entries = resp.json()
-    names = sorted(e["name"] for e in entries if e["name"].lower().endswith(".ttl"))
-    print(f"  Found {len(names)} TTL files")
-    return names
-
-
-# ---------------------------------------------------------------------------
-# Fetch curated metadata and build a lookup index
+# Fetch curated metadata
 # ---------------------------------------------------------------------------
 
 def fetch_repo_metadata() -> List[dict]:
     """Return the curated ontology records from ``Ontologies_forRepo.json``."""
-    print("[Step 2] Fetching curated metadata (Ontologies_forRepo.json) …")
+    print("[Step 1] Fetching curated metadata (Ontologies_forRepo.json) …")
     resp = requests.get(REPO_METADATA_URL, timeout=60)
     resp.raise_for_status()
     records = resp.json()
@@ -95,45 +69,34 @@ def fetch_repo_metadata() -> List[dict]:
     return records
 
 
-def _norm(value: Optional[str]) -> str:
-    """Lowercase and strip everything but ASCII letters/digits."""
-    return re.sub(r"[^a-z0-9]", "", (value or "").lower())
+def ontology_key(rec: dict) -> str:
+    """Return the identifier for a curated record: its Prefix.
 
-
-def build_record_index(records: List[dict]) -> Dict[str, dict]:
-    """Index curated records under several normalised keys for robust matching.
-
-    Keys added per record: normalised Prefix, a SAREF alias (``s4x`` -> ``saref4x``),
-    normalised Title, and the normalised last path segment of the URI.
+    Prefixes are unique across the curated set and always present, so no
+    normalisation beyond trimming is applied - the curated value is used
+    verbatim as the ontology's identity throughout the pipeline.
     """
-    index: Dict[str, dict] = {}
-
-    def add(key: str, rec: dict) -> None:
-        key = _norm(key)
-        # First writer wins so a specific Prefix isn't overwritten by a Title clash.
-        if key and key not in index:
-            index[key] = rec
-
-    for rec in records:
-        prefix = (rec.get("Prefix") or "").strip().strip(":")
-        add(prefix, rec)
-        if prefix.lower().startswith("s4"):
-            add("saref4" + prefix[2:], rec)  # s4bldg -> saref4bldg
-        add(rec.get("Title"), rec)
-        uri = (rec.get("URI") or "").rstrip("/#")
-        if uri:
-            add(uri.rsplit("/", 1)[-1], rec)
-    return index
+    return _text(rec.get("Prefix")).strip(":")
 
 
-def match_record(filename: str, index: Dict[str, dict]) -> Optional[dict]:
-    """Find the curated record for a ``.ttl`` filename, or None."""
-    stem = filename.rsplit(".", 1)[0]
-    for candidate in (STEM_PREFIX_ALIASES.get(stem.lower(), ""), stem):
-        rec = index.get(_norm(candidate))
-        if rec:
-            return rec
-    return None
+def check_keys(records: List[dict]) -> List[str]:
+    """Return a list of key problems, so a bad join fails loudly rather than silently."""
+    problems: List[str] = []
+    seen: Dict[str, int] = {}
+    for position, rec in enumerate(records, 1):
+        key = ontology_key(rec)
+        if not key:
+            problems.append(
+                f"record {position} ({_text(rec.get('Title')) or 'untitled'}) has no Prefix"
+            )
+            continue
+        if key in seen:
+            problems.append(
+                f"duplicate Prefix '{key}' at records {seen[key]} and {position}"
+            )
+        else:
+            seen[key] = position
+    return problems
 
 
 # ---------------------------------------------------------------------------
@@ -186,10 +149,10 @@ def _joined(*values) -> str:
     return ", ".join(dict.fromkeys(parts))
 
 
-def record_to_row(filename: str, rec: dict) -> OntologyRow:
+def record_to_row(key: str, rec: dict) -> OntologyRow:
     """Map a curated record onto the OntologyRow schema."""
     return OntologyRow(
-        filename=filename,
+        filename=key,
         title=_text(rec.get("Title")),
         prefix=_text(rec.get("Prefix")).strip(":"),
         namespace_uri=_text(rec.get("URI")),
@@ -210,13 +173,13 @@ def record_to_row(filename: str, rec: dict) -> OntologyRow:
     )
 
 
-def record_to_metrics(filename: str, rec: Optional[dict], row: OntologyRow) -> MetadataMetrics:
+def record_to_metrics(key: str, rec: Optional[dict], row: OntologyRow) -> MetadataMetrics:
     """Map a curated record onto the MetadataMetrics schema."""
-    metrics = MetadataMetrics(filename=filename)
+    metrics = MetadataMetrics(filename=key)
 
     if rec is None:
         metrics.parse_success = False
-        metrics.parse_error = "No curated metadata record matched this TTL filename"
+        metrics.parse_error = "Curated record could not be mapped"
         return metrics
 
     data_props = int(_num(rec.get("Number of Data Properties")))
@@ -269,36 +232,36 @@ def record_to_metrics(filename: str, rec: Optional[dict], row: OntologyRow) -> M
 def print_metrics_summary(metrics_list: List[MetadataMetrics]) -> None:
     """Print an overview of metadata quality across all ontologies."""
     total = len(metrics_list)
-    matched = [m for m in metrics_list if m.parse_success]
-    unmatched = [m for m in metrics_list if not m.parse_success]
+    mapped = [m for m in metrics_list if m.parse_success]
+    unmapped = [m for m in metrics_list if not m.parse_success]
 
     print("\n" + "=" * 60)
     print("  METADATA EVALUATION SUMMARY (curated repo source)")
     print("=" * 60)
-    print(f"  Total ontologies      : {total}")
-    print(f"  Matched to curated rec: {len(matched)}")
-    print(f"  Unmatched             : {len(unmatched)}")
+    print(f"  Curated records       : {total}")
+    print(f"  Mapped to a row       : {len(mapped)}")
+    print(f"  Unmapped              : {len(unmapped)}")
 
-    if matched:
-        avg_comp = mean(m.completeness_pct for m in matched)
+    if mapped:
+        avg_comp = mean(m.completeness_pct for m in mapped)
         print(f"  Mean completeness %   : {avg_comp:.1f}%")
 
-        print(f"  With title            : {sum(m.has_title for m in matched)}/{len(matched)}")
-        print(f"  With namespace URI    : {sum(m.has_namespace_uri for m in matched)}/{len(matched)}")
-        print(f"  With description      : {sum(m.has_description for m in matched)}/{len(matched)}")
-        print(f"  With license          : {sum(m.has_license for m in matched)}/{len(matched)}")
-        print(f"  With version          : {sum(m.has_version for m in matched)}/{len(matched)}")
-        print(f"  With creators         : {sum(m.has_creators for m in matched)}/{len(matched)}")
+        print(f"  With title            : {sum(m.has_title for m in mapped)}/{len(mapped)}")
+        print(f"  With namespace URI    : {sum(m.has_namespace_uri for m in mapped)}/{len(mapped)}")
+        print(f"  With description      : {sum(m.has_description for m in mapped)}/{len(mapped)}")
+        print(f"  With license          : {sum(m.has_license for m in mapped)}/{len(mapped)}")
+        print(f"  With version          : {sum(m.has_version for m in mapped)}/{len(mapped)}")
+        print(f"  With creators         : {sum(m.has_creators for m in mapped)}/{len(mapped)}")
 
-        print(f"  Mean class count      : {mean(m.class_count for m in matched):.1f}")
-        print(f"  Mean property count   : {mean(m.property_count for m in matched):.1f}")
-        print(f"  Mean annotation score : {mean(m.annotation_score for m in matched):.1f}")
-        print(f"  Mean FOOPS score      : {mean(m.foops_score for m in matched):.2f}")
-        print(f"  Mean quality score    : {mean(m.quality_score for m in matched):.2f}")
+        print(f"  Mean class count      : {mean(m.class_count for m in mapped):.1f}")
+        print(f"  Mean property count   : {mean(m.property_count for m in mapped):.1f}")
+        print(f"  Mean annotation score : {mean(m.annotation_score for m in mapped):.1f}")
+        print(f"  Mean FOOPS score      : {mean(m.foops_score for m in mapped):.2f}")
+        print(f"  Mean quality score    : {mean(m.quality_score for m in mapped):.2f}")
 
-    if unmatched:
-        print("\n  Unmatched files (no curated record):")
-        for m in unmatched:
+    if unmapped:
+        print("\n  Unmapped records:")
+        for m in unmapped:
             print(f"    - {m.filename}")
 
     print("=" * 60 + "\n")
@@ -309,22 +272,27 @@ def print_metrics_summary(metrics_list: List[MetadataMetrics]) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    ttl_files = fetch_ttl_file_list()
     records = fetch_repo_metadata()
-    index = build_record_index(records)
+
+    problems = check_keys(records)
+    if problems:
+        print("\n[Step 2] Curated key problems - refusing to build a corrupt dataset:")
+        for problem in problems:
+            print(f"    - {problem}")
+        raise SystemExit(
+            "Curated Prefix values must be unique and non-empty; fix the source first."
+        )
+    print(f"[Step 2] Key check passed: {len(records)} unique, non-empty prefixes")
 
     rows: List[OntologyRow] = []
     metrics_list: List[MetadataMetrics] = []
 
-    for i, name in enumerate(ttl_files, 1):
-        rec = match_record(name, index)
-        status = "matched" if rec else "NO MATCH"
-        print(f"[Step 3] ({i}/{len(ttl_files)}) {name} … {status}")
-
-        row = record_to_row(name, rec) if rec else OntologyRow(filename=name)
-        met = record_to_metrics(name, rec, row)
+    for i, rec in enumerate(records, 1):
+        key = ontology_key(rec)
+        print(f"[Step 3] ({i}/{len(records)}) {key}")
+        row = record_to_row(key, rec)
+        metrics_list.append(record_to_metrics(key, rec, row))
         rows.append(row)
-        metrics_list.append(met)
 
     print("\n[Step 4] Saving ontology metadata …")
     save_csv(rows, DATA_DIR / "ontology_metadata.csv")

@@ -1,6 +1,6 @@
 [
   {
-    "filename": "aec3po.ttl",
+    "filename": "aec3po",
     "title": "AEC3PO",
     "prefix": "aec3po",
     "namespace_uri": "https://w3id.org/lbd/aec3po/",
@@ -20,7 +20,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "aic.ttl",
+    "filename": "aic",
     "title": "Agents in Construction (AiC) Ontology",
     "prefix": "aic",
     "namespace_uri": "https://w3id.org/aic#",
@@ -31,7 +31,7 @@
     "date_modified": "",
     "date_issued": "2026-06-20",
     "see_also": "https://digiconstructlab-tu-delft.github.io/AiC-Ontology/",
-    "imports": "dcterms, vann, beo, bot, csite, cto, dica, dice, dicm, dicp, dtc, ioc, nen2660",
+    "imports": "dcterms, vann",
     "classes": "",
     "properties": "",
     "primary_domain": "Production (Process)",
@@ -40,7 +40,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "ao.ttl",
+    "filename": "ao",
     "title": "Annotations Ontology",
     "prefix": "ao",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/annotation-objects#",
@@ -60,14 +60,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "aoi.ttl",
+    "filename": "aoi",
     "title": "Areas of Interests",
     "prefix": "aoi",
     "namespace_uri": "https://w3id.org/aoi#",
     "description": "The ontology for Areas of Interest (AOI) is an auxiliary ontology that semantically describes areas on a component which contain other subcomponents or objects. This is especially useful for the semantic localization of affecting damages(defined in DOT). The concept of AOI aims for extending current web ontologies that are formalized in OWL without significantly changing their proposed modelling concepts. Instead, the AOI ontology provides an additional modelling option, which enhances the extended ontologies with a function to locate objects that are topologically connected.",
     "version": "0.2",
     "license": "https://creativecommons.org/licenses/by/1.0",
-    "creators": "n58a9afe097114a0c863ca8ba95224fd8b1",
+    "creators": "nd19306e7a4224ab7b4a3e10a0f8f009eb1",
     "date_modified": "",
     "date_issued": "2021",
     "see_also": "http://dx.doi.org/10.13140/RG.2.2.32606.97607",
@@ -80,14 +80,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "asbingowl.ttl",
+    "filename": "asb",
     "title": "ASB-ING Ontology",
     "prefix": "asb",
     "namespace_uri": "https://w3id.org/asbingowl/core#",
     "description": "the ”ASBING” - the German standard data model to describe infrastructural artefacts in many use cases. It supports semantic description of infrastructure elements especially bridges enabling standardised documentation of inspections conditions and quality information across diverse infrastructure management and assessment use cases within public asset maintenance planning monitoring reporting and decision making contexts.",
     "version": "",
     "license": "https://creativecommons.org/licenses/by/4.0",
-    "creators": "nb54696d7e2d64406b6802d74451d2597b1",
+    "creators": "nc6f049b2c23443a18739dc1e0fdfbaceb1",
     "date_modified": "",
     "date_issued": "2022",
     "see_also": "https://publications.rwth-aachen.de/record/824017/files/824017.pdf",
@@ -100,7 +100,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "bao.ttl",
+    "filename": "bao",
     "title": "Building Assessment Ontology",
     "prefix": "bao",
     "namespace_uri": "https://alexdonkers.github.io/bao#",
@@ -120,7 +120,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "bcao.ttl",
+    "filename": "bcao",
     "title": "Building Circularity Assessment Ontology",
     "prefix": "bcao",
     "namespace_uri": "https://github.com/linmor-sys/BCAO.owl#",
@@ -140,7 +140,7 @@
     "conforms_to": "ISO/CEN 23386, ISO/CEN 23387"
   },
   {
-    "filename": "bcfowl.ttl",
+    "filename": "bcfowl",
     "title": "BIM collaboration Format Ontology",
     "prefix": "bcfowl",
     "namespace_uri": "http://lbd.arch.rwth-aachen.de/bcfOWL_V1/index-en.html",
@@ -160,7 +160,7 @@
     "conforms_to": "BCF"
   },
   {
-    "filename": "bem-reno.ttl",
+    "filename": "bem-reno",
     "title": "BEM-Reno Ontology",
     "prefix": "bem-reno",
     "namespace_uri": "",
@@ -180,14 +180,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "beo.ttl",
+    "filename": "beo",
     "title": "Building Element Ontology",
     "prefix": "beo",
     "namespace_uri": "https://pi.pauwel.be/voc/buildingelement#",
     "description": "The Building Element Ontology provides an ontology based on the IfcBuildingElement subtree in the IFC specification, containing a taxonomy of classes that allow to define common building elements.",
     "version": "December 27th 2018",
     "license": "https://creativecommons.org/licenses/by/1.0/",
-    "creators": "n6c01a1e771484c139a158e69f91dca1db1",
+    "creators": "nd1e355ce2bcc497390a5de8def6190dcb1",
     "date_modified": "",
     "date_issued": "2018-12-27",
     "see_also": "https://pi.pauwel.be/voc/buildingelement",
@@ -200,7 +200,67 @@
     "conforms_to": ""
   },
   {
-    "filename": "bm.ttl",
+    "filename": "bfp",
+    "title": "Building Fire Protection",
+    "prefix": "bfp",
+    "namespace_uri": "",
+    "description": "The BFP ontology is proposed to support the modelling of three information requirements: the geometric topology of the building; the physical devices of the fire protection system and their location, affiliation and technical properties; and the operating information of the fire protection system.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2023",
+    "see_also": "https://doi.org/10.1016/j.autcon.2022.104728",
+    "imports": "sosa, qudt, unit, bot, brick",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Fire Safety",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "bimdo",
+    "title": "BIM design ontology",
+    "prefix": "bimdo",
+    "namespace_uri": "",
+    "description": "To provide a conceptual model for characterising the design properties of building elements.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2017",
+    "see_also": "https://www.sciencedirect.com/science/article/pii/S0926580517302364#s0035",
+    "imports": "qudt, fc, bimso",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "BE Product (Building)",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "bimso",
+    "title": "BIM shared ontology",
+    "prefix": "bimso",
+    "namespace_uri": "",
+    "description": "A foundation ontology providing a conceptual knowledge model that is extended to build various building domain ontologies. It is designed to be extended by specialised building ontologies ensuring semantic consistency interoperability and reuse across multiple BIM related ontology developments.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2017",
+    "see_also": "https://www.sciencedirect.com/science/article/pii/S0926580517302364#s0035",
+    "imports": "qudt, fc",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "BE Product (Building)",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "bm",
     "title": "BIMERR Metadata ontology",
     "prefix": "bm",
     "namespace_uri": "https://bimerr.iot.linkeddata.es/def/metadata/",
@@ -220,7 +280,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "bop.ttl",
+    "filename": "bop",
     "title": "Building Performance Ontology",
     "prefix": "bop",
     "namespace_uri": "https://w3id.org/bop#",
@@ -240,7 +300,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "bot.ttl",
+    "filename": "bot",
     "title": "The Building Topology Ontology (BOT)",
     "prefix": "bot",
     "namespace_uri": "https://w3id.org/bot#",
@@ -260,14 +320,14 @@
     "conforms_to": "ISO-12006"
   },
   {
-    "filename": "bpo.ttl",
+    "filename": "bpo",
     "title": "Building Product Ontology",
     "prefix": "bpo",
     "namespace_uri": "https://w3id.org/bpo#",
     "description": "The BPO's scope is on the schematic description of product only, not including geometry or material compositions. Therefore, it can be used to describe theoretical product components without geometric representations as well as those with geometric representations without restrictions.",
     "version": "1.2",
     "license": "CC BY 4.0",
-    "creators": "ndf5e30ba85d149319cefd04ee8117e7cb8, ndf5e30ba85d149319cefd04ee8117e7cb9, ndf5e30ba85d149319cefd04ee8117e7cb10, ndf5e30ba85d149319cefd04ee8117e7cb11",
+    "creators": "n6ede6c6952d74765b87915088937a49fb8, n6ede6c6952d74765b87915088937a49fb9, n6ede6c6952d74765b87915088937a49fb10, n6ede6c6952d74765b87915088937a49fb11",
     "date_modified": "",
     "date_issued": "2019",
     "see_also": "https://annawagner.github.io/bpo/",
@@ -280,14 +340,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "brick.ttl",
+    "filename": "brick",
     "title": "Brick",
     "prefix": "brick",
     "namespace_uri": "",
     "description": "Brick is an open-source, BSD-licensed development effort to create a uniform schema for representing metadata in buildings. t models building equipment points and relationships supporting interoperability analytics and management of building systems across software platforms and operational use cases.",
     "version": "1.4.4",
     "license": "https://github.com/BrickSchema/brick/blob/master/LICENSE",
-    "creators": "nb8b1fdc06e4b447aaec331326117d2f8b7274, nb8b1fdc06e4b447aaec331326117d2f8b7276",
+    "creators": "n2f19e401e7014f6a8421084ec8d9999db7274, n2f19e401e7014f6a8421084ec8d9999db7276",
     "date_modified": "",
     "date_issued": "2025-05-01",
     "see_also": "https://brickschema.org/resources/",
@@ -300,14 +360,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "brot.ttl",
+    "filename": "brot",
     "title": "Bridge Topology Ontology",
     "prefix": "brot",
     "namespace_uri": "https://w3id.org/brot#",
     "description": "The Bridge Topology Ontology (BROT) allows the definition of bridge constructions including aggregated zones and components as well as their topological relations. The ontology supports a generic modeling approach and therefore could be applied for any bridge type (e.g. suspension bridge or girder bridge). brot:Bridge can be subdivided into multiple components (brot:BridgeElement) and zones (brot:BridgeSpatialZone), whereby also common zones such as the superstructure (brot:BridgeSuperStructure) and substructure (brot:BridgeSubstructure) are supported. Furthermore, BROT allows the definition of joints (brot:BridgeJoint) and coatings (brot:BridgeCoating) as well as object properties for describing the vertical relation between two components or zones.",
     "version": "0.21",
     "license": "https://creativecommons.org/licenses/by/1.0",
-    "creators": "nac569abc5abf40d68270b2c47f1072fbb1, nac569abc5abf40d68270b2c47f1072fbb2",
+    "creators": "nf52493ed3b3943df87e698db3be3846ab1, nf52493ed3b3943df87e698db3be3846ab2",
     "date_modified": "",
     "date_issued": "29th March 2022",
     "see_also": "https://alhakam.github.io/brot/",
@@ -320,7 +380,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "building.ttl",
+    "filename": "building",
     "title": "Building Ontology",
     "prefix": "building",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/building#",
@@ -340,14 +400,34 @@
     "conforms_to": ""
   },
   {
-    "filename": "cdc.ttl",
+    "filename": "camo",
+    "title": "Circular Materials and Activities Ontologies",
+    "prefix": "camo",
+    "namespace_uri": "",
+    "description": "Ontology provides a CE classification system for the different materials, products and activities, which is based on EPEA, an institution recognized for its Cradle-to-Cradle certification.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://biblio.ugent.be/publication/8604544",
+    "imports": "prt",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Circular Economy",
+    "secondary_domain": "Materials",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "cdc",
     "title": "CDC: Construction Dataset Context ontology",
     "prefix": "cdc",
     "namespace_uri": "https://w3id.org/cdc#",
     "description": "The Construction Dataset Context (CDC) ontology is an extension of DCAT v2.0, a W3C Recommendation ontology for describing (RDF and non-RDF) datasets published on the Web. Using this extension, it becomes possible to describe a context for construction-related datasets that are being distributed using Web technology as well as datasets that are not shared outside an organization such as local copies, work in progress and other datasets that remain internal. This dataset metadata encompasses the temporal context (period or snapshot), the type of content of the dataset (as-built, design, etc.) and relations between contextualized datasets (previous as-built, requirements related to a design, etc.). In addition, this DCAT extension also provides terminology for managing dataset distributions that are scoped to a certain (named or default) graph of an RDF file or quadstore",
     "version": "0.0.1",
     "license": "CC BY 4.0",
-    "creators": "n27c636b0fc0544dc8c7b038991a21c53b1",
+    "creators": "ne619ec86c2f944c89cc63727dfcdbd37b1",
     "date_modified": "",
     "date_issued": "2020-12-18",
     "see_also": "",
@@ -360,14 +440,54 @@
     "conforms_to": ""
   },
   {
-    "filename": "ci.ttl",
+    "filename": "cdo",
+    "title": "Concrete Damage Ontology",
+    "prefix": "cdo",
+    "namespace_uri": "",
+    "description": "Ontology extending the Damage Topology Ontology (DTO) to represent damage mechanisms specific to reinforced concrete structures. It supports semantic description of concrete damage types and their relation to affected building elements to aid inspection analysis and assessment workflows.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://www.researchgate.net/publication/363672959_An_ontology-supported_case-based_reasoning_approach_for_damage_assessment",
+    "imports": "bot, dot, cdo, beo, props, aoi",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Quality",
+    "secondary_domain": "Safety",
+    "cluster": "COGITO",
+    "conforms_to": ""
+  },
+  {
+    "filename": "ceo",
+    "title": "Circular Exchange Ontology",
+    "prefix": "ceo",
+    "namespace_uri": "",
+    "description": "Describes the elements necessary to undergo a material exchange between different actors of the Circular Exchange. It models participants resources and exchange mechanisms enabling semantic representation of circular material flows and reuse processes.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://biblio.ugent.be/publication/8604544",
+    "imports": "prt",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Circular Economy",
+    "secondary_domain": "Materials",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "ci",
     "title": "The Cost Item (CI) Ontology",
     "prefix": "ci",
     "namespace_uri": "http://w3id.org/ci#",
     "description": "The Cost Item (CI) ontology represents the cost domain and defines a structured model for describing and aggregating cost items and their components. It extends IfcCostItem from IFC4x3 and introduces the class ci:CostItem, which aggregates instances of ci:CostComponent through ci:hasPart. The ontology integrates QUDT for units, supports connections to IFC geometry, and aligns cost activities with DTC tasks. By linking with CR, it ensures consistent semantic mapping between cost, resources, and geometry for model-based estimation.",
     "version": "0.2",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "nde7ad4a9d8954e889c6b45bdb5440961b3, nde7ad4a9d8954e889c6b45bdb5440961b4",
+    "creators": "n50498cb26961412daa958da05531b64bb3, n50498cb26961412daa958da05531b64bb4",
     "date_modified": "",
     "date_issued": "2025-04-07",
     "see_also": "http://www.doi.org/10.35490/EC3.2025.263",
@@ -380,14 +500,34 @@
     "conforms_to": ""
   },
   {
-    "filename": "contax.ttl",
+    "filename": "conse",
+    "title": "Construction Semantic Enrichment Ontology",
+    "prefix": "conse",
+    "namespace_uri": "",
+    "description": "Construction Semantic Enrichment ontology offers a formal representation of visual information relevant to construction site imagery. It is designed to support the development of semantic-enriched visual analytic systems in the construction domain.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2024",
+    "see_also": "https://doi.org/10.1016/j.aei.2024.102446",
+    "imports": "foaf, dolce, sosa, dica, dice",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Production (Process)",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "contax",
     "title": "ConTax ontology",
     "prefix": "contax",
     "namespace_uri": "https://w3id.org/con-tax#",
     "description": "The ConTax ontology contains additional terminology for structuring and annotating RDFS/OWL taxonomies for describing constructions (components, materials, spatial zones, damages, construction tasks and properties). It also functions as an index for known taxonomies starting from root classes and properties.",
     "version": "0.0.1",
     "license": "CC BY 4.0",
-    "creators": "n355c8db4d2714725b3a45e0b309eb07eb1",
+    "creators": "na8e269c577d542908801cfb1ed4a3abab1",
     "date_modified": "",
     "date_issued": "2020-11-29",
     "see_also": "https://w3id.org/con-tax#",
@@ -400,14 +540,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "cr.ttl",
+    "filename": "cr",
     "title": "The Construction Resources (CR) Ontology",
     "prefix": "cr",
     "namespace_uri": "http://w3id.org/cr#",
     "description": "The Construction Resources (CR) ontology defines the shared resource domain connecting cost, scheduling and geometrical data. The central class cr:Resource specializes into cr:LabourResource, cr:EquipmentResource, and cr:MaterialResource, aligned respectively with DTC classes for workers, equipment, and materials. It includes mechanisms for aggregation (cr:hasSubResource), and cross-domain assignments (cr:AssignmentSet, cr:Assignment) linking ci:CostItem, dtc:Task, and ifc:IfcProduct. Parameters such as quantity, utilization rate, and formulas enable accurate data exchange between domains. CR bridges CI and DTC, ensuring unified representation of resources for cost- and time-centric project management.",
     "version": "http://w3id.org/cr#",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "n2ac28bcca740480784eeea184d8934ccb3, n2ac28bcca740480784eeea184d8934ccb4",
+    "creators": "n453f48f8a0cf48658d967a1a2b0dfd56b3, n453f48f8a0cf48658d967a1a2b0dfd56b4",
     "date_modified": "",
     "date_issued": "2025-04-07",
     "see_also": "http://www.doi.org/10.35490/EC3.2025.263",
@@ -420,14 +560,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "cterm.ttl",
+    "filename": "cterm",
     "title": "The Construction Terminology (CTERM) Ontology",
     "prefix": "cterm",
     "namespace_uri": "http://w3id.org/cterm#",
     "description": "The Construction Terminology (CTERM) ontology provides a multilingual and structured vocabulary for describing construction concepts and parameters. It defines classes such as cterm:Object, cterm:Material, cterm:Function, cterm:Aspect, and cterm:Finishing, used by CI and CR for consistent annotation. Parameter subclasses (cterm:DimensionParameter, cterm:PhysicalParameter, cterm:PerformanceParameter) model measurable or qualitative characteristics using QUDT units. CTERM supports multiple classification systems (DIN 276, UNI 8290, Uniclass, Omniclass, Uniformat, StLB) and includes multilingual labels (e.g., “Reinforcement”@en, “Bewehrung”@de, “Armatura”@it). It acts as the terminological backbone of the ontology network and can be exported as a SKOS vocabulary in future work.",
     "version": "0.2",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "nc3210ec35b9f48db8bdd2eb1d8fa0e44b3, nc3210ec35b9f48db8bdd2eb1d8fa0e44b4",
+    "creators": "n4988ccb4e0d2427e8ade174094bc9fa5b3, n4988ccb4e0d2427e8ade174094bc9fa5b4",
     "date_modified": "",
     "date_issued": "2025-04-07",
     "see_also": "http://www.doi.org/10.35490/EC3.2025.263",
@@ -440,14 +580,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "cto.ttl",
+    "filename": "cto",
     "title": "CTO: Construction Tasks Ontology",
     "prefix": "cto",
     "namespace_uri": "https://w3id.org/cto#",
     "description": "The Construction Tasks Ontology (CTO) describes tasks operating on construction elements, spatial zones and/or damages. The tasks are either planned or executed depending on the dataset metadata context of the dataset its used in. Five different types of tasks are defined: instalment, removal, modification, repair and inspection. Consequences of tasks on the dataset, i.e. added and/or deleted triples, are modeled using reified statements (RDF reification). The tasks can link to a reified statement using the CTO relations.",
     "version": "0.0.1",
     "license": "CC BY 4.0",
-    "creators": "n4ed8e571ed3243329c99354db6eeecc2b1",
+    "creators": "n53412e0464a14ba289f21fa3177c98c1b1",
     "date_modified": "",
     "date_issued": "2020-12-18",
     "see_also": "https://mathib.github.io/cto-ontology/",
@@ -460,14 +600,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "dano.ttl",
+    "filename": "dano",
     "title": "Drawing Analyis Ontology (DAnO)",
     "prefix": "dano",
     "namespace_uri": "https://w3id.org/dano#",
     "description": "DAnO is designed to standardize the representation of technical drawing data extracted through computer vision techniques. Focusing on floor plans, DAnO enables the aggregation, integration, and validation of extracted elements by defining key concepts, such as DrawingElement, DisplayElement, and DescriptionElement, and their relationships.",
     "version": "v0.2",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "n05ee3b08038c4d7a85576e0841030635b1, n05ee3b08038c4d7a85576e0841030635b3",
+    "creators": "n163c5a5072a740cfa4ae80712325fef7b1, n163c5a5072a740cfa4ae80712325fef7b3",
     "date_modified": "",
     "date_issued": "2025-07-15",
     "see_also": "https://doi.org/10.1016/j.aei.2025.103761",
@@ -480,7 +620,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "db.ttl",
+    "filename": "db",
     "title": "Digital Buildings",
     "prefix": "db",
     "namespace_uri": "",
@@ -500,7 +640,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dica.ttl",
+    "filename": "dica",
     "title": "Digital Construction Agents",
     "prefix": "dica",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Agents#",
@@ -520,7 +660,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicc.ttl",
+    "filename": "dicc",
     "title": "Digital Construction Contexts",
     "prefix": "dicc",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Contexts#",
@@ -540,7 +680,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dice.ttl",
+    "filename": "dice",
     "title": "Digital Construction Entities",
     "prefix": "dice",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Entities#",
@@ -560,7 +700,7 @@
     "conforms_to": "ISO/IEC 21838-2"
   },
   {
-    "filename": "dices.ttl",
+    "filename": "dices",
     "title": "Digital Construction Energy",
     "prefix": "dices",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Energy#",
@@ -580,7 +720,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dici.ttl",
+    "filename": "dici",
     "title": "Digital Construction Information",
     "prefix": "dici",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Information#",
@@ -600,7 +740,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicl.ttl",
+    "filename": "dicl",
     "title": "Digital Construction Lifecycle",
     "prefix": "dicl",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Lifecycle#",
@@ -620,7 +760,7 @@
     "conforms_to": "BS EN 16310:2013, HOAI, RIBA, ISO 22263"
   },
   {
-    "filename": "diclvl.ttl",
+    "filename": "diclvl",
     "title": "A vocabulary for LOD levels",
     "prefix": "diclvl",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Levels#",
@@ -640,7 +780,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicm.ttl",
+    "filename": "dicm",
     "title": "Digital Construction Materials",
     "prefix": "dicm",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Materials#",
@@ -660,7 +800,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicob.ttl",
+    "filename": "dicob",
     "title": "Digital Construction Occupancy",
     "prefix": "dicob",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Occupancy#",
@@ -680,7 +820,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicp.ttl",
+    "filename": "dicp",
     "title": "Digital Construction Processes",
     "prefix": "dicp",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Processes#",
@@ -700,7 +840,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicstg.ttl",
+    "filename": "dicstg",
     "title": "A vocabulary for BLCS stages",
     "prefix": "dicstg",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Stages#",
@@ -720,7 +860,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicu.ttl",
+    "filename": "dicu",
     "title": "Digital Construction Units",
     "prefix": "dicu",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Units#",
@@ -740,7 +880,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dicv.ttl",
+    "filename": "dicv",
     "title": "Digital Construction Variables",
     "prefix": "dicv",
     "namespace_uri": "https://w3id.org/digitalconstruction/0.5/Variables#",
@@ -760,7 +900,47 @@
     "conforms_to": ""
   },
   {
-    "filename": "dogont.ttl",
+    "filename": "dmo",
+    "title": "Damage Mechanics Ontology",
+    "prefix": "dmo",
+    "namespace_uri": "",
+    "description": "Extension of Damage Topology Ontology (DTO). Defines reduced material parameters to describe the mechanical influence of damages during a structural analysis.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://ceur-ws.org/Vol-2389/05paper.pdf",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Quality",
+    "secondary_domain": "Safety",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "do",
+    "title": "Defect Ontology",
+    "prefix": "do",
+    "namespace_uri": "",
+    "description": "Ontology developed to describe defects in construction and building components. It provides a structured representation of defect types supporting defect identification classification and analysis in inspection and quality assessment workflows.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2016",
+    "see_also": "https://doi.org/10.1016/j.autcon.2016.05.003",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Quality",
+    "secondary_domain": "Safety",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "dogont",
     "title": "DogOnt: Ontology Modeling for Intelligent Domotic Environments",
     "prefix": "dogont",
     "namespace_uri": "https://iot-ontologies.github.io/dogont/documentation/index-en.html#",
@@ -780,13 +960,13 @@
     "conforms_to": ""
   },
   {
-    "filename": "dor.ttl",
+    "filename": "dor",
     "title": "Decommissioning and Reuse Ontology",
     "prefix": "dor",
     "namespace_uri": "https://z-arghavan.github.io/DORF/",
     "description": "This is an ontology for the Semantic Material Bank, End-of-Life cycle and circular transformation. \nThis ontology would serve as a standardized representation of the concepts and relationships involved in the material reuse process, providing a common framework for data integration and analysis, and facilitating knowledge sharing among stakeholders in the building deconstruction and material reuse community. The DOR ontology describes the concepts and relationships involved in the process of decommissioning a building, reclaiming reusable product, and supporting the reuse assessment and decision-making for later use in new construction projects. \nAdditionally, DOR ontology would supports the processes involved in depositing reclaimed materials in a material bank,digital disgnosis, the conditions for acceptance of a material bank for second life cycle reuse, and the documentation required to ensure proper tracking and accounting of the materials in the construction industry..",
     "version": "",
-    "license": "http://creativecommons.org/licenses/by/4.0/\n\"DOR\" by \"Arghavan Akbarieh\" developer groups is\nlicensed under CC BY 4.0. You are free to share (copy and redistribute\nthe material in any medium or format) and adapt (remix, transform, and\nbuild upon the material) for any purpose, even commercially. for any\npurpose, even commercially. The licensor cannot revoke these freedoms as\nlong as you follow the license terms. You must give appropriate credit\n(by using the original ontology IRI for the whole ontology and original\nterm IRIs for individual terms), provide a link to the license, and\nindicate if any changes were made. You may do so in any reasonable\nmanner, but not in any way that suggests the licensor endorses you or\nyour use.\n\"DOR\"by Arghavan Akbarieh is licensed\nunder CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+    "license": "http://creativecommons.org/licenses/by/4.0/\n\n\"DOR\" by \"Arghavan Akbarieh\" developer groups is\n\nlicensed under CC BY 4.0. You are free to share (copy and redistribute\n\nthe material in any medium or format) and adapt (remix, transform, and\n\nbuild upon the material) for any purpose, even commercially. for any\n\npurpose, even commercially. The licensor cannot revoke these freedoms as\n\nlong as you follow the license terms. You must give appropriate credit\n\n(by using the original ontology IRI for the whole ontology and original\n\nterm IRIs for individual terms), provide a link to the license, and\n\nindicate if any changes were made. You may do so in any reasonable\n\nmanner, but not in any way that suggests the licensor endorses you or\n\nyour use.\n\n\"DOR\"by Arghavan Akbarieh is licensed\n\nunder CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
     "creators": "",
     "date_modified": "",
     "date_issued": "2023",
@@ -800,14 +980,14 @@
     "conforms_to": "ISO/DIS 59004"
   },
   {
-    "filename": "dot.ttl",
+    "filename": "dot",
     "title": "Damage Topology Ontology",
     "prefix": "dot",
     "namespace_uri": "https://w3id.org/dot#",
     "description": "The Damage Topology Ontology (DOT) allows the definition of damage representations and their relations with other damages and affected construction components.",
     "version": "0.8",
     "license": "https://creativecommons.org/licenses/by/1.0",
-    "creators": "n3222e1fe66af4fc6a305d8bd72ea21eeb1, https://www.researchgate.net/profile/Mathias_Bonduel",
+    "creators": "nc4e3aeaba8af441c8c6104b7e4cb813fb1, https://www.researchgate.net/profile/Mathias_Bonduel",
     "date_modified": "",
     "date_issued": "2019-02-17",
     "see_also": "https://alhakam.github.io/dot/",
@@ -820,7 +1000,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dstv.ttl",
+    "filename": "dstv",
     "title": "DSTV:Steel Construction Ontology",
     "prefix": "dstv",
     "namespace_uri": "http://w3id.org/dstv#",
@@ -840,7 +1020,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "dtc.ttl",
+    "filename": "dtc",
     "title": "Digital Twin Construction Ontology",
     "prefix": "dtc",
     "namespace_uri": "https://dtc-ontology.cms.ed.tum.de/ontology#",
@@ -860,7 +1040,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "eco.ttl",
+    "filename": "ec",
     "title": "ECO - Eurocode Core Ontology",
     "prefix": "ec",
     "namespace_uri": "https://www.w3id.org/eurocodes/ec1990#",
@@ -880,14 +1060,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "eepsa.ttl",
+    "filename": "eepsa",
     "title": "The EEPSA Ontology.",
     "prefix": "eepsa",
     "namespace_uri": "https://w3id.org/eepsa#",
     "description": "The EEPSA (Energy Efficiency Prediction Semantic Assistant) ontology puts together all the ontology modules and ODPs that form the EEPSA Ontology. It structures semantic guidance for energy efficiency modeling using the Ontology Design Patterns. Supports KDD-driven decision workflows for building performance optimization.",
     "version": "2.0",
     "license": "CC BY",
-    "creators": "Iker Esnaola-Gonzalez <mailto:iker.esnaola@tekniker.es>\nJesús Bermúdez <mailto:jesus.bermudez@ehu.eus>",
+    "creators": "Iker Esnaola-Gonzalez <mailto:iker.esnaola@tekniker.es>\r\nJesús Bermúdez <mailto:jesus.bermudez@ehu.eus>",
     "date_modified": "",
     "date_issued": "2018-12-12",
     "see_also": "https://iesnaola.github.io/eepsa/EEPSA/index-en.html",
@@ -900,7 +1080,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "emmo.ttl",
+    "filename": "emmo",
     "title": "Elementary Multiperspective Material Ontology (EMMO)",
     "prefix": "emmo",
     "namespace_uri": "http://emmo.info/emmo#",
@@ -920,7 +1100,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "esair.ttl",
+    "filename": "esair",
     "title": "calidad-aire",
     "prefix": "esair",
     "namespace_uri": "http://vocab.linkeddata.es/datosabiertos/def/medio-ambiente/calidad-aire#",
@@ -940,7 +1120,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "facility.ttl",
+    "filename": "eurobau",
+    "title": "Eurobau Utility Ontology",
+    "prefix": "eurobau",
+    "namespace_uri": "",
+    "description": "Extends GoodRelations to describe material offerings, such as delivery modes and product attributes, within the Eurobau linked?data ecosystem for building materials and procurement.",
+    "version": "1",
+    "license": "CC BY 3.0",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2006",
+    "see_also": "http://semantic.eurobau.com/",
+    "imports": "dcterms, gr",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Materials",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": "ISO 3166-2"
+  },
+  {
+    "filename": "facility",
     "title": "Facility Ontology",
     "prefix": "facility",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/facility#",
@@ -960,14 +1160,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "ffdr.ttl",
+    "filename": "ffdr",
     "title": "Firefighters' Data Requirements Ontology",
     "prefix": "ffdr",
     "namespace_uri": "https://purl.org/ffdr-ontology#",
     "description": "Defines building and environmental data needed by firefighters during emergencies. Captures spatial layouts, hazard indicators, and operational parameters to improve decision-making and response strategies. The ontology  ontology can be a basis for developing intelligent tools and systems that collect building components and environmental data from different sources.",
     "version": "V 2.0.0",
-    "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International.\n \nLicense: https://creativecommons.org/licenses/by-nc/4.0/",
-    "creators": "Eyosias Guyo\n\nTechnische Universität Berlin, Germany\nTrimble Solutions Oy, Finland\n\neyosias.guyo@trimble.com, Timo Hartmann\n\nTechnische Universität Berlin, Germany",
+    "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International.\n\n \n\nLicense: https://creativecommons.org/licenses/by-nc/4.0/",
+    "creators": "Eyosias Guyo\r\n\r\nTechnische Universität Berlin, Germany\r\nTrimble Solutions Oy, Finland\r\n\r\neyosias.guyo@trimble.com, Timo Hartmann\r\n\r\nTechnische Universität Berlin, Germany",
     "date_modified": "",
     "date_issued": "2022",
     "see_also": "https://doi.org/10.1016/j.aei.2023.101992",
@@ -980,7 +1180,47 @@
     "conforms_to": ""
   },
   {
-    "filename": "fm-ener.ttl",
+    "filename": "fgo",
+    "title": "FireGrid ontology",
+    "prefix": "fgo",
+    "namespace_uri": "",
+    "description": "Models concepts of state parameters, events, hazards, and spatiotemporal relationships at the rooms level for fire incident description. Supports distributed simulation and decision support systems by integrating sensor data and predictive models for fire dynamics.",
+    "version": "n/d",
+    "license": "n/d",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2010",
+    "see_also": "https://doi.org/10.1016/j.jpdc.2010.06.005",
+    "imports": "dolce",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Fire Safety",
+    "secondary_domain": "IoT Sensors/Actuators",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "fisa",
+    "title": "Fire Safety Ontology",
+    "prefix": "fisa",
+    "namespace_uri": "https://purl.org/fisa#",
+    "description": "FiSa enables the classification of buildings and its components based on fire safety considerations. FiSa establish a fire safety perspective for buildings utilizing a combination of building codes, technical regulations, guidelines, and semi-structured interviews with fire safety planners.",
+    "version": "0.0.1",
+    "license": "CC BY 4.0",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2023",
+    "see_also": "https://doi.org/10.1016/j.aei.2023.102314",
+    "imports": "ns, skos, dcterms, vann, swrl, swrla, swrlb, bot",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Fire Safety",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "fm-ener",
     "title": "Facility Management Building Energy Ontology for Renovative Design Decisons",
     "prefix": "fm-ener",
     "namespace_uri": "",
@@ -1000,7 +1240,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "fmo.ttl",
+    "filename": "fmo",
     "title": "Failure Mechanism Ontology",
     "prefix": "fmo",
     "namespace_uri": "https://w3id.org/fmo#",
@@ -1020,7 +1260,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "fog.ttl",
+    "filename": "fog",
     "title": "FOG: File Ontology for Geometry formats",
     "prefix": "fog",
     "namespace_uri": "https://w3id.org/fog#",
@@ -1040,7 +1280,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "fso.ttl",
+    "filename": "fso",
     "title": "The Flow Systems Ontology (FSO)",
     "prefix": "fso",
     "namespace_uri": "http://www.w3id.org/fso#",
@@ -1060,14 +1300,54 @@
     "conforms_to": ""
   },
   {
-    "filename": "geosparql.ttl",
+    "filename": "gbmno",
+    "title": "Green Building Material Name Ontology",
+    "prefix": "gbmno",
+    "namespace_uri": "",
+    "description": "Provides a controlled vocabulary for naming interior building materials. Supports semantic annotation of material specifications to enable sustainable design and procurement workflows. Facilitates integration with green building certification systems.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://doi.org/10.1016/j.autcon.2019.01.015",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Materials",
+    "secondary_domain": "Circular Economy",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "gbmto",
+    "title": "Green Building Material Type Ontology",
+    "prefix": "gbmto",
+    "namespace_uri": "",
+    "description": "Defines a structured taxonomy for categorizing interior building materials, facilitating lifecycle analysis and circular economy processes. It supports interoperability between material databases and BIM systems",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://doi.org/10.1016/j.autcon.2019.01.015",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Materials",
+    "secondary_domain": "Circular Economy",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "geo",
     "title": "GeoSPARQL Ontology",
     "prefix": "geo",
     "namespace_uri": "http://www.opengis.net/ont/geosparql#",
     "description": "An OGC standard ontology for representing and querying geospatial data in RDF. Defines classes and properties for geometries, spatial relationships, and topological operations. Enables semantic interoperability across GIS and linked data applications. GeoSPARQL does not define a comprehensive vocabulary for representing spatial information. Instead GeoSPARQL defines a core set of classes, properties and datatypes that can be used to construct query patterns.",
     "version": "OGC GeoSPARQL 1.1",
     "license": "https://www.ogc.org/license",
-    "creators": "OGC GeoSPARQL Standards Working Group, n2cbb74aaccb94c1f953302a46a255b73b1",
+    "creators": "OGC GeoSPARQL Standards Working Group, n53b1270438e140de8a3f4d95b4582e50b1",
     "date_modified": "",
     "date_issued": "2021-10-27",
     "see_also": "https://opengeospatial.github.io/ogc-geosparql/",
@@ -1080,7 +1360,7 @@
     "conforms_to": "OGC"
   },
   {
-    "filename": "gis4reno.ttl",
+    "filename": "gis4reno",
     "title": "GIS-based ontology for surrounding buildings to support building renovation",
     "prefix": "gis4reno",
     "namespace_uri": "",
@@ -1100,7 +1380,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "hbpo.ttl",
+    "filename": "hbpo",
     "title": "Holistic Building Performance Ontology",
     "prefix": "hbpo",
     "namespace_uri": "",
@@ -1120,7 +1400,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "hmo.ttl",
+    "filename": "hmo",
     "title": "Historic Masonry Ontology",
     "prefix": "hmo",
     "namespace_uri": "https://w3id.org/hmo#",
@@ -1140,7 +1420,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "icdd2ams.ttl",
+    "filename": "icdd2ams",
     "title": "Asset Condition Integration from ICDD to AMS (icdd2ams)",
     "prefix": "icdd2ams",
     "namespace_uri": "https://icdd.vm.rub.de/ontology/icdd2ams#",
@@ -1160,14 +1440,14 @@
     "conforms_to": "ICDD"
   },
   {
-    "filename": "idpo.ttl",
+    "filename": "idpo",
     "title": "Information Delivery Processes Ontology (IDPO)",
     "prefix": "idpo",
     "namespace_uri": "https://icdd.vm.rub.de/ontology/idpo#",
     "description": "Models information delivery workflows in building projects, based on ISO-19650 and BPMN. Captures actors, appointments, information containers, requirements, and SHACL validation templates, facilitating semantic compliance and structured data delivery in construction planning.",
     "version": "v0.2",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "n4304f171f1d34ca18d855620de3bc4d0b1, n4304f171f1d34ca18d855620de3bc4d0b3",
+    "creators": "n484f031b22224f5bbbdc63c6655b8d89b1, n484f031b22224f5bbbdc63c6655b8d89b3",
     "date_modified": "",
     "date_issued": "2023-02-20",
     "see_also": "https://ceur-ws.org/Vol-3081/08paper.pdf",
@@ -1180,7 +1460,7 @@
     "conforms_to": "ISO 19650"
   },
   {
-    "filename": "ifc4-add2.ttl",
+    "filename": "ifc",
     "title": "IFC4_ADD2_TC1",
     "prefix": "ifc",
     "namespace_uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#",
@@ -1200,14 +1480,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "into.ttl",
+    "filename": "into",
     "title": "Infrastructure Topology Ontology",
     "prefix": "into",
     "namespace_uri": "https://app.korfin.de/ontology/into#",
     "description": "The Infrastructure Topology Ontology (INTO) allows the definition of topologies that represent the infrastructure network and supports the modeling of microtopologies and all macrotopologies at higher abstraction levels as well as additional linking components for connecting the topology with geometry.",
     "version": "0.1",
     "license": "https://creativecommons.org/licenses/by/1.0",
-    "creators": "nfd4563b746914b4294a07d970f83fc40b1, nfd4563b746914b4294a07d970f83fc40b2",
+    "creators": "n1a1b52eb8d1e4f05973e1185f0655f84b1, n1a1b52eb8d1e4f05973e1185f0655f84b2",
     "date_modified": "",
     "date_issued": "2024-05-10",
     "see_also": "https://ec-3.org/publications/conference/paper/?id=EC32024_292",
@@ -1220,7 +1500,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "io.ttl",
+    "filename": "io",
     "title": "Information Objects Ontology",
     "prefix": "io",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/information-objects#",
@@ -1240,7 +1520,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "ioc.ttl",
+    "filename": "ioc",
     "title": "IOC: Internet of Construction Ontology",
     "prefix": "ioc",
     "namespace_uri": "http://w3id.org/ioc#",
@@ -1260,7 +1540,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "iot.ttl",
+    "filename": "iot",
     "title": "IoT ontology",
     "prefix": "iot",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/iot#",
@@ -1280,14 +1560,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "isoprops.ttl",
+    "filename": "isoprops",
     "title": "ISO 23386 Property Ontology (ISOProps)",
     "prefix": "isoprops",
     "namespace_uri": "https://rub-informatik-im-bauwesen.github.io/ir-ontologies/isoprops/isoprops.html",
     "description": "Implements standardized property assignments based on ISO-23386. Defines classes like AssignedProperty, Dictionary, and DictionarySubset to describe property references, dictionary structures, and values within data dictionaries for construction objects.",
     "version": "v2.2",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "n2472ae838fa844a6acac13273800a039b3, n2472ae838fa844a6acac13273800a039b5, n2472ae838fa844a6acac13273800a039b7",
+    "creators": "na375e7592de64c93973e5b247a09b5dcb3, na375e7592de64c93973e5b247a09b5dcb5, na375e7592de64c93973e5b247a09b5dcb7",
     "date_modified": "",
     "date_issued": "2025-01-15",
     "see_also": "",
@@ -1300,7 +1580,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "kpi.ttl",
+    "filename": "jup",
+    "title": "Ontology of Building Accessibility",
+    "prefix": "jup",
+    "namespace_uri": "http://w3id.org/charta77/jup",
+    "description": "The vocabulary of building accessibility was created within the project Maps without Barriers realized under Charta 77 Foundation – Barriers Account. It is based on the Object Accessibility Categorization Methodology, however, it is completed with entities arising from the needs of the project. This vocabulary is also part of a diploma thesis entitled Ontology of Building Accessibility. The project is co-financed from resources provided by the European Union and European Regional Development Fund.",
+    "version": "2",
+    "license": "ODBL",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2016",
+    "see_also": "https://lov.linkeddata.es/dataset/lov/vocabs/jup/versions/2016-07-14.n3, https://presbariery.cz/en/help",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Mobility/Transport",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "kpi",
     "title": "Key Performance Indicator ontology",
     "prefix": "kpi",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/key-performance-indicator#",
@@ -1320,7 +1620,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "lca-c-reno.ttl",
+    "filename": "lca-c-renovation",
     "title": "LCA-C Ontology",
     "prefix": "lca-c-renovation",
     "namespace_uri": "",
@@ -1340,14 +1640,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "loin.ttl",
+    "filename": "loin",
     "title": "Level of Information Need (LOIN) Ontology",
     "prefix": "loin",
     "namespace_uri": "https://w3id.org/loin#",
     "description": "The Level of Information Need (LOIN) Ontology is defined for specifying information requirements for delivery of data in a buildings' life cycle. The LOIN ontology is based on the standard BS EN 17412-1 (2020). Furthermore, it is extended with vocabulary for connecing Information Delivery Specifications (IDS) and Information containers for linked document delivery (ICDD) as per ISO 21597-1 (2020).",
     "version": "3.0",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "ne68b405704894797a5556eb082c7ac2bb3, ne68b405704894797a5556eb082c7ac2bb5, ne68b405704894797a5556eb082c7ac2bb7",
+    "creators": "n9043f378067d4d4fabe919d3bb370712b3, n9043f378067d4d4fabe919d3bb370712b5, n9043f378067d4d4fabe919d3bb370712b7",
     "date_modified": "",
     "date_issued": "2025-01-15",
     "see_also": "https://ec-3.org/publications/conference/paper/?id=EC32023_221",
@@ -1360,7 +1660,7 @@
     "conforms_to": "LOIN"
   },
   {
-    "filename": "mat.ttl",
+    "filename": "mat",
     "title": "Material properties ontology",
     "prefix": "mat",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/material-properties#",
@@ -1380,34 +1680,34 @@
     "conforms_to": ""
   },
   {
-    "filename": "mdo.ttl",
-    "title": "ASB-ING Ontology",
-    "prefix": "asb",
-    "namespace_uri": "https://w3id.org/asbingowl/core#",
-    "description": "the ”ASBING” - the German standard data model to describe infrastructural artefacts in many use cases. It supports semantic description of infrastructure elements especially bridges enabling standardised documentation of inspections conditions and quality information across diverse infrastructure management and assessment use cases within public asset maintenance planning monitoring reporting and decision making contexts.",
-    "version": "",
-    "license": "https://creativecommons.org/licenses/by/4.0",
-    "creators": "nb54696d7e2d64406b6802d74451d2597b1",
+    "filename": "core",
+    "title": "Materials Design Ontology - Core Module",
+    "prefix": "core",
+    "namespace_uri": "https://w3id.org/mdo/core/",
+    "description": "MDO is an ontology for materials design field, representing the domain knowledge specifically related to solid-state physics and computational materials science.",
+    "version": "1.1",
+    "license": "https://github.com/LiUSemWeb/Materials-Design-Ontology/blob/master/LICENSE",
+    "creators": "Huanyu Li",
     "date_modified": "",
-    "date_issued": "2022",
-    "see_also": "https://publications.rwth-aachen.de/record/824017/files/824017.pdf",
-    "imports": "dcterms, vann, foaf",
+    "date_issued": "2022-08-02",
+    "see_also": "https://w3id.org/mdo/core/",
+    "imports": "qudt, vann, dcterms, unit",
     "classes": "",
     "properties": "",
-    "primary_domain": "BE Product (Infrastructure)",
-    "secondary_domain": "Quality",
+    "primary_domain": "Materials",
+    "secondary_domain": "",
     "cluster": "",
     "conforms_to": ""
   },
   {
-    "filename": "mep.ttl",
+    "filename": "mep",
     "title": "Distribution Element Ontology",
     "prefix": "mep",
     "namespace_uri": "https://pi.pauwel.be/voc/distributionelement/index-en.html",
     "description": "The Distribution Element Ontology provides an ontology based on the IfcDistributionElement subtree in the IFC specification, containing a taxonomy of classes that allow to define common distribution elements (actuators, flowterminals, ...).",
     "version": "January 28th 2019",
     "license": "https://creativecommons.org/licenses/by/1.0/",
-    "creators": "n0f9eac5cb6024db59f220e3308bfefceb1",
+    "creators": "n8dce8a0711834901be47a90eeedb8651b1",
     "date_modified": "",
     "date_issued": "2019-01-28",
     "see_also": "",
@@ -1420,7 +1720,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "mns.ttl",
+    "filename": "mns",
     "title": "Modelling and Standards Ontology",
     "prefix": "mns",
     "namespace_uri": "https://w3id.org/mns#",
@@ -1440,7 +1740,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "nen2660.ttl",
+    "filename": "mpo",
+    "title": "Material Passport Ontology",
+    "prefix": "mpo",
+    "namespace_uri": "",
+    "description": "MPO represents manufactured products, components, and materials. The ontology includes sustainability and composition properties, as well as the physical and temporal properties necessary for the dynamic calculation of the Material Circularity Indicator (MCI) and Linear Flow Index (LFI).",
+    "version": "",
+    "license": "MIT License",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2024",
+    "see_also": "https://como.ceb.cam.ac.uk/media/preprints/c4e-328-preprint.pdf",
+    "imports": "om, foaf, dcmi, emmo, mdo",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Circular Economy",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "nen2660",
     "title": "NEN 2660-2:2022 - Rules for information modelling of the built environment - Normative classes and properties (RDFS, OWL, and SHACL)",
     "prefix": "nen2660",
     "namespace_uri": "https://w3id.org/nen2660/def#",
@@ -1460,7 +1780,27 @@
     "conforms_to": "NEN 2660-2:2022 nl"
   },
   {
-    "filename": "ocqa.ttl",
+    "filename": "obpa",
+    "title": "Ontology for Building Permit Authorities",
+    "prefix": "obpa",
+    "namespace_uri": "https://sebseis.github.io/OBPA/",
+    "description": "An ontology that covers a semantic representation of a building permit authority along with a subprocess of the building permit process called the assignment process. The assignment process describes how and on what basis building applications are assigned to appropriate building officials.",
+    "version": "0.3",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2022",
+    "see_also": "https://www.sciencedirect.com/science/article/pii/S1474034623003440",
+    "imports": "dc, dcterms, schema, skos, foaf, prov, ns, vcard, wgs84_pos, bot",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Planning Permission",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "ocqa",
     "title": "Ontology for Construction Quality Assurence (OCQA)",
     "prefix": "ocqa",
     "namespace_uri": "https://w3id.org/ocqa#",
@@ -1480,7 +1820,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "ofo.ttl",
+    "filename": "ofo",
     "title": "Occupant Feedback Ontology",
     "prefix": "ofo",
     "namespace_uri": "https://w3id.org/ofo#",
@@ -1500,7 +1840,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "omg.ttl",
+    "filename": "omg",
     "title": "OMG: Ontology for Managing Geometry",
     "prefix": "omg",
     "namespace_uri": "http://w3id.org/omg#",
@@ -1520,7 +1860,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "onem2m.ttl",
+    "filename": "onem2m",
     "title": "oneM2M Base Ontology",
     "prefix": "onem2m",
     "namespace_uri": "",
@@ -1540,7 +1880,47 @@
     "conforms_to": "TS-0012"
   },
   {
-    "filename": "op.ttl",
+    "filename": "OntoCityGML",
+    "title": "CityGML Ontology",
+    "prefix": "OntoCityGML",
+    "namespace_uri": "",
+    "description": "Owl version of CityGML.  It enables modelling of urban objects and city structures supporting interoperability between geographic information systems and semantic web technologies for city scale applications.",
+    "version": "2.0",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2020",
+    "see_also": "https://www.sciencedirect.com/science/article/pii/S2666546821000574",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Geographic Information",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "ontonav",
+    "title": "Indoor Navigation Ontology",
+    "prefix": "ontonav",
+    "namespace_uri": "",
+    "description": "Defines semantic models for indoor route guidance, including navigation paths, spatial context, and user motion states. It supports ontology-based pedestrian navigation systems by structuring user profiles, path suggestions, and spatial semantics at the space and element level",
+    "version": "5",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2005",
+    "see_also": "https://www.researchgate.net/publication/237021171_OntoNav_A_Semantic_Indoor_Navigation_System",
+    "imports": "dc",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Mobility/Transport",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "op",
     "title": "Occupancy Profile ontology",
     "prefix": "op",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/occupancy-profile#",
@@ -1560,14 +1940,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "opm.ttl",
+    "filename": "opm",
     "title": "OPM: Ontology for Property Management",
     "prefix": "opm",
     "namespace_uri": "http://www.w3id.org/opm#",
     "description": "The Ontology for Property Management (OPM) is an ontology for describing temporal properties that are subject to changes as the building design evolves.",
     "version": "May 25th 2018",
     "license": "https://creativecommons.org/licenses/by/1.0/",
-    "creators": "n0df564ef0f9340f4bc23da451188d75ab1, n0df564ef0f9340f4bc23da451188d75ab2",
+    "creators": "n451e932941e846538e88adcce8e5406ab1, n451e932941e846538e88adcce8e5406ab2",
     "date_modified": "",
     "date_issued": "2018-05-25",
     "see_also": "http://www.w3id.org/opm#",
@@ -1580,7 +1960,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "ph.ttl",
+    "filename": "ph",
     "title": "Project Haystack",
     "prefix": "ph",
     "namespace_uri": "https://project-haystack.org/def/ph/4.0.0#",
@@ -1600,7 +1980,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "process.ttl",
+    "filename": "process",
     "title": "Process Ontology",
     "prefix": "process",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/process#",
@@ -1620,7 +2000,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "quality.ttl",
+    "filename": "quality",
     "title": "Quality Ontology",
     "prefix": "quality",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/quality#",
@@ -1640,7 +2020,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "rdo.ttl",
+    "filename": "rdo",
     "title": "Roof Damage Ontology",
     "prefix": "rdo",
     "namespace_uri": "https://w3id.org/rdo#",
@@ -1660,7 +2040,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "reloc.ttl",
+    "filename": "rec",
+    "title": "RealEstateCore",
+    "prefix": "rec",
+    "namespace_uri": "",
+    "description": "RealEstateCore is a common language that enable control over buildings and development of new services. RealEstateCore is a domain ontology preparing buildings to interact with the Smart City. It bridges existing standards and find the common denominators at the space and asset level.",
+    "version": "4",
+    "license": "BSD 3-Clause License",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2019",
+    "see_also": "https://github.com/RealEstateCore/rec",
+    "imports": "qudt, dash, geojson, brick, brickpatches",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Real Estate",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "reloc",
     "title": "Relative Location Ontology",
     "prefix": "reloc",
     "namespace_uri": "https://w3id.org/reloc#",
@@ -1680,7 +2080,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "reno-inst.ttl",
+    "filename": "reno-inst",
     "title": "Reno-Inst Ontology",
     "prefix": "reno-inst",
     "namespace_uri": "",
@@ -1700,7 +2100,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "renp.ttl",
+    "filename": "renp",
     "title": "Renovation Processes and Work Orders Ontology",
     "prefix": "renp",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/renovation-process#",
@@ -1720,7 +2120,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "resource.ttl",
+    "filename": "resource",
     "title": "Resource ontology",
     "prefix": "resource",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/resource#",
@@ -1740,7 +2140,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "safety.ttl",
+    "filename": "safety",
     "title": "Safety Ontology",
     "prefix": "safety",
     "namespace_uri": "https://cogito.iot.linkeddata.es/def/safety#",
@@ -1760,7 +2160,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "sao.ttl",
+    "filename": "sao",
     "title": "Stream Annotation Ontology",
     "prefix": "sao",
     "namespace_uri": "http://iot.ee.surrey.ac.uk/citypulse/ontologies/sao/sao#",
@@ -1780,7 +2180,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref.ttl",
+    "filename": "saref",
     "title": "SAREF: the Smart Applications REFerence ontology",
     "prefix": "saref",
     "namespace_uri": "https://saref.etsi.org/core/",
@@ -1800,7 +2200,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4agri.ttl",
+    "filename": "s4agri",
     "title": "SAREF4AGRI: an extension of SAREF for the agriculture and food domain",
     "prefix": "s4agri",
     "namespace_uri": "https://saref.etsi.org/saref4agri/",
@@ -1820,7 +2220,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4auto.ttl",
+    "filename": "s4auto",
     "title": "SAREF4AUTO: an extension of SAREF for the automotive domain",
     "prefix": "s4auto",
     "namespace_uri": "https://saref.etsi.org/saref4auto/",
@@ -1840,7 +2240,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4bldg.ttl",
+    "filename": "s4bldg",
     "title": "SAREF4BLDG: an extension of SAREF for the building domain",
     "prefix": "s4bldg",
     "namespace_uri": "https://w3id.org/def/saref4bldg",
@@ -1860,7 +2260,7 @@
     "conforms_to": "ISO 16739"
   },
   {
-    "filename": "saref4city.ttl",
+    "filename": "s4city",
     "title": "SAREF4CITY: an extension of SAREF for the Smart City domain",
     "prefix": "s4city",
     "namespace_uri": "https://saref.etsi.org/saref4city/",
@@ -1880,7 +2280,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4ehaw.ttl",
+    "filename": "s4ehaw",
     "title": "SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain",
     "prefix": "s4ehaw",
     "namespace_uri": "https://saref.etsi.org/saref4ehaw/",
@@ -1900,7 +2300,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4ener.ttl",
+    "filename": "s4ener",
     "title": "SAREF for Energy Flexibility",
     "prefix": "s4ener",
     "namespace_uri": "https://saref.etsi.org/saref4ener/",
@@ -1920,7 +2320,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4envi.ttl",
+    "filename": "s4envi",
     "title": "SAREF4ENVI: an extension of SAREF for the Environment domain",
     "prefix": "s4envi",
     "namespace_uri": "https://saref.etsi.org/saref4envi/",
@@ -1940,7 +2340,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4grid.ttl",
+    "filename": "s4grid",
     "title": "SAREF4GRID: an extension of SAREF for the Smart Grid domain",
     "prefix": "s4grid",
     "namespace_uri": "https://saref.etsi.org/saref4grid/",
@@ -1960,7 +2360,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4inma.ttl",
+    "filename": "s4inma",
     "title": "SAREF4INMA: an extension of SAREF for the industry and manufacturing domain",
     "prefix": "s4inma",
     "namespace_uri": "https://saref.etsi.org/saref4inma/",
@@ -1980,7 +2380,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4lift.ttl",
+    "filename": "s4lift",
     "title": "SAREF4WEAR: an extension of SAREF for the Smart Lifts domain",
     "prefix": "s4lift",
     "namespace_uri": "https://saref.etsi.org/saref4lift/",
@@ -2000,7 +2400,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4syst.ttl",
+    "filename": "s4syst",
     "title": "SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections",
     "prefix": "s4syst",
     "namespace_uri": "https://saref.etsi.org/saref4syst/",
@@ -2020,7 +2420,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4watr.ttl",
+    "filename": "s4watr",
     "title": "SAREF4WATR: an extension of SAREF for the water domain",
     "prefix": "s4watr",
     "namespace_uri": "https://saref.etsi.org/saref4watr/",
@@ -2040,7 +2440,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "saref4wear.ttl",
+    "filename": "s4wear",
     "title": "SAREF4WEAR: an extension of SAREF for the Wearables domain",
     "prefix": "s4wear",
     "namespace_uri": "https://saref.etsi.org/saref4wear/",
@@ -2060,7 +2460,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "sbeo.ttl",
+    "filename": "sbeo",
     "title": "SBEO: Smart Building Evacuation Ontology",
     "prefix": "sbeo",
     "namespace_uri": "https://w3id.org/sbeo#",
@@ -2080,7 +2480,47 @@
     "conforms_to": ""
   },
   {
-    "filename": "sd.ttl",
+    "filename": "sbim",
+    "title": "SemanticBIM Ontology",
+    "prefix": "sbim",
+    "namespace_uri": "",
+    "description": "The sbim ontology represents data about a two storey building generated through the process of translating of RDF data into the IFC data model.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "",
+    "see_also": "https://www.researchgate.net/publication/344442780_Facilitating_Information_Exchange_for_3D_Retrofit_Models_of_Existing_Assets_Using_Semantic_Web_Technologies/download",
+    "imports": "qudt, foaf, dcterms, voaf, schema, vann, seas, bot, bpo, omg",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "BE Product (Building)",
+    "secondary_domain": "BE Product (Infrastructure)",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "sbonto",
+    "title": "Ontology of smart building",
+    "prefix": "sbonto",
+    "namespace_uri": "",
+    "description": "basic knowledge about a smart building, at the building level. The notion of the smart building is applied to any building equipped with computer and communication technology, which can automatically respond to internal or external stimuli.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2017",
+    "see_also": "http://dx.doi.org/10.17654/EC017051101",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Energy",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "sd",
     "title": "Sensor Data ontology",
     "prefix": "sd",
     "namespace_uri": "http://bimerr.iot.linkeddata.es/def/sensor-data#",
@@ -2100,7 +2540,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "seas.ttl",
+    "filename": "seas",
     "title": "SEAS Ontology",
     "prefix": "seas",
     "namespace_uri": "https://w3id.org/seas/seas-1.1",
@@ -2120,7 +2560,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "sml.ttl",
+    "filename": "sero",
+    "title": "Steel Element Reuse Ontology",
+    "prefix": "sero",
+    "namespace_uri": "",
+    "description": "An ontology assessing reusability of steel beams in audits. It captures material properties, structural conditions, lifecycle data, and reuse criteria, supporting circular construction practices based on literature, interviews, and structured coding",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2024",
+    "see_also": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4916239",
+    "imports": "beo, dicm, dot, cdo",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Circular Economy",
+    "secondary_domain": "Materials",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "sml",
     "title": "EN 17632-1:2022 / EN 17632-2:2024 - BIM Semantic modelling and linking (SML) - Normative classes and properties (RDFS, OWL, and SHACL)",
     "prefix": "sml",
     "namespace_uri": "https://w3id.org/sml/def#",
@@ -2140,14 +2600,14 @@
     "conforms_to": "CEN EN 17632-1:2022, CEN EN 17632-2:2025"
   },
   {
-    "filename": "sosa.ttl",
+    "filename": "sosa",
     "title": "Sensor, Observation, Sample, and Actuator (SOSA) Ontology",
     "prefix": "sosa",
     "namespace_uri": "http://www.w3.org/ns/sosa/",
     "description": "The Semantic Sensor Network (SSN) ontology is an ontology for describing sensors and their observations, the involved procedures, the studied features of interest, the samples used to do so, and the observed properties, as well as actuators. SSN follows a horizontal and vertical modularization architecture by including a lightweight but self-contained core ontology called SOSA (Sensor, Observation, Sample, and Actuator) for its elementary classes and properties. With their different scope and different degrees of axiomatization, SSN and SOSA are able to support a wide range of applications and use cases, including satellite imagery, large-scale scientific monitoring, industrial and household infrastructures, social sensing, citizen science, observation-driven ontology engineering, and the Web of Things. Both ontologies are described below, and examples of their usage are given.",
     "version": "",
     "license": "http://www.opengeospatial.org/ogc/Software",
-    "creators": "n44b28d2e72fc48c3aff4c80bf92830a7b1",
+    "creators": "n974c0cb2c33643e2a0d58187e9f39ccdb1",
     "date_modified": "",
     "date_issued": "2017-04-17",
     "see_also": "http://www.w3.org/ns/sosa/",
@@ -2160,14 +2620,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "ssn.ttl",
+    "filename": "ssn",
     "title": "Semantic Sensor Network Ontology",
     "prefix": "ssn",
     "namespace_uri": "http://www.w3.org/ns/ssn/",
     "description": "The Semantic Sensor Network (SSN) ontology is an ontology for describing sensors and their observations, the involved procedures, the studied features of interest, the samples used to do so, and the observed properties, as well as actuators. SSN follows a horizontal and vertical modularization architecture by including a lightweight but self-contained core ontology called SOSA (Sensor, Observation, Sample, and Actuator) for its elementary classes and properties. With their different scope and different degrees of axiomatization, SSN and SOSA are able to support a wide range of applications and use cases, including satellite imagery, large-scale scientific monitoring, industrial and household infrastructures, social sensing, citizen science, observation-driven ontology engineering, and the Web of Things",
-    "version": "New modular version of the SSN ontology. \n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology.",
+    "version": "New modular version of the SSN ontology. \n\n\n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\n\n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology.",
     "license": "http://www.opengeospatial.org/ogc/Software",
-    "creators": "na3e4a659d26845ef9684f9d455da08b7b1",
+    "creators": "nec1dc9163d9f4804b11db9e845d92c58b1",
     "date_modified": "",
     "date_issued": "2017-04-17",
     "see_also": "https://www.w3.org/TR/vocab-ssn/",
@@ -2180,7 +2640,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "stg.ttl",
+    "filename": "stg",
     "title": "STG: Scan-to-Graph",
     "prefix": "stg",
     "namespace_uri": "https://github.com/JWerbrouck/scan-to-graph/blob/master/stg.ttl",
@@ -2200,14 +2660,14 @@
     "conforms_to": ""
   },
   {
-    "filename": "tempo.ttl",
+    "filename": "tempo",
     "title": "Data Template Ontology (TempO)",
     "prefix": "tempo",
     "namespace_uri": "https://w3id.org/tempo#",
     "description": "The Data Template (DT) Ontology is based on concepts and principles for creating templates from ISO 23387 and the associated XML data schema",
     "version": "2.1",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "creators": "n5010cef693c94090b48f0a8e4d4b267bb1, n5010cef693c94090b48f0a8e4d4b267bb3, n5010cef693c94090b48f0a8e4d4b267bb5, n5010cef693c94090b48f0a8e4d4b267bb7, n5010cef693c94090b48f0a8e4d4b267bb9",
+    "creators": "n9d1446a2f1e04861b4771178230d42c0b1, n9d1446a2f1e04861b4771178230d42c0b3, n9d1446a2f1e04861b4771178230d42c0b5, n9d1446a2f1e04861b4771178230d42c0b7, n9d1446a2f1e04861b4771178230d42c0b9",
     "date_modified": "",
     "date_issued": "2025-01-15",
     "see_also": "",
@@ -2220,7 +2680,7 @@
     "conforms_to": "ISO 23386, ISO 23387, ISO 7817"
   },
   {
-    "filename": "th-actor.ttl",
+    "filename": "th-actor",
     "title": "Users and Preference Information",
     "prefix": "th-actor",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/ActorOntology.owl#",
@@ -2240,7 +2700,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "th-building.ttl",
+    "filename": "th-building",
     "title": "Architecture and Building Physics Information Ontology",
     "prefix": "th-building",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#",
@@ -2260,7 +2720,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "th-energy.ttl",
+    "filename": "th-energy",
     "title": "Energy and Resource Information",
     "prefix": "th-energy",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/EnergyResourceOntology.owl#",
@@ -2280,7 +2740,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "th-process.ttl",
+    "filename": "th-process",
     "title": "User Behavior and Building Process Information",
     "prefix": "th-process",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/ProcessOntology.owl#",
@@ -2300,7 +2760,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "th-sharedvoc.ttl",
+    "filename": "th-sharedvoc",
     "title": "Buildling Ontology Shared Vocabulary",
     "prefix": "th-sharedvoc",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl",
@@ -2320,7 +2780,7 @@
     "conforms_to": ""
   },
   {
-    "filename": "th-weather.ttl",
+    "filename": "th-weather",
     "title": "Weather and Exterior Influence Information",
     "prefix": "th-weather",
     "namespace_uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#",
@@ -2340,7 +2800,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "unocs.ttl",
+    "filename": "uno",
+    "title": "User Navigation Ontology",
+    "prefix": "uno",
+    "namespace_uri": "",
+    "description": "An ontology for indoor pedestrian navigation that integrates semantic building structures, spatial context, and user profiles. It supports personalized route selection by combining geospatial data with user capabilities",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2009",
+    "see_also": "https://www.researchgate.net/publication/228579405_Ontology-based_user_modeling_for_pedestrian_navigation_systems",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Mobility/Transport",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "unocs",
     "title": "Digital Construction Agents",
     "prefix": "unocs",
     "namespace_uri": "https://w3id.org/unocs#",
@@ -2360,7 +2840,27 @@
     "conforms_to": ""
   },
   {
-    "filename": "weat.ttl",
+    "filename": "upo",
+    "title": "User Profile Ontology",
+    "prefix": "upo",
+    "namespace_uri": "",
+    "description": "UPO includes classes that describe different types of user, and other information which is required for classifying users under specific user groups. It is a structured OWL ontology defining user profiles with demographic, preference, context, and device information. It standardizes representation for personalization and adaptive systems across domains.",
+    "version": "",
+    "license": "",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2009",
+    "see_also": "https://doi.org/10.3233/AIS-2009-0033",
+    "imports": "",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Mobility/Transport",
+    "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "weat",
     "title": "BIMERR Weather Ontology",
     "prefix": "weat",
     "namespace_uri": "https://bimerr.iot.linkeddata.es/def/weather/",
@@ -2380,9 +2880,9 @@
     "conforms_to": ""
   },
   {
-    "filename": "wgs84.ttl",
+    "filename": "wgs84_pos",
     "title": "WGS84 Geo Positioning: an RDF vocabulary",
-    "prefix": "wgs84",
+    "prefix": "wgs84_pos",
     "namespace_uri": "https://w3.org/2003/01/geo/wgs84_pos#",
     "description": "This is a basic RDF vocabulary that provides the Semantic Web community with a namespace for representing lat(itude), long(itude) and other information about spatially-located things, using WGS84 as a reference datum. This vocabulary begins an exploration of the possibilities of representing mapping/location data in RDF, and does not attempt to address many of the issues covered in the professional GIS world, notably by the Open Geospatial Consortium (OGC). Instead, we provide just a few basic terms that can be used in RDF (eg. RSS 1.0 or FOAF documents) when there is a need to describe latitudes and longitudes. The motivation for using RDF as a carrier for lat/long info is RDF's capability for cross-domain data mixing. We can describe not only maps, but the entities that are positioned on the map. And we can use any relevant RDF vocabularies to do so, without the need for expensive pre-coordination, or for changes to a centrally maintained schema.",
     "version": "1.21",
@@ -2391,11 +2891,31 @@
     "date_modified": "",
     "date_issued": "2006",
     "see_also": "WGS84 Geo Positioning: an RDF vocabulary",
-    "imports": "dc, wgs84_pos, foaf",
+    "imports": "",
     "classes": "",
     "properties": "",
     "primary_domain": "Geographic Information",
     "secondary_domain": "",
+    "cluster": "",
+    "conforms_to": ""
+  },
+  {
+    "filename": "xemo",
+    "title": "Construction Site Emission Management Ontology",
+    "prefix": "xemo",
+    "namespace_uri": "https://github.com/AlessandroBruttini/XEMO",
+    "description": "XEMO represents:\nan urban region containing one or more construction sites; construction sites organised into construction areas; construction activities carried out within those areas; sites, areas, and activities as emission sources at different spatial and operational scales; pollutants as observable properties of emission sources; sensors, platforms, deployments, and observations; thresholds defined by value, unit, type, averaging period, statistical method, and regulatory provenance.\n\nThe current implementation includes PM10, PM2.5, and total suspended particles, together with example threshold definitions derived from Directive (EU) 2024/2881.",
+    "version": "",
+    "license": "CC BY 4.0",
+    "creators": "",
+    "date_modified": "",
+    "date_issued": "2026",
+    "see_also": "Bruttini, A., Hagedorn, P., Getuli, V., Capone, and König, M. (2026). XEMO: Construction Site Emission Management Ontology for Particulate Matter. EG-ICE 2026.",
+    "imports": "demo, prov, qudt, time, unit, bot, dicp, sosa",
+    "classes": "",
+    "properties": "",
+    "primary_domain": "Energy",
+    "secondary_domain": "Production (Process)",
     "cluster": "",
     "conforms_to": ""
   }
